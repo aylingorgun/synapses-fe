@@ -1,0 +1,145 @@
+/* Filter Bar Container */
+.filterBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 16px;
+  padding: 16px 24px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid #e2e8f0;
+  position: relative;
+  z-index: 1000;
+}
+
+/* Filter Group */
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 180px;
+}
+
+.filterGroupWide {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 280px;
+  flex: 1;
+}
+
+/* Labels */
+.label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Select Dropdowns */
+.select {
+  min-width: 180px;
+}
+
+.selectWide {
+  min-width: 280px;
+}
+
+/* Date Inputs */
+.dateInput {
+  height: 38px;
+  padding: 0 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #1e293b;
+  background: white;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.dateInput:hover {
+  border-color: #3388ff;
+}
+
+.dateInput:focus {
+  outline: none;
+  border-color: #3388ff;
+  box-shadow: 0 0 0 1px #3388ff;
+}
+
+/* Button Group */
+.buttonGroup {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+/* Buttons */
+.applyButton {
+  height: 38px;
+  padding: 0 24px;
+  background: #3388ff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.applyButton:hover {
+  background: #2563eb;
+}
+
+.resetButton {
+  height: 38px;
+  padding: 0 24px;
+  background: white;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.resetButton:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #475569;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .filterBar {
+    padding: 12px 16px;
+  }
+
+  .filterGroup {
+    min-width: 150px;
+  }
+
+  .filterGroupWide {
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .filterGroup {
+    min-width: 100%;
+  }
+
+  .buttonGroup {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .applyButton,
+  .resetButton {
+    flex: 1;
+  }
+}

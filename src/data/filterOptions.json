@@ -1,0 +1,61 @@
+{
+  "regions": [
+    {
+      "value": "western_balkans",
+      "label": "Western Balkans & Türkiye & Cyprus",
+      "countries": ["Albania", "Turkey", "Cyprus", "Serbia", "Montenegro", "Bosnia and Herzegovina", "North Macedonia", "Kosovo"]
+    },
+    {
+      "value": "south_caucasus",
+      "label": "South Caucasus & Western CIS",
+      "countries": ["Georgia", "Armenia", "Moldova", "Ukraine", "Belarus"]
+    },
+    {
+      "value": "central_asia",
+      "label": "Central Asia",
+      "countries": ["Kazakhstan", "Uzbekistan", "Turkmenistan", "Tajikistan", "Kyrgyzstan"]
+    }
+  ],
+  "countries": [
+    { "value": "albania", "label": "Albania", "region": "western_balkans" },
+    { "value": "turkey", "label": "Türkiye", "region": "western_balkans" },
+    { "value": "cyprus", "label": "Cyprus", "region": "western_balkans" },
+    { "value": "serbia", "label": "Serbia", "region": "western_balkans" },
+    { "value": "montenegro", "label": "Montenegro", "region": "western_balkans" },
+    { "value": "bosnia", "label": "Bosnia and Herzegovina", "region": "western_balkans" },
+    { "value": "north_macedonia", "label": "North Macedonia", "region": "western_balkans" },
+    { "value": "kosovo", "label": "Kosovo", "region": "western_balkans" },
+    { "value": "georgia", "label": "Georgia", "region": "south_caucasus" },
+    { "value": "armenia", "label": "Armenia", "region": "south_caucasus" },
+    { "value": "moldova", "label": "Moldova", "region": "south_caucasus" },
+    { "value": "ukraine", "label": "Ukraine", "region": "south_caucasus" },
+    { "value": "belarus", "label": "Belarus", "region": "south_caucasus" },
+    { "value": "kazakhstan", "label": "Kazakhstan", "region": "central_asia" },
+    { "value": "uzbekistan", "label": "Uzbekistan", "region": "central_asia" },
+    { "value": "turkmenistan", "label": "Turkmenistan", "region": "central_asia" },
+    { "value": "tajikistan", "label": "Tajikistan", "region": "central_asia" },
+    { "value": "kyrgyzstan", "label": "Kyrgyzstan", "region": "central_asia" }
+  ],
+  "disasterTypes": [
+    { "value": "windstorm", "label": "Windstorm" },
+    { "value": "snowstorm", "label": "Snowstorm" },
+    { "value": "tornado", "label": "Tornado" },
+    { "value": "cyclone", "label": "Cyclone" },
+    { "value": "heatwave", "label": "Heatwave" },
+    { "value": "coldwave", "label": "Coldwave" },
+    { "value": "freeze", "label": "Freeze" },
+    { "value": "forest_fires", "label": "Forest Fires" },
+    { "value": "urban_fires", "label": "Urban Fires" },
+    { "value": "wild_fires", "label": "Wild Fires" },
+    { "value": "riverine_flood", "label": "Riverine Flood" },
+    { "value": "flash_flood", "label": "Flash Flood" },
+    { "value": "coastal_flood", "label": "Coastal Flood" },
+    { "value": "urban_flood", "label": "Urban Flood" },
+    { "value": "drought", "label": "Drought" },
+    { "value": "earthquake", "label": "Earthquake" },
+    { "value": "rockfall", "label": "Rockfall" },
+    { "value": "tsunami", "label": "Tsunami" },
+    { "value": "mudflow", "label": "Mudflow" },
+    { "value": "soil_erosion", "label": "Soil Erosion" }
+  ]
+}

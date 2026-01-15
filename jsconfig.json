@@ -10,11 +10,13 @@
       "@/icons/*": ["src/components/icons/*"],
       "@/api/*": ["src/pages/api/*"],
       "@/components/*": ["src/components/*"],
+      "@/contexts": ["src/contexts/index.js"],
       "@/contexts/*": ["src/contexts/*"],
       "@/helpers/*": ["src/helpers/*"],
       "@/constants/*": ["src/constants/*"],
       "@/hooks/*": ["src/hooks/*"],
-      "@/styles/*": ["src/styles/*"]
+      "@/styles/*": ["src/styles/*"],
+      "@/data/*": ["src/data/*"]
     }
   }
 }
