@@ -16,9 +16,9 @@ export const TILE_LAYERS = {
 };
 
 export const GEO_DATA_URL =
-  'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json';
+  'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json';
 
-// Target countries to display
+// Target countries to display (with alternate names for data compatibility)
 export const TARGET_COUNTRIES = [
   'Albania',
   'Turkey',
@@ -34,7 +34,9 @@ export const TARGET_COUNTRIES = [
   'Montenegro',
   'Ukraine',
   'Bosnia and Herzegovina',
+  'Bosnia and Herz.',
   'North Macedonia',
+  'Macedonia',
   'Belarus',
   'Kosovo',
   'Cyprus',

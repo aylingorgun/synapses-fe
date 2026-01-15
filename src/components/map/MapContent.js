@@ -4,6 +4,7 @@ import { MapContainer, TileLayer } from 'react-leaflet';
 import { MAP_CONFIG, TILE_LAYERS } from '@/constants/mapConfig';
 import { useGeoData } from '@/hooks/useGeoData';
 import CountryBorders from './layers/CountryBorders';
+import { DisasterMarkers } from './markers';
 import styles from '@/styles/map.module.css';
 
 export default function MapContent() {
@@ -32,6 +33,8 @@ export default function MapContent() {
       />
 
       {!loading && <CountryBorders data={geoData} />}
+      
+      <DisasterMarkers />
     </MapContainer>
   );
 }
