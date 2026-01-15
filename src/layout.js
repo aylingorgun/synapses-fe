@@ -14,8 +14,8 @@ export default function Layout({ children, breadcrumbs = [] }) {
         />
         <link rel="icon" href={FavIcon.src} />
       </Head>
-      <Navbar breadcrumbs={breadcrumbs} />
-      <main className="max-w-screen-2xl m-auto">{children}</main>
+      {/* <Navbar breadcrumbs={breadcrumbs} /> */}
+      <main className="w-full">{children}</main>
     </div>
   );
 }
