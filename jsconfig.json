@@ -1,7 +1,17 @@
+/**
+ * Absolute Imports and Module path aliases
+ * https://nextjs.org/docs/advanced-features/module-path-aliases
+ **/
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/images/*": ["public/images/*"],
+      "@/icons/*": ["src/components/icons/*"],
+      "@/api/*": ["src/pages/api/*"],
+      "@/components/*": ["src/components/*"],
+      "@/contexts/*": ["src/contexts/*"],
+      "@/helpers/*": ["src/helpers/*"]
     }
   }
 }
