@@ -101,7 +101,7 @@ export default function FilterBar() {
           onChange={handleRegionChange}
           options={options.regions}
           placeholder="Select region..."
-          isClearable
+          isClearable={false}
           styles={selectStyles}
           className={styles.select}
         />

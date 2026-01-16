@@ -2,8 +2,13 @@
 
 import { createContext, useContext, useState, useCallback } from 'react';
 
+const defaultRegion = {
+  value: 'western_balkans_turkiye_cyprus',
+  label: 'Western Balkans & Türkiye & Cyprus',
+};
+
 const initialFilters = {
-  region: null,
+  region: defaultRegion,
   country: null,
   startDate: '',
   endDate: '',
