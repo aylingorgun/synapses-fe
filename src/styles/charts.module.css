@@ -4,6 +4,11 @@
   border-top: 1px solid #e2e8f0;
 }
 
+.chartContent {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .sectionHeader {
   display: flex;
   justify-content: space-between;
@@ -17,7 +22,17 @@
   font-size: 1.75rem;
   font-weight: 700;
   color: #1e3a5f;
-  margin: 0;
+  margin: 0 0 1rem 0;
+}
+
+.filterRow {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1.5rem;
+}
+
+.filterRow > div {
+  min-width: 280px;
 }
 
 .filterDropdown {

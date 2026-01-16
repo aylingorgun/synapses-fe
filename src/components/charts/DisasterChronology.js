@@ -78,17 +78,13 @@ const ChronologyItem = ({ disaster, isActive, onClick, isTop }) => {
 /**
  * Disaster detail popup
  */
-const DisasterDetailPopup = ({ disaster, onClose }) => {
+const DisasterDetailPopup = ({ disaster }) => {
   if (!disaster) return null;
 
   const iconPath = getDisasterIconPath(disaster.specificHazardName);
 
   return (
     <div className={styles.detail}>
-      <button className={styles.detailClose} onClick={onClose} aria-label="Close">
-        ×
-      </button>
-      
       <div className={styles.detailHeader}>
         <div className={styles.detailIcon}>
           <Image
@@ -178,6 +174,7 @@ export default function DisasterChronology() {
   const { filters } = useFilters();
   const [selectedDisaster, setSelectedDisaster] = useState(null);
   const scrollRef = useRef(null);
+  const detailRef = useRef(null);
 
   const selectedRegion = filters.region;
 
@@ -212,7 +209,12 @@ export default function DisasterChronology() {
   }, [data, selectedRegion]);
 
   const handleDisasterClick = (disaster) => {
-    setSelectedDisaster(selectedDisaster?.disNo === disaster.disNo ? null : disaster);
+    setSelectedDisaster(disaster);
+    
+    // Scroll to detail section when selecting a disaster
+    setTimeout(() => {
+      detailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 100);
   };
 
   const regionDisplayName = selectedRegion 
@@ -231,7 +233,9 @@ export default function DisasterChronology() {
   if (loading) {
     return (
       <section className={styles.section}>
-        <h2 className={styles.title}>Disaster Chronology for {regionDisplayName}</h2>
+        <div className={styles.chronologyContent}>
+          <h2 className={styles.title}>Disaster Chronology for {regionDisplayName}</h2>
+        </div>
         <div className={chartStyles.loadingState}>
           <div className={chartStyles.loadingSpinner} />
         </div>
@@ -241,7 +245,9 @@ export default function DisasterChronology() {
 
   return (
     <section className={styles.section}>
-      <h2 className={styles.title}>Disaster Chronology for {regionDisplayName}</h2>
+      <div className={styles.chronologyContent}>
+        <h2 className={styles.title}>Disaster Chronology for {regionDisplayName}</h2>
+      </div>
       
       {disasters.length === 0 ? (
         <div className={styles.empty}>
@@ -275,10 +281,9 @@ export default function DisasterChronology() {
       )}
 
       {selectedDisaster && (
-        <DisasterDetailPopup
-          disaster={selectedDisaster}
-          onClose={() => setSelectedDisaster(null)}
-        />
+        <div ref={detailRef}>
+          <DisasterDetailPopup disaster={selectedDisaster} />
+        </div>
       )}
     </section>
   );

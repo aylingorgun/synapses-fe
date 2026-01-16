@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Select from 'react-select';
+import Select, { components } from 'react-select';
 import DistributionChart from './DistributionChart';
 import { useChartData, REGION_CONFIG } from '@/hooks/useChartData';
 import styles from '@/styles/charts.module.css';
@@ -11,6 +11,28 @@ const REGION_OPTIONS = Object.entries(REGION_CONFIG).map(([key, config]) => ({
   value: key,
   label: config.name,
 }));
+
+// Custom Option component with checkbox
+const CheckboxOption = (props) => {
+  return (
+    <components.Option {...props}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <input
+          type="checkbox"
+          checked={props.isSelected}
+          onChange={() => null}
+          style={{
+            width: '18px',
+            height: '18px',
+            accentColor: '#3388ff',
+            cursor: 'pointer',
+          }}
+        />
+        <span>{props.label}</span>
+      </div>
+    </components.Option>
+  );
+};
 
 const selectStyles = {
   control: (base, state) => ({
@@ -22,9 +44,10 @@ const selectStyles = {
   }),
   option: (base, state) => ({
     ...base,
-    backgroundColor: state.isSelected ? '#3388ff' : state.isFocused ? '#e0edff' : 'white',
-    color: state.isSelected ? 'white' : '#1e293b',
+    backgroundColor: state.isFocused ? '#f0f7ff' : 'white',
+    color: '#1e293b',
     cursor: 'pointer',
+    padding: '10px 12px',
   }),
   multiValue: (base) => ({
     ...base,
@@ -68,11 +91,11 @@ export default function DisasterDistributionSection({ title }) {
   if (loading) {
     return (
       <section className={styles.chartSection}>
-        <div className={styles.sectionHeader}>
+        <div className={styles.chartContent}>
           <h2 className={styles.sectionTitle}>{title}</h2>
-        </div>
-        <div className={styles.loadingState}>
-          <div className={styles.loadingSpinner} />
+          <div className={styles.loadingState}>
+            <div className={styles.loadingSpinner} />
+          </div>
         </div>
       </section>
     );
@@ -80,32 +103,34 @@ export default function DisasterDistributionSection({ title }) {
 
   return (
     <section className={styles.chartSection}>
-      <div className={styles.sectionHeader}>
+      <div className={styles.chartContent}>
         <h2 className={styles.sectionTitle}>{title}</h2>
-        <div className={styles.filterDropdown}>
+        <div className={styles.filterRow}>
           <Select
             value={selectedFilters}
             onChange={handleFilterChange}
             options={REGION_OPTIONS}
             styles={selectStyles}
+            components={{ Option: CheckboxOption }}
             isMulti
             isSearchable={false}
+            isClearable={false}
             placeholder="Select regions..."
             closeMenuOnSelect={false}
             hideSelectedOptions={false}
           />
         </div>
-      </div>
 
-      <div className={styles.chartContainer}>
-        <DistributionChart
-          data={chartData}
-          dataKeys={disasterTypes}
-          xAxisKey="name"
-          height={400}
-          showLegend={true}
-          showGrid={true}
-        />
+        <div className={styles.chartContainer}>
+          <DistributionChart
+            data={chartData}
+            dataKeys={disasterTypes}
+            xAxisKey="name"
+            height={400}
+            showLegend={true}
+            showGrid={true}
+          />
+        </div>
       </div>
     </section>
   );
