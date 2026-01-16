@@ -24,7 +24,7 @@ const CheckboxOption = (props) => {
           style={{
             width: '18px',
             height: '18px',
-            accentColor: '#3388ff',
+            accentColor: '#0468B1',
             cursor: 'pointer',
           }}
         />
@@ -38,9 +38,9 @@ const selectStyles = {
   control: (base, state) => ({
     ...base,
     minHeight: '38px',
-    borderColor: state.isFocused ? '#3388ff' : '#d1d5db',
-    boxShadow: state.isFocused ? '0 0 0 1px #3388ff' : 'none',
-    '&:hover': { borderColor: '#3388ff' },
+    borderColor: state.isFocused ? '#0468B1' : '#d1d5db',
+    boxShadow: state.isFocused ? '0 0 0 1px #0468B1' : 'none',
+    '&:hover': { borderColor: '#0468B1' },
   }),
   option: (base, state) => ({
     ...base,
@@ -62,7 +62,7 @@ const selectStyles = {
     ...base,
     color: '#1e40af',
     '&:hover': {
-      backgroundColor: '#3388ff',
+      backgroundColor: '#0468B1',
       color: 'white',
     },
   }),

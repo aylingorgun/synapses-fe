@@ -6,7 +6,7 @@ import L from 'leaflet';
 // Create custom cluster icon
 const createClusterIcon = (count, isSelected) => {
   const size = Math.min(60, 40 + count * 2);
-  const backgroundColor = isSelected ? '#1e40af' : '#3388ff';
+  const backgroundColor = isSelected ? '#1e40af' : '#0468B1';
 
   return L.divIcon({
     className: 'custom-cluster-icon',

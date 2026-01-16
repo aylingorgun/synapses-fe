@@ -10,16 +10,16 @@ const selectStyles = {
   control: (base, state) => ({
     ...base,
     minHeight: '38px',
-    borderColor: state.isFocused ? '#3388ff' : '#e2e8f0',
-    boxShadow: state.isFocused ? '0 0 0 1px #3388ff' : 'none',
+    borderColor: state.isFocused ? '#0468B1' : '#e2e8f0',
+    boxShadow: state.isFocused ? '0 0 0 1px #0468B1' : 'none',
     '&:hover': {
-      borderColor: '#3388ff',
+      borderColor: '#0468B1',
     },
   }),
   option: (base, state) => ({
     ...base,
     backgroundColor: state.isSelected
-      ? '#3388ff'
+      ? '#0468B1'
       : state.isFocused
         ? '#e0edff'
         : 'white',
@@ -38,7 +38,7 @@ const selectStyles = {
     ...base,
     color: '#1e40af',
     '&:hover': {
-      backgroundColor: '#3388ff',
+      backgroundColor: '#0468B1',
       color: 'white',
     },
   }),

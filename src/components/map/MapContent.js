@@ -12,7 +12,7 @@ export default function MapContent() {
 
   if (error) {
     return (
-      <div className="h-[600px] w-full bg-red-50 flex items-center justify-center">
+      <div className="h-[680px] w-full bg-red-50 flex items-center justify-center">
         <p className="text-red-500">Error loading map data: {error}</p>
       </div>
     );

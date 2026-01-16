@@ -44,9 +44,9 @@ export const TARGET_COUNTRIES = [
 
 // Border styling
 export const BORDER_STYLE = {
-  fillColor: '#3388ff',
+  fillColor: '#0468B1',
   weight: 2,
   opacity: 1,
-  color: '#3388ff',
+  color: '#0468B1',
   fillOpacity: 0.2,
 };

@@ -54,7 +54,7 @@ const createDisasterIcon = (disaster, index, isAnimating) => {
       <div style="
         width: ${size}px;
         height: ${size}px;
-        background: #3388ff;
+        background: #0468B1;
         border: 3px solid white;
         border-radius: 50%;
         display: flex;

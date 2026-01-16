@@ -75,7 +75,7 @@
 .statCard:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.12);
-  border-color: #3388ff;
+  border-color: #0468B1;
 }
 
 .statCard.clickable {
@@ -83,13 +83,13 @@
 }
 
 .statCard.clickable:focus {
-  outline: 2px solid #3388ff;
+  outline: 2px solid #0468B1;
   outline-offset: 2px;
 }
 
 /* Card Variants */
 .statCard.primary {
-  background: linear-gradient(135deg, #3388ff 0%, #1e5fbb 100%);
+  background: linear-gradient(135deg, #0468B1 0%, #1e5fbb 100%);
   border: none;
 }
 
@@ -118,7 +118,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 1rem;
-  color: #3388ff;
+  color: #0468B1;
 }
 
 .iconWrapper svg {
@@ -165,7 +165,7 @@
   width: 32px;
   height: 32px;
   border: 3px solid #e2e8f0;
-  border-top-color: #3388ff;
+  border-top-color: #0468B1;
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }
