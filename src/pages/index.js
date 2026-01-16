@@ -1,6 +1,7 @@
 import { Map } from '@/components/map';
 import { FilterBar } from '@/components/filters';
 import { StatisticsSection } from '@/components/statistics';
+import { DisasterDistributionSection } from '@/components/charts';
 
 export default function Home() {
 
@@ -14,6 +15,9 @@ export default function Home() {
       
       {/* Statistics Section */}
       <StatisticsSection />
+
+      {/* Distribution Chart Section */}
+      <DisasterDistributionSection title="Disaster Distribution by Region" />
     </div>
   );
 }
