@@ -118,11 +118,33 @@
     padding: 1.5rem 1rem;
   }
 
+  .sectionTitle {
+    font-size: 1.4rem;
+  }
+
   .sectionHeader {
     flex-direction: column;
   }
 
+  .filterRow {
+    justify-content: stretch;
+  }
+
+  .filterRow > div {
+    min-width: unset;
+    width: 100%;
+  }
+
   .filterDropdown {
     width: 100%;
+  }
+
+  .chartContainer {
+    padding: 1rem;
+    overflow-x: auto;
+  }
+
+  .chartWrapper {
+    min-width: 500px;
   }
 }

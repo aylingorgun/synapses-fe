@@ -126,7 +126,7 @@ export default function DisasterDistributionSection({ title }) {
             data={chartData}
             dataKeys={disasterTypes}
             xAxisKey="name"
-            height={400}
+            height={450}
             showLegend={true}
             showGrid={true}
           />
