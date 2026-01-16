@@ -63,37 +63,34 @@ const formatCount = (num) => {
 
 export default function StatisticsSection() {
   const { statistics, loading } = useStatistics();
-  const { filters, appliedFilters, isApplied } = useFilters();
+  const { filters } = useFilters();
 
   // Determine the title based on region selection
   const sectionTitle = useMemo(() => {
-    const activeFilters = isApplied ? appliedFilters : filters;
-    
-    if (activeFilters.region) {
-      return `${activeFilters.region.label} Statistics`;
+    if (filters.region) {
+      return `${filters.region.label} Statistics`;
     }
     return 'Regional Statistics';
-  }, [filters, appliedFilters, isApplied]);
+  }, [filters]);
 
   // Get subtitle based on filters
   const sectionSubtitle = useMemo(() => {
-    const activeFilters = isApplied ? appliedFilters : filters;
     const parts = [];
 
-    if (activeFilters.country) {
-      parts.push(activeFilters.country.label);
+    if (filters.country) {
+      parts.push(filters.country.label);
     }
-    if (activeFilters.startDate || activeFilters.endDate) {
-      const start = activeFilters.startDate || '1990';
-      const end = activeFilters.endDate || '2026';
+    if (filters.startDate || filters.endDate) {
+      const start = filters.startDate || '1990';
+      const end = filters.endDate || '2026';
       parts.push(`${start} - ${end}`);
     }
-    if (activeFilters.disasterTypes?.length > 0) {
-      parts.push(`${activeFilters.disasterTypes.length} disaster type(s)`);
+    if (filters.disasterTypes?.length > 0) {
+      parts.push(`${filters.disasterTypes.length} disaster type(s)`);
     }
 
     return parts.length > 0 ? parts.join(' • ') : 'Overview of all disasters in the region';
-  }, [filters, appliedFilters, isApplied]);
+  }, [filters]);
 
   // Format key hazards for display
   const keyHazardsDisplay = useMemo(() => {

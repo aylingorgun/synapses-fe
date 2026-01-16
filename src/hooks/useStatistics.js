@@ -1,10 +1,11 @@
 import { useMemo } from 'react';
 import { useDisasterData } from './useDisasterData';
 import { useFilters } from '@/contexts';
+import { REGION_CONFIG } from './useChartData';
 
 export function useStatistics() {
   const { data, loading, error } = useDisasterData();
-  const { filters, appliedFilters, isApplied } = useFilters();
+  const { filters } = useFilters();
 
   const statistics = useMemo(() => {
     if (!data?.countries) {
@@ -19,23 +20,21 @@ export function useStatistics() {
       };
     }
 
-    // Get active filters (use applied if available, otherwise current)
-    const activeFilters = isApplied ? appliedFilters : filters;
+    // Use current filters
+    const activeFilters = filters;
     
-    // Filter countries based on region selection
+    // Filter countries based on region selection using REGION_CONFIG
     let filteredCountries = data.countries;
     
     if (activeFilters.region) {
-      const regionMapping = {
-        'western_balkans_turkiye_cyprus': 'Western Balkans & Türkiye & Cyprus',
-        'south_caucasus_western_cis': 'South Caucasus & Western CIS',
-        'central_asia': 'Central Asia',
-      };
-      const regionName = regionMapping[activeFilters.region.value];
+      const regionKey = activeFilters.region.value;
+      const regionConfig = REGION_CONFIG[regionKey];
       
-      filteredCountries = data.countries.filter(country =>
-        country.disasters.some(d => d.region === regionName)
-      );
+      if (regionConfig) {
+        filteredCountries = data.countries.filter(country =>
+          regionConfig.countries.includes(country.name)
+        );
+      }
     }
 
     // Filter by country if selected
@@ -120,7 +119,7 @@ export function useStatistics() {
         count: mostCommonDisaster[1],
       } : null,
     };
-  }, [data, filters, appliedFilters, isApplied]);
+  }, [data, filters]);
 
   return {
     statistics,
