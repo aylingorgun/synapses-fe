@@ -58,30 +58,36 @@ const formatCount = (num) => {
 
 export default function StatisticsSection() {
   const { statistics, loading } = useStatistics();
-  const { filters } = useFilters();
+  const { appliedFilters } = useFilters();
 
   const sectionTitle = useMemo(() => {
-    if (filters.region) {
-      return `${filters.region.label} Statistics`;
+    if (appliedFilters.country) {
+      return `${appliedFilters.country.label} Disaster Statistics`;
+    }
+    if (appliedFilters.region) {
+      return `${appliedFilters.region.label} Statistics`;
     }
     return 'Regional Statistics';
-  }, [filters]);
+  }, [appliedFilters]);
 
   const sectionSubtitle = useMemo(() => {
     const parts = [];
-    if (filters.country) {
-      parts.push(filters.country.label);
+    if (appliedFilters.startDate && appliedFilters.endDate) {
+      // Extract year from date string (YYYY-MM-DD format)
+      const startYear = appliedFilters.startDate.split('-')[0];
+      const endYear = appliedFilters.endDate.split('-')[0];
+      parts.push(`${startYear} - ${endYear}`);
     }
-    if (filters.startDate || filters.endDate) {
-      const start = filters.startDate || '1990';
-      const end = filters.endDate || '2026';
-      parts.push(`${start} - ${end}`);
+    if (appliedFilters.disasterTypes?.length > 0) {
+      parts.push(`${appliedFilters.disasterTypes.length} disaster type(s)`);
     }
-    if (filters.disasterTypes?.length > 0) {
-      parts.push(`${filters.disasterTypes.length} disaster type(s)`);
+    if (parts.length > 0) {
+      return parts.join(' • ');
     }
-    return parts.length > 0 ? parts.join(' • ') : 'Overview of all disasters in the region';
-  }, [filters]);
+    return appliedFilters.country 
+      ? 'Overview of all disasters in this country' 
+      : 'Overview of all disasters in the region';
+  }, [appliedFilters]);
 
   const keyHazardsDisplay = useMemo(() => {
     if (!statistics.keyHazards?.length) return '—';
@@ -152,7 +158,11 @@ export default function StatisticsSection() {
       </div>
 
       <div className="text-right mt-6 pr-4">
-        <span className="text-sm text-slate-500 italic">info: 1990-2026</span>
+        <span className="text-sm text-slate-500 italic">
+          {appliedFilters.startDate && appliedFilters.endDate 
+            ? `Data: ${appliedFilters.startDate.split('-')[0]} - ${appliedFilters.endDate.split('-')[0]}`
+            : 'Data: All available years'}
+        </span>
       </div>
     </section>
   );

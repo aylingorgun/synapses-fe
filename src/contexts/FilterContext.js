@@ -7,11 +7,24 @@ const defaultRegion = {
   label: 'Western Balkans & Türkiye & Cyprus',
 };
 
+const getDefaultDateRange = () => {
+  const today = new Date();
+  const endDate = today.toISOString().split('T')[0];
+  
+  const fiveYearsAgo = new Date(today);
+  fiveYearsAgo.setFullYear(today.getFullYear() - 5);
+  const startDate = fiveYearsAgo.toISOString().split('T')[0];
+  
+  return { startDate, endDate };
+};
+
+const defaultDateRange = getDefaultDateRange();
+
 const initialFilters = {
   region: defaultRegion,
   country: null,
-  startDate: '',
-  endDate: '',
+  startDate: defaultDateRange.startDate,
+  endDate: defaultDateRange.endDate,
   disasterTypes: [],
 };
 
@@ -19,7 +32,8 @@ const FilterContext = createContext(null);
 
 export function FilterProvider({ children }) {
   const [filters, setFilters] = useState(initialFilters);
-  const [isApplied, setIsApplied] = useState(false);
+  const [appliedFilters, setAppliedFilters] = useState(initialFilters);
+  const [isApplied, setIsApplied] = useState(true);
 
   const updateFilter = useCallback((key, value) => {
     setFilters((prev) => ({ ...prev, [key]: value }));
@@ -32,18 +46,20 @@ export function FilterProvider({ children }) {
   }, []);
 
   const applyFilters = useCallback(() => {
+    setAppliedFilters(filters);
     setIsApplied(true);
-    // Return the current filters for any callbacks
     return filters;
   }, [filters]);
 
   const resetFilters = useCallback(() => {
     setFilters(initialFilters);
-    setIsApplied(false);
+    setAppliedFilters(initialFilters);
+    setIsApplied(true);
   }, []);
 
   const value = {
     filters,
+    appliedFilters,
     isApplied,
     updateFilter,
     updateFilters,
