@@ -3,8 +3,18 @@
 import { MapContainer, TileLayer } from 'react-leaflet';
 import { MAP_CONFIG, TILE_LAYERS } from '@/constants/mapConfig';
 import { useGeoData } from '@/hooks/useGeoData';
+import { MapSelectionProvider } from '@/contexts';
 import CountryBorders from './layers/CountryBorders';
 import { DisasterMarkers } from './markers';
+
+function MapLayers({ geoData, loading }) {
+  return (
+    <>
+      {!loading && <CountryBorders data={geoData} />}
+      <DisasterMarkers />
+    </>
+  );
+}
 
 export default function MapContent() {
   const { geoData, loading, error } = useGeoData();
@@ -31,9 +41,9 @@ export default function MapContent() {
         url={TILE_LAYERS.carto.url}
       />
 
-      {!loading && <CountryBorders data={geoData} />}
-      
-      <DisasterMarkers />
+      <MapSelectionProvider>
+        <MapLayers geoData={geoData} loading={loading} />
+      </MapSelectionProvider>
     </MapContainer>
   );
 }

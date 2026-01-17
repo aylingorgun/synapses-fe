@@ -43,7 +43,7 @@ const ChronologyItem = ({ disaster, isActive, onClick, isTop }) => {
         <div className="w-11 h-11 flex items-center justify-center bg-[#0468B1] border-[3px] border-white rounded-full shadow-md">
           <Image
             src={iconPath}
-            alt={disaster.specificHazardName || 'Disaster'}
+            alt={disaster.hazardType}
             width={24}
             height={24}
             className="brightness-0 invert"
@@ -78,7 +78,7 @@ const DisasterDetailPopup = ({ disaster }) => {
         <div className="w-[50px] h-[50px] flex items-center justify-center bg-[#0468B1] border-[3px] border-white rounded-full shadow-md">
           <Image
             src={iconPath}
-            alt={disaster.specificHazardName || 'Disaster'}
+            alt={disaster.hazardType}
             width={28}
             height={28}
             className="brightness-0 invert"
@@ -239,7 +239,7 @@ export default function DisasterChronology() {
         <div className="relative w-full">
           <div 
             ref={scrollRef}
-            className={needsScroll ? 'overflow-x-auto pb-4 scrollbar-thin scrollbar-track-white/10 scrollbar-thumb-white/30' : ''}
+            className={needsScroll ? 'overflow-x-auto pb-4 [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-track]:bg-white/10 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:bg-white/30 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:hover:bg-white/50' : ''}
           >
             <div className="relative min-h-[380px] min-w-max">
               <div className="absolute left-0 right-0 top-1/2 h-0.5 bg-white/40 z-[1]" />

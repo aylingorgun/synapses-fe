@@ -36,7 +36,7 @@ const DisasterCard = ({ disaster }) => {
         <div className="w-full h-full bg-gradient-to-br from-[#4a6fa5] via-[#2d4a6f] to-[#1e3a5f] flex items-center justify-center relative before:absolute before:inset-0 before:bg-[radial-gradient(ellipse_at_30%_20%,rgba(255,100,100,0.3)_0%,transparent_50%),radial-gradient(ellipse_at_70%_80%,rgba(255,150,100,0.2)_0%,transparent_40%)]">
           <Image
             src={iconPath}
-            alt={disaster.specificHazardName || 'Disaster'}
+            alt={disaster.hazardType}
             width={64}
             height={64}
             className="drop-shadow-md opacity-50"

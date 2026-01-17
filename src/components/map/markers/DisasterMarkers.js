@@ -3,12 +3,14 @@
 import { useState, useEffect } from 'react';
 import { useMap } from 'react-leaflet';
 import { useDisasterData } from '@/hooks/useDisasterData';
+import { useMapSelection } from '@/contexts';
 import CountryCluster from './CountryCluster';
 import ExpandedDisasters from './ExpandedDisasters';
 
 export default function DisasterMarkers() {
   const map = useMap();
   const { data, loading } = useDisasterData();
+  const { setSelectedCountryName } = useMapSelection();
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -18,6 +20,7 @@ export default function DisasterMarkers() {
       if (currentZoom <= 4 && isExpanded) {
         setIsExpanded(false);
         setSelectedCountry(null);
+        setSelectedCountryName(null);
       }
     };
 
@@ -25,11 +28,12 @@ export default function DisasterMarkers() {
     return () => {
       map.off('zoomend', handleZoomEnd);
     };
-  }, [map, isExpanded]);
+  }, [map, isExpanded, setSelectedCountryName]);
 
   const handleClusterClick = (country) => {
     setSelectedCountry(country);
     setIsExpanded(true);
+    setSelectedCountryName(country.name);
 
     map.flyTo(country.coordinates, 6, {
       duration: 0.8,
@@ -39,6 +43,7 @@ export default function DisasterMarkers() {
   const handleClose = () => {
     setIsExpanded(false);
     setSelectedCountry(null);
+    setSelectedCountryName(null);
     map.flyTo([45.0, 50.0], 4.5, {
       duration: 0.8,
     });
