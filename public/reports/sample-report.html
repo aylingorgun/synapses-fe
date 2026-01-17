@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disaster Assessment Report</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            color: #1e3a5f;
+            line-height: 1.6;
+        }
+        
+        .report-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background: white;
+            min-height: 100vh;
+        }
+        
+        .header {
+            text-align: center;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #0468B1;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            width: 120px;
+            height: 40px;
+            background: #0468B1;
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        
+        .report-title {
+            font-size: 28px;
+            color: #1e3a5f;
+            margin-bottom: 8px;
+        }
+        
+        .report-subtitle {
+            font-size: 18px;
+            color: #0468B1;
+            margin-bottom: 15px;
+        }
+        
+        .report-meta {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            color: #0468B1;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .info-item {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #0468B1;
+        }
+        
+        .info-label {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        
+        .info-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1e3a5f;
+        }
+        
+        .stats-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-box {
+            flex: 1;
+            background: linear-gradient(135deg, #0468B1 0%, #1e3a5f 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 32px;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+        
+        .description {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .map-placeholder {
+            background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
+            height: 200px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .source-section {
+            background: #fffbeb;
+            border: 1px solid #fcd34d;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .source-title {
+            font-weight: 600;
+            color: #b45309;
+            margin-bottom: 8px;
+        }
+        
+        .source-link {
+            color: #0468B1;
+            text-decoration: none;
+        }
+        
+        .source-link:hover {
+            text-decoration: underline;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e5e7eb;
+            text-align: center;
+            color: #666;
+            font-size: 13px;
+        }
+        
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #0468B1;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: background 0.2s;
+        }
+        
+        .download-btn:hover {
+            background: #1e3a5f;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .report-container {
+                padding: 20px;
+                box-shadow: none;
+            }
+            
+            .download-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="report-container">
+        <div class="header">
+            <div class="logo">SYNAPSES</div>
+            <h1 class="report-title">Disaster Assessment Report</h1>
+            <h2 class="report-subtitle">Turkey - Earthquake Event</h2>
+            <p class="report-meta">Report ID: GEO-20240206-WBT-TUR-0001 | Generated: January 2026</p>
+        </div>
+        
+        <div class="section">
+            <h3 class="section-title">Event Overview</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">Event Type</div>
+                    <div class="info-value">Earthquake</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Magnitude</div>
+                    <div class="info-value">7.8 Richter</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Start Date</div>
+                    <div class="info-value">February 6, 2024</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">End Date</div>
+                    <div class="info-value">February 20, 2024</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Location</div>
+                    <div class="info-value">Kahramanmaraş, Gaziantep, Hatay</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Region</div>
+                    <div class="info-value">Western Balkans & Türkiye & Cyprus</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3 class="section-title">Impact Statistics</h3>
+            <div class="stats-row">
+                <div class="stat-box">
+                    <span class="stat-number">50,783</span>
+                    <span class="stat-label">Total Deaths</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">9.1M</span>
+                    <span class="stat-label">People Affected</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">$34.2B</span>
+                    <span class="stat-label">Economic Loss</span>
+                </div>
+            </div>
+            
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">Houses Damaged</div>
+                    <div class="info-value">518,000</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Infrastructure Damaged</div>
+                    <div class="info-value">8,500</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Vulnerability Score</div>
+                    <div class="info-value">8.5 / 10</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Severity Score</div>
+                    <div class="info-value">9.2 / 10</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3 class="section-title">Demographic Impact</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">Women Affected</div>
+                    <div class="info-value">4,550,000</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Men Affected</div>
+                    <div class="info-value">4,550,000</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Children Affected</div>
+                    <div class="info-value">2,730,000</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Disabled Population</div>
+                    <div class="info-value">455,000</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3 class="section-title">Event Description</h3>
+            <div class="description">
+                <p>A devastating earthquake struck southeastern Turkey on February 6, 2024, with a magnitude of 7.8 on the Richter scale. The earthquake's epicenter was located near Kahramanmaraş, affecting multiple provinces including Gaziantep and Hatay.</p>
+                <br>
+                <p>The seismic event caused widespread destruction to residential buildings and critical infrastructure. Emergency response teams from national and international organizations mobilized immediately to provide search and rescue operations, medical assistance, and humanitarian aid to affected populations.</p>
+                <br>
+                <p>The disaster resulted in significant economic losses estimated at $34.2 billion, making it one of the costliest natural disasters in the region's history. Recovery and reconstruction efforts are ongoing with support from international partners.</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3 class="section-title">Affected Area</h3>
+            <div class="map-placeholder">
+                [Interactive Map - Affected Region Visualization]
+            </div>
+        </div>
+        
+        <div class="source-section">
+            <div class="source-title">Data Sources</div>
+            <p><strong>Primary Source:</strong> USGS (United States Geological Survey)</p>
+            <p><strong>Reliability Rating:</strong> High</p>
+            <p><strong>GLIDE Number:</strong> EQ-2024-000015-TUR</p>
+            <p><strong>Source Website:</strong> <a href="https://earthquake.usgs.gov/earthquakes/eventpage/us6000jllz" class="source-link" target="_blank">earthquake.usgs.gov</a></p>
+            <p><strong>Complementary Resources:</strong> <a href="https://www.gdacs.org/report.aspx?eventid=1387915" class="source-link" target="_blank">GDACS Report</a></p>
+        </div>
+        
+        <div class="footer">
+            <p>This report was generated by the Synapses Disaster Monitoring Platform</p>
+            <p>Data last updated: March 1, 2024</p>
+            <a href="javascript:window.print()" class="download-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                </svg>
+                Print / Save as PDF
+            </a>
+        </div>
+    </div>
+</body>
+</html>

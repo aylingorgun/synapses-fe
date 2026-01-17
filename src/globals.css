@@ -20,7 +20,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Leaflet base fixes */
 .leaflet-container {
   height: 100%;
   width: 100%;
@@ -36,7 +35,6 @@ body {
   margin: 12px 16px;
 }
 
-/* Custom marker icons */
 .custom-cluster-icon,
 .disaster-icon,
 .center-icon {
@@ -55,4 +53,123 @@ body {
 
 .center-icon > div:hover {
   transform: scale(1.1);
+}
+
+.disaster-preview-popup .leaflet-popup-content-wrapper {
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  padding: 0;
+}
+
+.disaster-preview-popup .leaflet-popup-content {
+  margin: 0;
+  width: 240px !important;
+}
+
+.disaster-preview-popup .leaflet-popup-tip {
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.disaster-preview-popup .leaflet-popup-close-button {
+  color: #6b7280;
+  font-size: 18px;
+  padding: 6px 8px;
+  top: 4px;
+  right: 4px;
+}
+
+.disaster-preview-popup .leaflet-popup-close-button:hover {
+  color: #1e3a5f;
+}
+
+.disaster-popup-content {
+  padding: 16px;
+}
+
+.popup-header {
+  margin-bottom: 6px;
+}
+
+.popup-date {
+  font-size: 0.75rem;
+  color: #0468B1;
+  font-weight: 500;
+}
+
+.popup-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e3a5f;
+  margin: 0 0 4px 0;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.popup-type {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: white;
+  background: #0468B1;
+  padding: 2px 8px;
+  border-radius: 2px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.popup-summary {
+  font-size: 0.8125rem;
+  color: #4b5563;
+  margin: 0 0 14px 0;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.popup-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.popup-action-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.popup-action-btn:hover {
+  background: #e5e7eb;
+  border-color: #d1d5db;
+}
+
+.popup-action-btn-primary {
+  background: #0468B1;
+  border-color: #0468B1;
+  color: white;
+}
+
+.popup-action-btn-primary:hover {
+  background: #035a9a;
+  border-color: #035a9a;
+}
+
+.popup-action-btn-full {
+  width: 100%;
 }

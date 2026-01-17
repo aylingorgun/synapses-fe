@@ -12,7 +12,6 @@ export default function DisasterMarkers() {
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [isExpanded, setIsExpanded] = useState(false);
 
-  // Handle zoom end to collapse expanded view
   useEffect(() => {
     const handleZoomEnd = () => {
       const currentZoom = map.getZoom();
@@ -32,15 +31,9 @@ export default function DisasterMarkers() {
     setSelectedCountry(country);
     setIsExpanded(true);
 
-    // Zoom to country
     map.flyTo(country.coordinates, 6, {
       duration: 0.8,
     });
-  };
-
-  const handleDisasterClick = (disaster, country) => {
-    console.log('Disaster clicked:', disaster, 'in', country.name);
-    // TODO: Show disaster details modal/panel
   };
 
   const handleClose = () => {
@@ -55,7 +48,6 @@ export default function DisasterMarkers() {
 
   return (
     <>
-      {/* Clustered markers (default state) */}
       {data.countries.map((country) => (
         <CountryCluster
           key={country.id}
@@ -66,11 +58,9 @@ export default function DisasterMarkers() {
         />
       ))}
 
-      {/* Expanded disasters for selected country */}
       {isExpanded && selectedCountry && (
         <ExpandedDisasters
           country={selectedCountry}
-          onDisasterClick={handleDisasterClick}
           onClose={handleClose}
         />
       )}

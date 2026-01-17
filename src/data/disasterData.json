@@ -46,7 +46,10 @@
           "disasterSeverityScore": 9.2,
           "glideNumber": "EQ-2024-000015-TUR",
           "sourceWebsite": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000jllz",
-          "complementaryResources": "https://www.gdacs.org/report.aspx?eventid=1387915"
+          "complementaryResources": "https://www.gdacs.org/report.aspx?eventid=1387915",
+          "reportUrl": "/reports/sample-report.html",
+          "thumbnailUrl": "/images/disasters/turkey-earthquake-2024.jpg",
+          "summary": "A devastating earthquake struck southeastern Turkey, affecting multiple provinces and causing widespread destruction to residential buildings and critical infrastructure."
         },
         {
           "disNo": "MET-20240715-WBT-TUR-0001",
@@ -88,7 +91,9 @@
           "disasterSeverityScore": 6.1,
           "glideNumber": "WF-2024-000089-TUR",
           "sourceWebsite": "https://gwis.jrc.ec.europa.eu/apps/gwis_current_situation/",
-          "complementaryResources": null
+          "complementaryResources": null,
+          "reportUrl": "/reports/sample-report.html",
+          "summary": "Major forest fires swept through Muğla and Antalya provinces, destroying thousands of hectares of forest and threatening coastal tourist areas."
         },
         {
           "disNo": "HYDRO-20240320-WBT-TUR-0001",
@@ -130,7 +135,9 @@
           "disasterSeverityScore": 5.5,
           "glideNumber": "FL-2024-000034-TUR",
           "sourceWebsite": "https://www.afad.gov.tr/",
-          "complementaryResources": null
+          "complementaryResources": null,
+          "reportUrl": "/reports/sample-report.html",
+          "summary": "Flash flooding struck Istanbul and Ankara, causing widespread urban disruption and infrastructure damage."
         }
       ]
     },
@@ -180,7 +187,9 @@
           "disasterSeverityScore": null,
           "glideNumber": null,
           "sourceWebsite": "https://komersant.ua/en/rekordna-povin-u-kyievi-pryberezhni-lokatsii-zatopylo-vodoiu-2",
-          "complementaryResources": null
+          "complementaryResources": null,
+          "reportUrl": "/reports/sample-report.html",
+          "summary": "Record flooding hit Kyiv, submerging coastal areas and causing significant property damage across the capital."
         },
         {
           "disNo": "MET-20240812-SCWCIS-UKR-0001",
@@ -314,7 +323,9 @@
           "disasterSeverityScore": 7.5,
           "glideNumber": "FL-2024-000045-KAZ",
           "sourceWebsite": "https://kazhydromet.kz/",
-          "complementaryResources": "https://www.gdacs.org/"
+          "complementaryResources": "https://www.gdacs.org/",
+          "reportUrl": "/reports/sample-report.html",
+          "summary": "Major spring flooding affected western Kazakhstan, displacing over 120,000 people and causing extensive damage to rural infrastructure."
         },
         {
           "disNo": "CLIM-20240615-CA-KAZ-0001",
@@ -540,7 +551,9 @@
           "disasterSeverityScore": 6.0,
           "glideNumber": "FL-2024-000078-GEO",
           "sourceWebsite": "https://nea.gov.ge/",
-          "complementaryResources": null
+          "complementaryResources": null,
+          "reportUrl": "/reports/sample-report.html",
+          "summary": "Flash flooding affected Tbilisi and surrounding regions, causing fatalities and significant infrastructure damage."
         },
         {
           "disNo": "GEO-20240720-SCWCIS-GEO-0001",
@@ -1126,7 +1139,9 @@
           "disasterSeverityScore": 5.8,
           "glideNumber": "FL-2024-000142-ALB",
           "sourceWebsite": "https://www.geo.edu.al/",
-          "complementaryResources": null
+          "complementaryResources": null,
+          "reportUrl": "/reports/sample-report.html",
+          "summary": "Major flooding affected northern Albania, displacing thousands of residents and causing extensive damage to homes and infrastructure."
         }
       ]
     },
@@ -1720,7 +1735,9 @@
           "disasterSeverityScore": 4.5,
           "glideNumber": "FL-2024-000138-MNE",
           "sourceWebsite": "https://www.meteo.co.me/",
-          "complementaryResources": null
+          "complementaryResources": null,
+          "reportUrl": "/reports/sample-report.html",
+          "summary": "Autumn flooding hit Podgorica and Nikšić regions, causing damage to homes and local infrastructure."
         }
       ]
     },
