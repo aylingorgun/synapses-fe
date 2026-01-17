@@ -20,6 +20,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Leaflet base fixes */
 .leaflet-container {
   height: 100%;
   width: 100%;
@@ -35,6 +36,7 @@ body {
   margin: 12px 16px;
 }
 
+/* Custom marker icons */
 .custom-cluster-icon,
 .disaster-icon,
 .center-icon {
@@ -55,6 +57,7 @@ body {
   transform: scale(1.1);
 }
 
+/* Disaster Popup Styles */
 .disaster-preview-popup .leaflet-popup-content-wrapper {
   background: white;
   border-radius: 4px;

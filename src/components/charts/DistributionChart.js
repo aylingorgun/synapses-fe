@@ -10,29 +10,22 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts';
-import styles from '@/styles/charts.module.css';
 
-// Default color palette for disaster types (matching filterOptions)
 const DEFAULT_COLORS = {
-  // Storms
   'Windstorm': '#4CAF50',
   'Snowstorm': '#90CAF9',
   'Tornado': '#8BC34A',
   'Cyclone': '#3F51B5',
-  // Temperature
   'Heatwave': '#FF9800',
   'Coldwave': '#00BCD4',
   'Freeze': '#B3E5FC',
-  // Fires
   'Forest Fires': '#FF5722',
   'Urban Fires': '#E64A19',
   'Wild Fires': '#BF360C',
-  // Floods
   'Riverine Flood': '#1E88E5',
   'Flash Flood': '#1565C0',
   'Coastal Flood': '#0D47A1',
   'Urban Flood': '#42A5F5',
-  // Others
   'Drought': '#FFC107',
   'Earthquake': '#9C27B0',
   'Rockfall': '#795548',
@@ -41,16 +34,6 @@ const DEFAULT_COLORS = {
   'Soil Erosion': '#8D6E63',
 };
 
-/**
- * Reusable stacked bar chart for disaster distribution
- * @param {Array} data - Chart data with country/region as key and disaster types as values
- * @param {Array} dataKeys - Array of disaster type keys to display as stacked bars
- * @param {string} xAxisKey - Key for X-axis labels (default: 'name')
- * @param {Object} colors - Custom color mapping for disaster types
- * @param {number} height - Chart height (default: 400)
- * @param {boolean} showLegend - Whether to show legend (default: true)
- * @param {boolean} showGrid - Whether to show grid (default: true)
- */
 export default function DistributionChart({
   data = [],
   dataKeys = [],
@@ -62,25 +45,24 @@ export default function DistributionChart({
 }) {
   if (!data.length || !dataKeys.length) {
     return (
-      <div className={styles.emptyChart}>
+      <div className="flex items-center justify-center h-[300px] text-slate-500 italic">
         <p>No data available</p>
       </div>
     );
   }
 
-  // Custom tooltip
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       const total = payload.reduce((sum, entry) => sum + (entry.value || 0), 0);
       return (
-        <div className={styles.customTooltip}>
-          <p className={styles.tooltipLabel}>{label}</p>
+        <div className="bg-white border border-slate-200 rounded-lg py-3 px-4 shadow-lg text-sm">
+          <p className="font-semibold text-[#1e3a5f] mb-2 pb-2 border-b border-slate-200">{label}</p>
           {payload.map((entry, index) => (
             <p key={index} style={{ color: entry.color }}>
               {entry.name}: {entry.value}
             </p>
           ))}
-          <p className={styles.tooltipTotal}>Total: {total}</p>
+          <p className="font-semibold text-[#1e3a5f] mt-2 pt-2 border-t border-slate-200">Total: {total}</p>
         </div>
       );
     }
@@ -88,7 +70,7 @@ export default function DistributionChart({
   };
 
   return (
-    <div className={styles.chartWrapper} style={{ height }}>
+    <div className="w-full max-md:min-w-[500px]" style={{ height }}>
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
           data={data}
@@ -110,7 +92,7 @@ export default function DistributionChart({
               wrapperStyle={{ paddingTop: 20 }}
               iconType="square"
               iconSize={12}
-              formatter={(value) => <span style={{ fontSize: '0.8rem', color: '#374151' }}>{value}</span>}
+              formatter={(value) => <span className="text-xs text-gray-700">{value}</span>}
             />
           )}
           {dataKeys.map((key) => (

@@ -11,6 +11,23 @@ module.exports = {
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
+        undp: {
+          blue: '#0468B1',
+          navy: '#1e3a5f',
+        },
+      },
+      animation: {
+        'shimmer': 'shimmer 1.5s infinite',
+        'spin': 'spin 0.8s linear infinite',
+      },
+      keyframes: {
+        shimmer: {
+          '0%': { backgroundPosition: '200% 0' },
+          '100%': { backgroundPosition: '-200% 0' },
+        },
+      },
+      borderWidth: {
+        '3': '3px',
       },
     },
   },

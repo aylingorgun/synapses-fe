@@ -4,9 +4,7 @@ import { useMemo } from 'react';
 import StatCard from './StatCard';
 import { useStatistics } from '@/hooks/useStatistics';
 import { useFilters } from '@/contexts';
-import styles from '@/styles/statistics.module.css';
 
-// Icons as SVG components for the cards
 const HazardIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
     <path d="M12 2L1 21h22L12 2zm0 3.83L19.13 19H4.87L12 5.83zM11 16h2v2h-2v-2zm0-6h2v4h-2v-4z"/>
@@ -43,9 +41,6 @@ const DisasterIcon = () => (
   </svg>
 );
 
-/**
- * Format large numbers for display
- */
 const formatNumber = (num) => {
   if (num === null || num === undefined) return '—';
   if (num >= 1000000000) return `$${(num / 1000000000).toFixed(1)}B`;
@@ -65,7 +60,6 @@ export default function StatisticsSection() {
   const { statistics, loading } = useStatistics();
   const { filters } = useFilters();
 
-  // Determine the title based on region selection
   const sectionTitle = useMemo(() => {
     if (filters.region) {
       return `${filters.region.label} Statistics`;
@@ -73,10 +67,8 @@ export default function StatisticsSection() {
     return 'Regional Statistics';
   }, [filters]);
 
-  // Get subtitle based on filters
   const sectionSubtitle = useMemo(() => {
     const parts = [];
-
     if (filters.country) {
       parts.push(filters.country.label);
     }
@@ -88,24 +80,24 @@ export default function StatisticsSection() {
     if (filters.disasterTypes?.length > 0) {
       parts.push(`${filters.disasterTypes.length} disaster type(s)`);
     }
-
     return parts.length > 0 ? parts.join(' • ') : 'Overview of all disasters in the region';
   }, [filters]);
 
-  // Format key hazards for display
   const keyHazardsDisplay = useMemo(() => {
     if (!statistics.keyHazards?.length) return '—';
     return statistics.keyHazards.map(h => h.name).join(', ');
   }, [statistics.keyHazards]);
 
   return (
-    <section className={styles.statisticsSection}>
-      <div className={styles.sectionHeader}>
-        <h2 className={styles.sectionTitle}>{sectionTitle}</h2>
-        <p className={styles.sectionSubtitle}>{sectionSubtitle}</p>
+    <section className="py-8 px-12 bg-gradient-to-br from-slate-50 to-slate-200 relative max-sm:py-6 max-sm:px-4">
+      <div className="absolute top-0 left-[5%] w-[90%] h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent" />
+      
+      <div className="text-center mb-8">
+        <h2 className="text-2xl font-bold text-[#1e3a5f] mb-2">{sectionTitle}</h2>
+        <p className="text-sm text-slate-500">{sectionSubtitle}</p>
       </div>
 
-      <div className={styles.cardsGrid}>
+      <div className="grid grid-cols-3 gap-6 max-w-[1200px] mx-auto max-lg:grid-cols-2 max-sm:grid-cols-1">
         <StatCard
           icon={<HazardIcon />}
           title="Key Hazards"
@@ -159,8 +151,8 @@ export default function StatisticsSection() {
         />
       </div>
 
-      <div className={styles.infoFooter}>
-        <span>info: 1990-2026</span>
+      <div className="text-right mt-6 pr-4">
+        <span className="text-sm text-slate-500 italic">info: 1990-2026</span>
       </div>
     </section>
   );

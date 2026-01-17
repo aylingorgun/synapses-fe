@@ -5,7 +5,6 @@ import { MAP_CONFIG, TILE_LAYERS } from '@/constants/mapConfig';
 import { useGeoData } from '@/hooks/useGeoData';
 import CountryBorders from './layers/CountryBorders';
 import { DisasterMarkers } from './markers';
-import styles from '@/styles/map.module.css';
 
 export default function MapContent() {
   const { geoData, loading, error } = useGeoData();
@@ -24,7 +23,7 @@ export default function MapContent() {
       zoom={MAP_CONFIG.zoom}
       minZoom={MAP_CONFIG.minZoom}
       maxZoom={MAP_CONFIG.maxZoom}
-      className={styles.mapContainer}
+      style={{ height: '680px', width: '100%', zIndex: 1 }}
       scrollWheelZoom={true}
     >
       <TileLayer
