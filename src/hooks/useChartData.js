@@ -1,25 +1,9 @@
 import { useMemo } from 'react';
 import { useDisasterData } from './useDisasterData';
+import { REGION_CONFIG } from '@/constants/regionConfig';
 import filterOptions from '@/data/filterOptions.json';
 
-// Region configuration with country mappings
-const REGION_CONFIG = {
-  western_balkans_turkiye_cyprus: {
-    name: 'Western Balkans & Türkiye & Cyprus',
-    shortName: 'W. Balkans & Türkiye',
-    countries: ['Albania', 'Turkey', 'Cyprus', 'Serbia', 'Montenegro', 'Bosnia and Herzegovina', 'North Macedonia', 'Kosovo'],
-  },
-  south_caucasus_western_cis: {
-    name: 'South Caucasus & Western CIS',
-    shortName: 'S. Caucasus & W. CIS',
-    countries: ['Georgia', 'Armenia', 'Moldova', 'Ukraine', 'Belarus'],
-  },
-  central_asia: {
-    name: 'Central Asia',
-    shortName: 'Central Asia',
-    countries: ['Tajikistan', 'Uzbekistan', 'Turkmenistan', 'Kyrgyzstan', 'Kazakhstan'],
-  },
-};
+export { REGION_CONFIG } from '@/constants/regionConfig';
 
 // Build disaster type label map from filterOptions
 const DISASTER_TYPE_LABELS = {};
@@ -35,35 +19,35 @@ filterOptions.disasterTypes.forEach((dt) => {
 // Normalize disaster type name to match filter options
 const normalizeDisasterType = (type) => {
   if (!type) return 'Other';
-  
+
   // Direct match
   if (DISASTER_TYPE_LABELS[type]) return DISASTER_TYPE_LABELS[type];
-  
+
   // Try lowercase match
   const lower = type.toLowerCase();
   if (DISASTER_TYPE_LABELS[lower]) return DISASTER_TYPE_LABELS[lower];
-  
+
   // Try without spaces/underscores
   const normalized = lower.replace(/[_\s]/g, '');
   if (DISASTER_TYPE_LABELS[normalized]) return DISASTER_TYPE_LABELS[normalized];
-  
+
   // Specific mappings for data variations
   const mappings = {
-    'riverineflood': 'Riverine Flood',
-    'flashflood': 'Flash Flood',
-    'coastalflood': 'Coastal Flood',
-    'urbanflood': 'Urban Flood',
-    'wildfires': 'Wild Fires',
-    'forestfires': 'Forest Fires',
-    'urbanfires': 'Urban Fires',
-    'extremetemperature': 'Heatwave',
-    'massmovement': 'Mudflow',
-    'floods': 'Riverine Flood',
-    'fires': 'Wild Fires',
+    riverineflood: 'Riverine Flood',
+    flashflood: 'Flash Flood',
+    coastalflood: 'Coastal Flood',
+    urbanflood: 'Urban Flood',
+    wildfires: 'Wild Fires',
+    forestfires: 'Forest Fires',
+    urbanfires: 'Urban Fires',
+    extremetemperature: 'Heatwave',
+    massmovement: 'Mudflow',
+    floods: 'Riverine Flood',
+    fires: 'Wild Fires',
   };
-  
+
   if (mappings[normalized]) return mappings[normalized];
-  
+
   return type; // Return original if no match
 };
 
@@ -136,5 +120,3 @@ export function useChartData(selectedRegions = []) {
     error,
   };
 }
-
-export { REGION_CONFIG };

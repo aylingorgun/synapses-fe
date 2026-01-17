@@ -1,7 +1,12 @@
 import { useMemo } from 'react';
 import { useDisasterData } from './useDisasterData';
 import { useFilters } from '@/contexts';
-import { REGION_CONFIG } from './useChartData';
+import { REGION_CONFIG } from '@/constants/regionConfig';
+import {
+  filterDisasters,
+  filterCountriesByRegion,
+  filterByCountry,
+} from '@/utils/filterDisasters';
 
 export function useStatistics() {
   const { data, loading, error } = useDisasterData();
@@ -20,91 +25,71 @@ export function useStatistics() {
       };
     }
 
-    const activeFilters = appliedFilters;
+    // Filter countries by region
     let filteredCountries = data.countries;
 
-    if (activeFilters.region) {
-      const regionKey = activeFilters.region.value;
-      const regionConfig = REGION_CONFIG[regionKey];
-      
-      if (regionConfig) {
-        filteredCountries = data.countries.filter(country =>
-          regionConfig.countries.includes(country.name)
-        );
-      }
+    if (appliedFilters.region) {
+      const regionConfig = REGION_CONFIG[appliedFilters.region.value];
+      filteredCountries = filterCountriesByRegion(filteredCountries, regionConfig);
     }
 
-    if (activeFilters.country) {
-      filteredCountries = filteredCountries.filter(
-        country => country.name.toLowerCase() === activeFilters.country.label.toLowerCase()
-      );
+    // Filter by specific country
+    if (appliedFilters.country) {
+      filteredCountries = filterByCountry(filteredCountries, appliedFilters.country);
     }
 
-    let allDisasters = filteredCountries.flatMap(country => country.disasters);
+    // Get all disasters from filtered countries
+    let allDisasters = filteredCountries.flatMap((country) => country.disasters);
 
-    if (activeFilters.startDate) {
-      const startDate = new Date(activeFilters.startDate);
-      allDisasters = allDisasters.filter(d => {
-        const disasterDate = new Date(d.startYear, d.startMonth - 1, d.startDay);
-        return disasterDate >= startDate;
-      });
-    }
+    // Apply date and type filters using shared utility
+    allDisasters = filterDisasters(allDisasters, appliedFilters);
 
-    if (activeFilters.endDate) {
-      const endDate = new Date(activeFilters.endDate);
-      allDisasters = allDisasters.filter(d => {
-        const disasterDate = new Date(d.startYear, d.startMonth - 1, d.startDay);
-        return disasterDate <= endDate;
-      });
-    }
-
-    if (activeFilters.disasterTypes?.length > 0) {
-      const selectedTypes = activeFilters.disasterTypes.map(t => t.value.toLowerCase());
-      allDisasters = allDisasters.filter(d =>
-        selectedTypes.some(type => 
-          d.specificHazardName?.toLowerCase().includes(type) ||
-          d.hazardType?.toLowerCase().includes(type)
-        )
-      );
-    }
-
+    // Calculate statistics
     const totalDeaths = allDisasters.reduce((sum, d) => sum + (d.totalDeaths || 0), 0);
     const totalAffected = allDisasters.reduce((sum, d) => sum + (d.noAffected || 0), 0);
     const gdpLoss = allDisasters.reduce((sum, d) => sum + (d.totalEconomicLoss || 0), 0);
     const totalDisasters = allDisasters.length;
 
+    // Build hazard breakdown
     const hazardBreakdown = allDisasters.reduce((acc, d) => {
       const type = d.hazardType || 'Unknown';
       acc[type] = (acc[type] || 0) + 1;
       return acc;
     }, {});
 
+    // Get top 3 hazards
     const keyHazards = Object.entries(hazardBreakdown)
       .sort((a, b) => b[1] - a[1])
       .slice(0, 3)
       .map(([name, count]) => ({ name, count }));
 
-    const countryCounts = filteredCountries.map(country => ({
-      name: country.name,
-      count: country.disasters.length,
-    })).sort((a, b) => b.count - a.count);
+    // Get most affected country
+    const countryCounts = filteredCountries
+      .map((country) => ({
+        name: country.name,
+        count: country.disasters.length,
+      }))
+      .sort((a, b) => b.count - a.count);
 
     const mostAffectedCountry = countryCounts[0] || null;
-    const mostCommonDisaster = Object.entries(hazardBreakdown)
-      .sort((a, b) => b[1] - a[1])[0];
+
+    // Get most common disaster type
+    const mostCommonDisaster = Object.entries(hazardBreakdown).sort((a, b) => b[1] - a[1])[0];
 
     return {
       keyHazards,
-      mostAffectedCountry: mostAffectedCountry,
+      mostAffectedCountry,
       gdpLoss,
       totalDeaths,
       totalAffected,
       totalDisasters,
       hazardBreakdown,
-      mostCommonDisaster: mostCommonDisaster ? {
-        name: mostCommonDisaster[0],
-        count: mostCommonDisaster[1],
-      } : null,
+      mostCommonDisaster: mostCommonDisaster
+        ? {
+            name: mostCommonDisaster[0],
+            count: mostCommonDisaster[1],
+          }
+        : null,
     };
   }, [data, appliedFilters]);
 

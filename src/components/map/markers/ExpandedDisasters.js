@@ -4,16 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import { getDisasterIconPath } from '@/constants/disasterIcons';
-
-const formatDate = (year, month, day) => {
-  if (!year) return 'Unknown';
-  const date = new Date(year, (month || 1) - 1, day || 1);
-  return date.toLocaleDateString('en-US', {
-    day: '2-digit',
-    month: 'long',
-    year: 'numeric',
-  });
-};
+import { formatDate } from '@/utils/dateUtils';
 
 const calculateExpandedPositions = (center, count, baseRadius = 0.8) => {
   const positions = [];
@@ -118,11 +109,14 @@ const createCenterIcon = () => {
 };
 
 function DisasterPopupContent({ disaster, country }) {
-  const handleReportClick = useCallback((e) => {
-    e.stopPropagation();
-    const reportPath = disaster.reportUrl || '/reports/sample-report.html';
-    window.open(reportPath, '_blank');
-  }, [disaster.reportUrl]);
+  const handleReportClick = useCallback(
+    (e) => {
+      e.stopPropagation();
+      const reportPath = disaster.reportUrl || '/reports/sample-report.html';
+      window.open(reportPath, '_blank');
+    },
+    [disaster.reportUrl]
+  );
 
   const title = disaster.location || country.name;
   const truncatedTitle = title.length > 25 ? title.substring(0, 25) + '...' : title;
@@ -134,16 +128,19 @@ function DisasterPopupContent({ disaster, country }) {
           {formatDate(disaster.startYear, disaster.startMonth, disaster.startDay)}
         </span>
       </div>
-      
-      <h3 className="popup-title" title={title}>{truncatedTitle}</h3>
+
+      <h3 className="popup-title" title={title}>
+        {truncatedTitle}
+      </h3>
       <span className="popup-type">{disaster.specificHazardName || disaster.hazardType}</span>
-      
+
       <p className="popup-summary">
-        {disaster.summary || `${disaster.specificHazardName || disaster.hazardType} event affecting ${disaster.location || country.name}.`}
+        {disaster.summary ||
+          `${disaster.specificHazardName || disaster.hazardType} event affecting ${disaster.location || country.name}.`}
       </p>
-      
+
       <div className="popup-actions">
-        <button 
+        <button
           className="popup-action-btn popup-action-btn-primary popup-action-btn-full"
           onClick={handleReportClick}
           type="button"
@@ -157,10 +154,7 @@ function DisasterPopupContent({ disaster, country }) {
 
 export default function ExpandedDisasters({ country, onClose }) {
   const [isAnimating, setIsAnimating] = useState(true);
-  const positions = calculateExpandedPositions(
-    country.coordinates,
-    country.disasters.length
-  );
+  const positions = calculateExpandedPositions(country.coordinates, country.disasters.length);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsAnimating(false), 100);
@@ -183,8 +177,8 @@ export default function ExpandedDisasters({ country, onClose }) {
           position={positions[index]}
           icon={createDisasterIcon(disaster, index, isAnimating)}
         >
-          <Popup 
-            offset={[0, -20]} 
+          <Popup
+            offset={[0, -20]}
             className="disaster-preview-popup"
             closeButton={true}
             autoPan={true}

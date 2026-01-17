@@ -3,28 +3,10 @@
 import { useMemo, useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { useDisasterData } from '@/hooks/useDisasterData';
-import { REGION_CONFIG } from '@/hooks/useChartData';
+import { REGION_CONFIG } from '@/constants/regionConfig';
 import { getDisasterIconPath } from '@/constants/disasterIcons';
 import { useFilters } from '@/contexts';
-
-const formatDate = (year, month, day) => {
-  if (!year) return 'Unknown';
-  const date = new Date(year, (month || 1) - 1, day || 1);
-  return date.toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
-  });
-};
-
-const formatShortDate = (year, month, day) => {
-  if (!year) return '';
-  const date = new Date(year, (month || 1) - 1, day || 1);
-  return date.toLocaleDateString('en-US', {
-    month: 'short',
-    year: 'numeric',
-  });
-};
+import { formatDate, formatShortDate } from '@/utils/dateUtils';
 
 const ChronologyItem = ({ disaster, isActive, onClick, isTop }) => {
   const iconPath = getDisasterIconPath(disaster.specificHazardName);
@@ -39,8 +21,10 @@ const ChronologyItem = ({ disaster, isActive, onClick, isTop }) => {
       tabIndex={0}
       onKeyDown={(e) => e.key === 'Enter' && onClick(disaster)}
     >
-      <div className={`bg-white/[0.08] rounded-xl p-3.5 flex flex-col items-center gap-2 w-[140px] max-md:w-[120px] max-md:p-2 transition-all group-hover:bg-white/[0.15] group-hover:scale-[1.03] ${isTop ? 'order-1' : 'order-4'}`}>
-        <div className="w-11 h-11 flex items-center justify-center bg-[#0468B1] border-[3px] border-white rounded-full shadow-md">
+      <div
+        className={`bg-white/[0.08] rounded-xl p-3.5 flex flex-col items-center gap-2 w-[140px] max-md:w-[120px] max-md:p-2 transition-all group-hover:bg-white/[0.15] group-hover:scale-[1.03] ${isTop ? 'order-1' : 'order-4'}`}
+      >
+        <div className="w-11 h-11 flex items-center justify-center bg-undp-blue border-[3px] border-white rounded-full shadow-md">
           <Image
             src={iconPath}
             alt={disaster.hazardType}
@@ -59,8 +43,12 @@ const ChronologyItem = ({ disaster, isActive, onClick, isTop }) => {
         </div>
       </div>
       <div className={`w-0.5 h-10 max-md:h-7 bg-white/40 ${isTop ? 'order-2' : 'order-3'}`} />
-      <div className={`w-3.5 h-3.5 bg-white rounded-full shadow-md flex-shrink-0 absolute top-1/2 -translate-y-1/2 ${isTop ? 'order-3' : 'order-2'}`} />
-      <div className={`text-xs text-white/80 font-medium whitespace-nowrap py-2 absolute ${isTop ? 'top-[calc(50%+20px)] order-4' : 'top-[calc(50%-45px)] order-1'}`}>
+      <div
+        className={`w-3.5 h-3.5 bg-white rounded-full shadow-md flex-shrink-0 absolute top-1/2 -translate-y-1/2 ${isTop ? 'order-3' : 'order-2'}`}
+      />
+      <div
+        className={`text-xs text-white/80 font-medium whitespace-nowrap py-2 absolute ${isTop ? 'top-[calc(50%+20px)] order-4' : 'top-[calc(50%-45px)] order-1'}`}
+      >
         {formatShortDate(disaster.startYear, disaster.startMonth, disaster.startDay)}
       </div>
     </div>
@@ -75,7 +63,7 @@ const DisasterDetailPopup = ({ disaster }) => {
   return (
     <div className="bg-white/10 rounded-xl p-6 mx-8 mt-6 relative max-md:mx-4 max-md:mt-4">
       <div className="flex items-center gap-4 mb-4 pb-4 border-b border-white/15">
-        <div className="w-[50px] h-[50px] flex items-center justify-center bg-[#0468B1] border-[3px] border-white rounded-full shadow-md">
+        <div className="w-[50px] h-[50px] flex items-center justify-center bg-undp-blue border-[3px] border-white rounded-full shadow-md">
           <Image
             src={iconPath}
             alt={disaster.hazardType}
@@ -101,7 +89,7 @@ const DisasterDetailPopup = ({ disaster }) => {
             {formatDate(disaster.startYear, disaster.startMonth, disaster.startDay)}
           </span>
         </div>
-        
+
         <div className="flex flex-col gap-1">
           <span className="text-[0.7rem] text-white/50 uppercase tracking-wide">End Date</span>
           <span className="text-sm text-white">
@@ -111,19 +99,17 @@ const DisasterDetailPopup = ({ disaster }) => {
 
         {disaster.totalDeaths !== null && disaster.totalDeaths !== undefined && (
           <div className="flex flex-col gap-1">
-            <span className="text-[0.7rem] text-white/50 uppercase tracking-wide">Total Deaths</span>
-            <span className="text-sm text-white">
-              {disaster.totalDeaths.toLocaleString()}
+            <span className="text-[0.7rem] text-white/50 uppercase tracking-wide">
+              Total Deaths
             </span>
+            <span className="text-sm text-white">{disaster.totalDeaths.toLocaleString()}</span>
           </div>
         )}
 
         {disaster.noAffected && (
           <div className="flex flex-col gap-1">
             <span className="text-[0.7rem] text-white/50 uppercase tracking-wide">Affected</span>
-            <span className="text-sm text-white">
-              {disaster.noAffected.toLocaleString()}
-            </span>
+            <span className="text-sm text-white">{disaster.noAffected.toLocaleString()}</span>
           </div>
         )}
 
@@ -138,7 +124,9 @@ const DisasterDetailPopup = ({ disaster }) => {
 
         {disaster.totalEconomicLoss && (
           <div className="flex flex-col gap-1">
-            <span className="text-[0.7rem] text-white/50 uppercase tracking-wide">Economic Loss</span>
+            <span className="text-[0.7rem] text-white/50 uppercase tracking-wide">
+              Economic Loss
+            </span>
             <span className="text-sm text-white">
               ${(disaster.totalEconomicLoss / 1000000).toFixed(1)}M
             </span>
@@ -200,8 +188,8 @@ export default function DisasterChronology() {
     }, 100);
   };
 
-  const regionDisplayName = selectedRegion 
-    ? REGION_CONFIG[selectedRegion.value]?.shortName || selectedRegion.label 
+  const regionDisplayName = selectedRegion
+    ? REGION_CONFIG[selectedRegion.value]?.shortName || selectedRegion.label
     : 'Region';
 
   const needsScroll = disasters.length > 6;
@@ -214,32 +202,40 @@ export default function DisasterChronology() {
 
   if (loading) {
     return (
-      <section className="bg-[#1e3a5f] w-full py-8 max-md:py-6">
+      <section className="bg-undp-navy w-full py-8 max-md:py-6">
         <div className="max-w-[1200px] mx-auto">
-          <h2 className="text-2xl font-bold text-white mb-10 max-md:text-xl max-md:pl-4">Disaster Chronology for {regionDisplayName}</h2>
+          <h2 className="text-2xl font-bold text-white mb-10 max-md:text-xl max-md:pl-4">
+            Disaster Chronology for {regionDisplayName}
+          </h2>
         </div>
         <div className="flex flex-col items-center justify-center h-[300px] gap-4">
-          <div className="w-10 h-10 border-3 border-slate-200 border-t-[#0468B1] rounded-full animate-spin" />
+          <div className="w-10 h-10 border-3 border-slate-200 border-t-undp-blue rounded-full animate-spin" />
         </div>
       </section>
     );
   }
 
   return (
-    <section className="bg-[#1e3a5f] w-full py-8 max-md:py-6">
+    <section className="bg-undp-navy w-full py-8 max-md:py-6">
       <div className="max-w-[1200px] mx-auto">
-        <h2 className="text-2xl font-bold text-white mb-10 max-md:text-xl max-md:pl-4">Disaster Chronology for {regionDisplayName}</h2>
+        <h2 className="text-2xl font-bold text-white mb-10 max-md:text-xl max-md:pl-4">
+          Disaster Chronology for {regionDisplayName}
+        </h2>
       </div>
-      
+
       {disasters.length === 0 ? (
         <div className="flex items-center justify-center h-[200px] text-white/60 italic">
           No disasters found for the selected region.
         </div>
       ) : (
         <div className="relative w-full">
-          <div 
+          <div
             ref={scrollRef}
-            className={needsScroll ? 'overflow-x-auto pb-4 [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-track]:bg-white/10 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:bg-white/30 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:hover:bg-white/50' : ''}
+            className={
+              needsScroll
+                ? 'overflow-x-auto pb-4 [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-track]:bg-white/10 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:bg-white/30 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:hover:bg-white/50'
+                : ''
+            }
           >
             <div className="relative min-h-[380px] min-w-max">
               <div className="absolute left-0 right-0 top-1/2 h-0.5 bg-white/40 z-[1]" />
