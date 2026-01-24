@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import { useMap } from 'react-leaflet';
 import { useDisasterData } from '@/hooks/useDisasterData';
 import { useMapSelection, useFilters } from '@/contexts';
@@ -17,7 +17,7 @@ export default function DisasterMarkers() {
   const map = useMap();
   const { data, loading } = useDisasterData();
   const { appliedFilters } = useFilters();
-  const { setSelectedCountryName } = useMapSelection();
+  const { setSelectedCountryName, registerCloseCallback } = useMapSelection();
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -88,14 +88,18 @@ export default function DisasterMarkers() {
     });
   };
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setIsExpanded(false);
     setSelectedCountry(null);
     setSelectedCountryName(null);
     map.flyTo([45.0, 50.0], 4.5, {
       duration: 0.8,
     });
-  };
+  }, [map, setSelectedCountryName]);
+
+  useEffect(() => {
+    registerCloseCallback(handleClose);
+  }, [registerCloseCallback, handleClose]);
 
   if (loading || !data) return null;
 

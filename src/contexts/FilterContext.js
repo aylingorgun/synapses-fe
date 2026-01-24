@@ -109,6 +109,16 @@ export function FilterProvider({ children }) {
     setIsApplied(true);
   }, []);
 
+  /**
+   * Clear country filter and apply immediately
+   * Used by breadcrumb navigation to go back to region view
+   */
+  const clearCountryFilter = useCallback(() => {
+    setFilters((prev) => ({ ...prev, country: null }));
+    setAppliedFilters((prev) => ({ ...prev, country: null }));
+    setIsApplied(true);
+  }, []);
+
   // Memoize context value to prevent unnecessary re-renders
   const value = useMemo(
     () => ({
@@ -119,8 +129,9 @@ export function FilterProvider({ children }) {
       updateFilters,
       applyFilters,
       resetFilters,
+      clearCountryFilter,
     }),
-    [filters, appliedFilters, isApplied, updateFilter, updateFilters, applyFilters, resetFilters]
+    [filters, appliedFilters, isApplied, updateFilter, updateFilters, applyFilters, resetFilters, clearCountryFilter]
   );
 
   return (
