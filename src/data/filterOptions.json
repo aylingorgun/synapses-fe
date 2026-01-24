@@ -1,14 +1,19 @@
 {
   "regions": [
     {
-      "value": "western_balkans_turkiye_cyprus",
-      "label": "Western Balkans & Türkiye & Cyprus",
+      "value": "western_balkans",
+      "label": "Western Balkans & Türkiye",
       "countries": ["Albania", "Turkey", "Cyprus", "Serbia", "Montenegro", "Bosnia and Herzegovina", "North Macedonia", "Kosovo"]
     },
     {
-      "value": "south_caucasus_western_cis",
-      "label": "South Caucasus & Western CIS",
-      "countries": ["Georgia", "Armenia", "Moldova", "Ukraine", "Belarus"]
+      "value": "eastern_europe",
+      "label": "Eastern Europe Region (EE)",
+      "countries": ["Moldova", "Ukraine", "Belarus"]
+    },
+    {
+      "value": "south_caucasus",
+      "label": "South Caucasus",
+      "countries": ["Georgia", "Armenia"]
     },
     {
       "value": "central_asia",
@@ -17,19 +22,19 @@
     }
   ],
   "countries": [
-    { "value": "albania", "label": "Albania", "region": "western_balkans_turkiye_cyprus" },
-    { "value": "turkey", "label": "Turkey", "region": "western_balkans_turkiye_cyprus" },
-    { "value": "cyprus", "label": "Cyprus", "region": "western_balkans_turkiye_cyprus" },
-    { "value": "serbia", "label": "Serbia", "region": "western_balkans_turkiye_cyprus" },
-    { "value": "montenegro", "label": "Montenegro", "region": "western_balkans_turkiye_cyprus" },
-    { "value": "bosnia", "label": "Bosnia and Herzegovina", "region": "western_balkans_turkiye_cyprus" },
-    { "value": "north_macedonia", "label": "North Macedonia", "region": "western_balkans_turkiye_cyprus" },
-    { "value": "kosovo", "label": "Kosovo", "region": "western_balkans_turkiye_cyprus" },
-    { "value": "georgia", "label": "Georgia", "region": "south_caucasus_western_cis" },
-    { "value": "armenia", "label": "Armenia", "region": "south_caucasus_western_cis" },
-    { "value": "moldova", "label": "Moldova", "region": "south_caucasus_western_cis" },
-    { "value": "ukraine", "label": "Ukraine", "region": "south_caucasus_western_cis" },
-    { "value": "belarus", "label": "Belarus", "region": "south_caucasus_western_cis" },
+    { "value": "albania", "label": "Albania", "region": "western_balkans" },
+    { "value": "turkey", "label": "Turkey", "region": "western_balkans" },
+    { "value": "cyprus", "label": "Cyprus", "region": "western_balkans" },
+    { "value": "serbia", "label": "Serbia", "region": "western_balkans" },
+    { "value": "montenegro", "label": "Montenegro", "region": "western_balkans" },
+    { "value": "bosnia", "label": "Bosnia and Herzegovina", "region": "western_balkans" },
+    { "value": "north_macedonia", "label": "North Macedonia", "region": "western_balkans" },
+    { "value": "kosovo", "label": "Kosovo", "region": "western_balkans" },
+    { "value": "moldova", "label": "Moldova", "region": "eastern_europe" },
+    { "value": "ukraine", "label": "Ukraine", "region": "eastern_europe" },
+    { "value": "belarus", "label": "Belarus", "region": "eastern_europe" },
+    { "value": "georgia", "label": "Georgia", "region": "south_caucasus" },
+    { "value": "armenia", "label": "Armenia", "region": "south_caucasus" },
     { "value": "kazakhstan", "label": "Kazakhstan", "region": "central_asia" },
     { "value": "uzbekistan", "label": "Uzbekistan", "region": "central_asia" },
     { "value": "turkmenistan", "label": "Turkmenistan", "region": "central_asia" },

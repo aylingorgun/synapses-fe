@@ -2,7 +2,7 @@ import { Map } from '@/components/map';
 import { FilterBar } from '@/components/filters';
 import { StatisticsSection } from '@/components/statistics';
 import { DisasterDistributionSection, DisasterChronology } from '@/components/charts';
-import { LatestDisasters } from '@/components/disasters';
+import { DisasterRecords } from '@/components/disasters';
 
 export default function Home() {
 
@@ -23,8 +23,8 @@ export default function Home() {
       {/* Disaster Chronology Section */}
       <DisasterChronology />
 
-      {/* Latest Disasters Section */}
-      <LatestDisasters />
+      {/* Disaster Records Section */}
+      <DisasterRecords />
     </div>
   );
 }

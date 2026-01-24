@@ -1,1 +1,1 @@
-export { default as LatestDisasters } from './LatestDisasters';
+export { default as DisasterRecords } from './DisasterRecords';

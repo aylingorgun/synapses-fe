@@ -64,14 +64,14 @@ const DisasterCard = ({ disaster }) => {
   );
 };
 
-export default function LatestDisasters() {
+export default function DisasterRecords() {
   const { data, loading } = useDisasterData();
-  const { filters } = useFilters();
+  const { appliedFilters } = useFilters();
 
   const regionCountries = useMemo(() => {
-    if (!filters.region?.value) return [];
-    return getRegionCountries(filters.region.value);
-  }, [filters.region]);
+    if (!appliedFilters.region?.value) return [];
+    return getRegionCountries(appliedFilters.region.value);
+  }, [appliedFilters.region]);
 
   const latestDisasters = useMemo(() => {
     if (!data?.countries) return [];
@@ -108,7 +108,7 @@ export default function LatestDisasters() {
     return (
       <section className="bg-slate-50 py-16 max-sm:py-10">
         <div className="max-w-[1200px] mx-auto px-8 max-sm:px-4">
-          <h2 className="text-2xl font-semibold text-undp-navy mb-2">Latest Disasters</h2>
+          <h2 className="text-2xl font-semibold text-undp-navy mb-2">Disaster Records</h2>
           <p className="text-sm text-gray-500 mb-8">Loading disaster reports...</p>
           <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-2 max-sm:grid-cols-1">
             {[1, 2, 3].map((i) => (
@@ -123,14 +123,14 @@ export default function LatestDisasters() {
     );
   }
 
-  const regionLabel = filters.region?.label || 'All Regions';
+  const regionLabel = appliedFilters.region?.label || 'All Regions';
 
   return (
     <section className="bg-slate-50 py-16 max-sm:py-10">
       <div className="max-w-[1200px] mx-auto px-8 max-sm:px-4">
-        <h2 className="text-2xl font-semibold text-undp-navy mb-2">Latest Disasters</h2>
+        <h2 className="text-2xl font-semibold text-undp-navy mb-2">Disaster Records</h2>
         <p className="text-sm text-gray-500 mb-8">
-          Recent disaster events in {regionLabel}. Click on a card to view the full report.
+          Disaster events in {regionLabel}. Click on a card to view the full report.
         </p>
 
         <div className="grid grid-cols-3 gap-6 mb-8 max-lg:grid-cols-2 max-lg:[&>*:nth-child(3)]:hidden max-sm:grid-cols-1 max-sm:gap-4">

@@ -1,6 +1,6 @@
 export const REGION_CONFIG = {
-  western_balkans_turkiye_cyprus: {
-    name: 'Western Balkans & Türkiye & Cyprus',
+  western_balkans: {
+    name: 'Western Balkans & Türkiye',
     shortName: 'W. Balkans & Türkiye',
     countries: [
       'Albania',
@@ -13,10 +13,15 @@ export const REGION_CONFIG = {
       'Kosovo',
     ],
   },
-  south_caucasus_western_cis: {
-    name: 'South Caucasus & Western CIS',
-    shortName: 'S. Caucasus & W. CIS',
-    countries: ['Georgia', 'Armenia', 'Moldova', 'Ukraine', 'Belarus'],
+  eastern_europe: {
+    name: 'Eastern Europe Region (EE)',
+    shortName: 'Eastern Europe',
+    countries: ['Moldova', 'Ukraine', 'Belarus'],
+  },
+  south_caucasus: {
+    name: 'South Caucasus',
+    shortName: 'South Caucasus',
+    countries: ['Georgia', 'Armenia'],
   },
   central_asia: {
     name: 'Central Asia',

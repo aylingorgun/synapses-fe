@@ -146,12 +146,12 @@ const DisasterDetailPopup = ({ disaster }) => {
 
 export default function DisasterChronology() {
   const { data, loading } = useDisasterData();
-  const { filters } = useFilters();
+  const { appliedFilters } = useFilters();
   const [selectedDisaster, setSelectedDisaster] = useState(null);
   const scrollRef = useRef(null);
   const detailRef = useRef(null);
 
-  const selectedRegion = filters.region;
+  const selectedRegion = appliedFilters.region;
 
   const disasters = useMemo(() => {
     if (!data?.countries || !selectedRegion) return [];
