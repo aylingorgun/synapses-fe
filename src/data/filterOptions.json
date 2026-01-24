@@ -37,25 +37,13 @@
     { "value": "kyrgyzstan", "label": "Kyrgyzstan", "region": "central_asia" }
   ],
   "disasterTypes": [
-    { "value": "windstorm", "label": "Windstorm" },
-    { "value": "snowstorm", "label": "Snowstorm" },
-    { "value": "tornado", "label": "Tornado" },
-    { "value": "cyclone", "label": "Cyclone" },
-    { "value": "heatwave", "label": "Heatwave" },
-    { "value": "coldwave", "label": "Coldwave" },
-    { "value": "freeze", "label": "Freeze" },
-    { "value": "forest_fires", "label": "Forest Fires" },
-    { "value": "urban_fires", "label": "Urban Fires" },
-    { "value": "wild_fires", "label": "Wild Fires" },
-    { "value": "riverine_flood", "label": "Riverine Flood" },
-    { "value": "flash_flood", "label": "Flash Flood" },
-    { "value": "coastal_flood", "label": "Coastal Flood" },
-    { "value": "urban_flood", "label": "Urban Flood" },
-    { "value": "drought", "label": "Drought" },
     { "value": "earthquake", "label": "Earthquake" },
-    { "value": "rockfall", "label": "Rockfall" },
-    { "value": "tsunami", "label": "Tsunami" },
-    { "value": "mudflow", "label": "Mudflow" },
-    { "value": "soil_erosion", "label": "Soil Erosion" }
+    { "value": "flood", "label": "Flood" },
+    { "value": "fire", "label": "Fire" },
+    { "value": "storm", "label": "Storm" },
+    { "value": "extreme_temperature", "label": "Extreme Temperature" },
+    { "value": "drought", "label": "Drought" },
+    { "value": "mass_movement", "label": "Mass Movement" },
+    { "value": "tsunami", "label": "Tsunami" }
   ]
 }

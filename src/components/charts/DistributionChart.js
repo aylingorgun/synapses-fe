@@ -11,27 +11,16 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 
+// Colors for generic disaster types
 const DEFAULT_COLORS = {
-  'Windstorm': '#4CAF50',
-  'Snowstorm': '#90CAF9',
-  'Tornado': '#8BC34A',
-  'Cyclone': '#3F51B5',
-  'Heatwave': '#FF9800',
-  'Coldwave': '#00BCD4',
-  'Freeze': '#B3E5FC',
-  'Forest Fires': '#FF5722',
-  'Urban Fires': '#E64A19',
-  'Wild Fires': '#BF360C',
-  'Riverine Flood': '#1E88E5',
-  'Flash Flood': '#1565C0',
-  'Coastal Flood': '#0D47A1',
-  'Urban Flood': '#42A5F5',
-  'Drought': '#FFC107',
   'Earthquake': '#9C27B0',
-  'Rockfall': '#795548',
+  'Flood': '#1E88E5',
+  'Fire': '#FF5722',
+  'Storm': '#4CAF50',
+  'Extreme Temperature': '#FF9800',
+  'Drought': '#FFC107',
+  'Mass Movement': '#795548',
   'Tsunami': '#00ACC1',
-  'Mudflow': '#D32F2F',
-  'Soil Erosion': '#8D6E63',
 };
 
 export default function DistributionChart({

@@ -15,12 +15,15 @@ const getRegionCountries = (regionValue) => {
 };
 
 const DisasterCard = ({ disaster }) => {
-  const iconPath = getDisasterIconPath(disaster.specificHazardName);
+  const iconPath = getDisasterIconPath(disaster.specificHazardName, disaster.hazardType);
 
   const handleReadMore = () => {
     const reportPath = disaster.reportUrl || '/reports/sample-report.html';
     window.open(reportPath, '_blank');
   };
+
+  // Display the generic hazardType
+  const displayType = disaster.hazardType;
 
   return (
     <article className="bg-white rounded overflow-hidden shadow-sm transition-shadow hover:shadow-md">
@@ -40,11 +43,11 @@ const DisasterCard = ({ disaster }) => {
           {formatDate(disaster.startYear, disaster.startMonth, disaster.startDay)}
         </span>
         <h3 className="text-base font-semibold text-undp-blue mb-2.5 leading-snug">
-          {disaster.country} - {disaster.specificHazardName || disaster.hazardType}
+          {disaster.country} - {displayType}
         </h3>
         <p className="text-sm text-gray-600 mb-4 leading-relaxed line-clamp-3">
           {disaster.summary ||
-            `${disaster.specificHazardName || disaster.hazardType} event affecting ${disaster.location || disaster.country}. ${
+            `${displayType} event affecting ${disaster.location || disaster.country}. ${
               disaster.noAffected ? `${disaster.noAffected.toLocaleString()} people affected.` : ''
             }`}
         </p>

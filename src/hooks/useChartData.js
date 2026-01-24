@@ -1,54 +1,56 @@
 import { useMemo } from 'react';
 import { useDisasterData } from './useDisasterData';
 import { REGION_CONFIG } from '@/constants/regionConfig';
-import filterOptions from '@/data/filterOptions.json';
 
 export { REGION_CONFIG } from '@/constants/regionConfig';
 
-// Build disaster type label map from filterOptions
-const DISASTER_TYPE_LABELS = {};
-filterOptions.disasterTypes.forEach((dt) => {
-  // Map various possible values to labels
-  DISASTER_TYPE_LABELS[dt.value] = dt.label;
-  DISASTER_TYPE_LABELS[dt.label] = dt.label;
-  // Also map camelCase/PascalCase versions
-  const normalized = dt.value.replace(/_/g, '').toLowerCase();
-  DISASTER_TYPE_LABELS[normalized] = dt.label;
-});
+// Generic disaster type labels - now using hazardType from data
+const GENERIC_DISASTER_TYPES = {
+  'Earthquake': 'Earthquake',
+  'Flood': 'Flood',
+  'Fire': 'Fire',
+  'Storm': 'Storm',
+  'Extreme Temperature': 'Extreme Temperature',
+  'Drought': 'Drought',
+  'Mass Movement': 'Mass Movement',
+  'Tsunami': 'Tsunami',
+};
 
-// Normalize disaster type name to match filter options
-const normalizeDisasterType = (type) => {
-  if (!type) return 'Other';
+/**
+ * Normalize disaster type to a generic category
+ * @param {string} hazardType - The hazardType from the data
+ * @returns {string} The normalized generic disaster type
+ */
+const normalizeDisasterType = (hazardType) => {
+  if (!hazardType) return 'Other';
 
-  // Direct match
-  if (DISASTER_TYPE_LABELS[type]) return DISASTER_TYPE_LABELS[type];
+  // Direct match with generic types
+  if (GENERIC_DISASTER_TYPES[hazardType]) {
+    return GENERIC_DISASTER_TYPES[hazardType];
+  }
 
-  // Try lowercase match
-  const lower = type.toLowerCase();
-  if (DISASTER_TYPE_LABELS[lower]) return DISASTER_TYPE_LABELS[lower];
-
-  // Try without spaces/underscores
-  const normalized = lower.replace(/[_\s]/g, '');
-  if (DISASTER_TYPE_LABELS[normalized]) return DISASTER_TYPE_LABELS[normalized];
-
-  // Specific mappings for data variations
+  // Normalize common variations
+  const normalized = hazardType.toLowerCase().replace(/[_\s-]/g, '');
+  
   const mappings = {
-    riverineflood: 'Riverine Flood',
-    flashflood: 'Flash Flood',
-    coastalflood: 'Coastal Flood',
-    urbanflood: 'Urban Flood',
-    wildfires: 'Wild Fires',
-    forestfires: 'Forest Fires',
-    urbanfires: 'Urban Fires',
-    extremetemperature: 'Heatwave',
-    massmovement: 'Mudflow',
-    floods: 'Riverine Flood',
-    fires: 'Wild Fires',
+    'earthquake': 'Earthquake',
+    'flood': 'Flood',
+    'floods': 'Flood',
+    'fire': 'Fire',
+    'fires': 'Fire',
+    'storm': 'Storm',
+    'storms': 'Storm',
+    'extremetemperature': 'Extreme Temperature',
+    'drought': 'Drought',
+    'massmovement': 'Mass Movement',
+    'tsunami': 'Tsunami',
   };
 
-  if (mappings[normalized]) return mappings[normalized];
+  if (mappings[normalized]) {
+    return mappings[normalized];
+  }
 
-  return type; // Return original if no match
+  return hazardType; // Return original if no match
 };
 
 /**
@@ -88,9 +90,8 @@ export function useChartData(selectedRegions = []) {
 
       // Count disasters by type for this region
       country.disasters.forEach((disaster) => {
-        // Use specificHazardName and normalize it
-        const rawType = disaster.specificHazardName || disaster.hazardType || 'Other';
-        const type = normalizeDisasterType(rawType);
+        // Use hazardType (generic) for aggregation
+        const type = normalizeDisasterType(disaster.hazardType);
         disasterTypeSet.add(type);
 
         if (!regionData[regionKey][type]) {

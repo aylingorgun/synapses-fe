@@ -30,7 +30,7 @@ export const filterByDateRange = (disasters, startDate, endDate) => {
 };
 
 /**
- * Filter disasters by type
+ * Filter disasters by type (using generic hazardType)
  * @param {Array} disasters - Array of disaster objects
  * @param {Array} disasterTypes - Array of disaster type filter objects with value property
  * @returns {Array} Filtered disasters
@@ -38,15 +38,27 @@ export const filterByDateRange = (disasters, startDate, endDate) => {
 export const filterByDisasterTypes = (disasters, disasterTypes) => {
   if (!disasterTypes?.length) return disasters;
 
-  const selectedTypes = disasterTypes.map((t) => t.value.toLowerCase());
+  // Normalize filter values for matching
+  const selectedTypes = disasterTypes.map((t) => t.value.toLowerCase().replace(/_/g, ' '));
   
-  return disasters.filter((d) =>
-    selectedTypes.some(
-      (type) =>
-        d.specificHazardName?.toLowerCase().includes(type) ||
-        d.hazardType?.toLowerCase().includes(type)
-    )
-  );
+  return disasters.filter((d) => {
+    const hazardType = d.hazardType?.toLowerCase() || '';
+    
+    return selectedTypes.some((type) => {
+      // Match against hazardType (generic type)
+      if (hazardType === type || hazardType.includes(type)) {
+        return true;
+      }
+      
+      // Also check specificHazardName for more detailed filtering
+      const specificName = d.specificHazardName?.toLowerCase() || '';
+      if (specificName.includes(type)) {
+        return true;
+      }
+      
+      return false;
+    });
+  });
 };
 
 /**

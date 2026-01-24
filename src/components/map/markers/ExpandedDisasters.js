@@ -41,7 +41,7 @@ const calculateExpandedPositions = (center, count, baseRadius = 0.8) => {
 
 const createDisasterIcon = (disaster, index, isAnimating) => {
   const size = 40;
-  const iconPath = getDisasterIconPath(disaster.specificHazardName);
+  const iconPath = getDisasterIconPath(disaster.specificHazardName, disaster.hazardType);
 
   return L.divIcon({
     className: 'disaster-icon',
@@ -132,11 +132,11 @@ function DisasterPopupContent({ disaster, country }) {
       <h3 className="popup-title" title={title}>
         {truncatedTitle}
       </h3>
-      <span className="popup-type">{disaster.specificHazardName || disaster.hazardType}</span>
+      <span className="popup-type">{disaster.hazardType}</span>
 
       <p className="popup-summary">
         {disaster.summary ||
-          `${disaster.specificHazardName || disaster.hazardType} event affecting ${disaster.location || country.name}.`}
+          `${disaster.hazardType} event affecting ${disaster.location || country.name}.`}
       </p>
 
       <div className="popup-actions">

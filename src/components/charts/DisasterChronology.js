@@ -9,7 +9,7 @@ import { useFilters } from '@/contexts';
 import { formatDate, formatShortDate } from '@/utils/dateUtils';
 
 const ChronologyItem = ({ disaster, isActive, onClick, isTop }) => {
-  const iconPath = getDisasterIconPath(disaster.specificHazardName);
+  const iconPath = getDisasterIconPath(disaster.specificHazardName, disaster.hazardType);
 
   return (
     <div
@@ -35,7 +35,7 @@ const ChronologyItem = ({ disaster, isActive, onClick, isTop }) => {
         </div>
         <div className="text-center w-full">
           <div className="text-sm font-semibold text-white whitespace-nowrap overflow-hidden text-ellipsis">
-            {disaster.specificHazardName || disaster.hazardType}
+            {disaster.hazardType}
           </div>
           <div className="text-xs text-white/70 mt-0.5 whitespace-nowrap overflow-hidden text-ellipsis">
             {disaster.country}
@@ -58,7 +58,7 @@ const ChronologyItem = ({ disaster, isActive, onClick, isTop }) => {
 const DisasterDetailPopup = ({ disaster }) => {
   if (!disaster) return null;
 
-  const iconPath = getDisasterIconPath(disaster.specificHazardName);
+  const iconPath = getDisasterIconPath(disaster.specificHazardName, disaster.hazardType);
 
   return (
     <div className="bg-white/10 rounded-xl p-6 mx-8 mt-6 relative max-md:mx-4 max-md:mt-4">
@@ -74,7 +74,7 @@ const DisasterDetailPopup = ({ disaster }) => {
         </div>
         <div>
           <h4 className="text-lg font-semibold text-white mb-1">
-            {disaster.specificHazardName || disaster.hazardType}
+            {disaster.hazardType}
           </h4>
           <p className="text-sm text-white/70">
             {disaster.location}, {disaster.country}
