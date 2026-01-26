@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useDisasterData } from '@/hooks/useDisasterData';
 import { REGION_CONFIG } from '@/constants/regionConfig';
 import { getDisasterIconPath } from '@/constants/disasterIcons';
-import { useFilters } from '@/contexts';
+import { useFilters, useMapSelection } from '@/contexts';
 import { formatDate, formatShortDate, formatCount, formatCurrency, getMeasurementLabel, formatMeasurement } from '@/utils';
 
 const ChronologyItem = ({ disaster, isActive, onClick, isTop }) => {
@@ -147,6 +147,7 @@ const DisasterDetailPopup = ({ disaster }) => {
 export default function DisasterChronology() {
   const { data, loading } = useDisasterData();
   const { appliedFilters } = useFilters();
+  const { selectedCountryName } = useMapSelection();
   const [selectedDisaster, setSelectedDisaster] = useState(null);
   const scrollRef = useRef(null);
   const detailRef = useRef(null);
@@ -154,32 +155,50 @@ export default function DisasterChronology() {
   const selectedRegion = appliedFilters.region;
 
   const disasters = useMemo(() => {
-    if (!data?.countries || !selectedRegion) return [];
+    if (!data?.countries) return [];
 
     const allDisasters = [];
-    const regionKey = selectedRegion.value;
 
-    data.countries.forEach((country) => {
-      const countryRegionKey = Object.keys(REGION_CONFIG).find((key) =>
-        REGION_CONFIG[key].countries.includes(country.name)
+    // If a country is selected, filter by country
+    if (selectedCountryName) {
+      const country = data.countries.find(
+        (c) => c.name.toLowerCase() === selectedCountryName.toLowerCase()
       );
 
-      if (countryRegionKey !== regionKey) return;
+      if (country) {
+        country.disasters.forEach((disaster) => {
+          allDisasters.push({
+            ...disaster,
+            country: country.name,
+          });
+        });
+      }
+    } else if (selectedRegion) {
+      // Otherwise, filter by region
+      const regionKey = selectedRegion.value;
 
-      country.disasters.forEach((disaster) => {
-        allDisasters.push({
-          ...disaster,
-          country: country.name,
+      data.countries.forEach((country) => {
+        const countryRegionKey = Object.keys(REGION_CONFIG).find((key) =>
+          REGION_CONFIG[key].countries.includes(country.name)
+        );
+
+        if (countryRegionKey !== regionKey) return;
+
+        country.disasters.forEach((disaster) => {
+          allDisasters.push({
+            ...disaster,
+            country: country.name,
+          });
         });
       });
-    });
+    }
 
     return allDisasters.sort((a, b) => {
       const dateA = new Date(a.startYear, (a.startMonth || 1) - 1, a.startDay || 1);
       const dateB = new Date(b.startYear, (b.startMonth || 1) - 1, b.startDay || 1);
       return dateA - dateB;
     });
-  }, [data, selectedRegion]);
+  }, [data, selectedRegion, selectedCountryName]);
 
   const handleDisasterClick = (disaster) => {
     setSelectedDisaster(disaster);
@@ -188,9 +207,15 @@ export default function DisasterChronology() {
     }, 100);
   };
 
-  const regionDisplayName = selectedRegion
-    ? REGION_CONFIG[selectedRegion.value]?.shortName || selectedRegion.label
-    : 'Region';
+  const displayName = useMemo(() => {
+    if (selectedCountryName) {
+      return selectedCountryName;
+    }
+    if (selectedRegion) {
+      return REGION_CONFIG[selectedRegion.value]?.shortName || selectedRegion.label;
+    }
+    return 'Region';
+  }, [selectedCountryName, selectedRegion]);
 
   const needsScroll = disasters.length > 6;
 
@@ -205,7 +230,7 @@ export default function DisasterChronology() {
       <section className="bg-undp-navy w-full py-8 max-md:py-6">
         <div className="max-w-[1200px] mx-auto">
           <h2 className="text-2xl font-bold text-white mb-10 max-md:text-xl max-md:pl-4">
-            Disaster Chronology for {regionDisplayName}
+            Disaster Chronology for {displayName}
           </h2>
         </div>
         <div className="flex flex-col items-center justify-center h-[300px] gap-4">
@@ -219,13 +244,13 @@ export default function DisasterChronology() {
     <section className="bg-undp-navy w-full py-8 max-md:py-6">
       <div className="max-w-[1200px] mx-auto">
         <h2 className="text-2xl font-bold text-white mb-10 max-md:text-xl max-md:pl-4">
-          Disaster Chronology for {regionDisplayName}
+          Disaster Chronology for {displayName}
         </h2>
       </div>
 
       {disasters.length === 0 ? (
         <div className="flex items-center justify-center h-[200px] text-white/60 italic">
-          No disasters found for the selected region.
+          No disasters found for {selectedCountryName ? 'the selected country' : 'the selected region'}.
         </div>
       ) : (
         <div className="relative w-full">

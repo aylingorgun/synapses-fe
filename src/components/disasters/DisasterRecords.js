@@ -4,6 +4,7 @@ import { useMemo } from 'react';
 import Image from 'next/image';
 import { useDisasterData } from '@/hooks/useDisasterData';
 import { useFilters } from '@/contexts/FilterContext';
+import { useMapSelection } from '@/contexts';
 import { getDisasterIconPath } from '@/constants/disasterIcons';
 import { formatDate, formatCount } from '@/utils';
 import filterOptions from '@/data/filterOptions.json';
@@ -67,6 +68,7 @@ const DisasterCard = ({ disaster }) => {
 export default function DisasterRecords() {
   const { data, loading } = useDisasterData();
   const { appliedFilters } = useFilters();
+  const { selectedCountryName } = useMapSelection();
 
   const regionCountries = useMemo(() => {
     if (!appliedFilters.region?.value) return [];
@@ -78,18 +80,35 @@ export default function DisasterRecords() {
 
     const allDisasters = [];
 
-    data.countries.forEach((country) => {
-      if (regionCountries.length > 0 && !regionCountries.includes(country.name)) {
-        return;
-      }
+    // If a country is selected, filter by country
+    if (selectedCountryName) {
+      const country = data.countries.find(
+        (c) => c.name.toLowerCase() === selectedCountryName.toLowerCase()
+      );
 
-      country.disasters.forEach((disaster) => {
-        allDisasters.push({
-          ...disaster,
-          country: country.name,
+      if (country) {
+        country.disasters.forEach((disaster) => {
+          allDisasters.push({
+            ...disaster,
+            country: country.name,
+          });
+        });
+      }
+    } else {
+      // Otherwise, filter by region
+      data.countries.forEach((country) => {
+        if (regionCountries.length > 0 && !regionCountries.includes(country.name)) {
+          return;
+        }
+
+        country.disasters.forEach((disaster) => {
+          allDisasters.push({
+            ...disaster,
+            country: country.name,
+          });
         });
       });
-    });
+    }
 
     return allDisasters
       .sort((a, b) => {
@@ -98,17 +117,25 @@ export default function DisasterRecords() {
         return dateB - dateA;
       })
       .slice(0, 3);
-  }, [data, regionCountries]);
+  }, [data, regionCountries, selectedCountryName]);
 
   const handleViewAll = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const sectionTitle = selectedCountryName 
+    ? `Latest Disasters in ${selectedCountryName}` 
+    : 'Disaster Records';
+
+  const locationLabel = selectedCountryName 
+    ? selectedCountryName 
+    : (appliedFilters.region?.label || 'All Regions');
+
   if (loading) {
     return (
       <section className="bg-slate-50 py-16 max-sm:py-10">
         <div className="max-w-[1200px] mx-auto px-8 max-sm:px-4">
-          <h2 className="text-2xl font-semibold text-undp-navy mb-2">Disaster Records</h2>
+          <h2 className="text-2xl font-semibold text-undp-navy mb-2">{sectionTitle}</h2>
           <p className="text-sm text-gray-500 mb-8">Loading disaster reports...</p>
           <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-2 max-sm:grid-cols-1">
             {[1, 2, 3].map((i) => (
@@ -123,21 +150,28 @@ export default function DisasterRecords() {
     );
   }
 
-  const regionLabel = appliedFilters.region?.label || 'All Regions';
-
   return (
     <section className="bg-slate-50 py-16 max-sm:py-10">
       <div className="max-w-[1200px] mx-auto px-8 max-sm:px-4">
-        <h2 className="text-2xl font-semibold text-undp-navy mb-2">Disaster Records</h2>
+        <h2 className="text-2xl font-semibold text-undp-navy mb-2">{sectionTitle}</h2>
         <p className="text-sm text-gray-500 mb-8">
-          Disaster events in {regionLabel}. Click on a card to view the full report.
+          {selectedCountryName 
+            ? `Recent disaster events in ${selectedCountryName}. Click on a card to view the full report.`
+            : `Disaster events in ${locationLabel}. Click on a card to view the full report.`
+          }
         </p>
 
-        <div className="grid grid-cols-3 gap-6 mb-8 max-lg:grid-cols-2 max-lg:[&>*:nth-child(3)]:hidden max-sm:grid-cols-1 max-sm:gap-4">
-          {latestDisasters.map((disaster) => (
-            <DisasterCard key={disaster.disNo} disaster={disaster} />
-          ))}
-        </div>
+        {latestDisasters.length === 0 ? (
+          <div className="flex items-center justify-center h-[200px] text-slate-500 italic">
+            No disaster records found for {locationLabel}.
+          </div>
+        ) : (
+          <div className="grid grid-cols-3 gap-6 mb-8 max-lg:grid-cols-2 max-lg:[&>*:nth-child(3)]:hidden max-sm:grid-cols-1 max-sm:gap-4">
+            {latestDisasters.map((disaster) => (
+              <DisasterCard key={disaster.disNo} disaster={disaster} />
+            ))}
+          </div>
+        )}
 
         <div className="flex justify-center mt-4">
           <button

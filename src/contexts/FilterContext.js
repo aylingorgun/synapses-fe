@@ -119,6 +119,17 @@ export function FilterProvider({ children }) {
     setIsApplied(true);
   }, []);
 
+  /**
+   * Set country filter and apply immediately
+   * Used by map interactions to select a country without requiring "Apply" click
+   * @param {object|null} country - Country object with value and label, or null to clear
+   */
+  const setCountryAndApply = useCallback((country) => {
+    setFilters((prev) => ({ ...prev, country }));
+    setAppliedFilters((prev) => ({ ...prev, country }));
+    setIsApplied(true);
+  }, []);
+
   // Memoize context value to prevent unnecessary re-renders
   const value = useMemo(
     () => ({
@@ -130,8 +141,9 @@ export function FilterProvider({ children }) {
       applyFilters,
       resetFilters,
       clearCountryFilter,
+      setCountryAndApply,
     }),
-    [filters, appliedFilters, isApplied, updateFilter, updateFilters, applyFilters, resetFilters, clearCountryFilter]
+    [filters, appliedFilters, isApplied, updateFilter, updateFilters, applyFilters, resetFilters, clearCountryFilter, setCountryAndApply]
   );
 
   return (

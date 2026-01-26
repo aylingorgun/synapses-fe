@@ -4,7 +4,6 @@ import { REGION_CONFIG } from '@/constants/regionConfig';
 
 export { REGION_CONFIG } from '@/constants/regionConfig';
 
-// Generic disaster type labels - now using hazardType from data
 const GENERIC_DISASTER_TYPES = {
   'Earthquake': 'Earthquake',
   'Flood': 'Flood',
@@ -24,12 +23,10 @@ const GENERIC_DISASTER_TYPES = {
 const normalizeDisasterType = (hazardType) => {
   if (!hazardType) return 'Other';
 
-  // Direct match with generic types
   if (GENERIC_DISASTER_TYPES[hazardType]) {
     return GENERIC_DISASTER_TYPES[hazardType];
   }
 
-  // Normalize common variations
   const normalized = hazardType.toLowerCase().replace(/[_\s-]/g, '');
   
   const mappings = {
@@ -50,7 +47,7 @@ const normalizeDisasterType = (hazardType) => {
     return mappings[normalized];
   }
 
-  return hazardType; // Return original if no match
+  return hazardType;
 };
 
 /**
@@ -68,7 +65,6 @@ export function useChartData(selectedRegions = []) {
     const disasterTypeSet = new Set();
     const regionData = {};
 
-    // Initialize region data for selected regions
     selectedRegions.forEach((regionKey) => {
       const config = REGION_CONFIG[regionKey];
       if (config) {
@@ -79,18 +75,14 @@ export function useChartData(selectedRegions = []) {
       }
     });
 
-    // Process each country's disasters and aggregate by region
     data.countries.forEach((country) => {
-      // Find which region this country belongs to
       const regionKey = Object.keys(REGION_CONFIG).find((key) =>
         REGION_CONFIG[key].countries.includes(country.name)
       );
 
       if (!regionKey || !selectedRegions.includes(regionKey)) return;
 
-      // Count disasters by type for this region
       country.disasters.forEach((disaster) => {
-        // Use hazardType (generic) for aggregation
         const type = normalizeDisasterType(disaster.hazardType);
         disasterTypeSet.add(type);
 
@@ -101,7 +93,6 @@ export function useChartData(selectedRegions = []) {
       });
     });
 
-    // Convert to array and calculate totals
     const chartData = Object.values(regionData).map((region) => {
       const total = Object.entries(region)
         .filter(([key]) => key !== 'name' && key !== 'fullName')
