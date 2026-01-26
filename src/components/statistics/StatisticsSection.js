@@ -20,6 +20,7 @@ import {
   ChartIcon,
   InfoRiskIcon,
 } from '@/components/icons/StatIcons';
+import { CHART_COLORS, LINE_COLORS } from '@/constants/chartColors';
 
 const LAST_UPDATED = 'January 2024';
 
@@ -221,7 +222,7 @@ function CountryStatistics({ countryStats, countryName, keyHazardsDisplay, loadi
               <DonutChart
                 data={unemploymentData}
                 loading={loading}
-                colors={['#ef4444', '#22c55e']}
+                colors={[CHART_COLORS[1], CHART_COLORS[0]]}
                 innerRadius={45}
                 outerRadius={75}
                 height={260}
@@ -239,7 +240,7 @@ function CountryStatistics({ countryStats, countryName, keyHazardsDisplay, loadi
               <DonutChart
                 data={demographicsData}
                 loading={loading}
-                colors={['#0ea5e9', '#ec4899', '#3b82f6', '#f59e0b', '#8b5cf6']}
+                colors={CHART_COLORS}
                 innerRadius={45}
                 outerRadius={75}
                 height={260}
@@ -264,7 +265,7 @@ function CountryStatistics({ countryStats, countryName, keyHazardsDisplay, loadi
                 showAverage
                 averageLabel="Avg"
                 unit="°C"
-                trendColors={{ positive: '#ef4444', negative: '#22c55e' }}
+                trendColors={LINE_COLORS.trend}
                 emptyMessage="Temperature history not available"
                 valueFormatter={(value) => `${value}°`}
               />

@@ -10,6 +10,7 @@ import {
   ResponsiveContainer,
   ReferenceLine,
 } from 'recharts';
+import { LINE_COLORS } from '@/constants/chartColors';
 
 const HEIGHT_CLASSES = {
   240: 'h-60',
@@ -67,8 +68,8 @@ export default function LineChart({
   showAverage = false,
   averageLabel = 'Avg',
   unit = '',
-  color = '#3b82f6',
-  trendColors = null, // { positive: '#ef4444', negative: '#22c55e' }
+  color = LINE_COLORS.primary,
+  trendColors = LINE_COLORS.trend,
   emptyMessage = 'No data available',
   valueFormatter = (value) => `${value}${unit}`,
   tooltipFormatter = null,

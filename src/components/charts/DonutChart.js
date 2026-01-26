@@ -1,8 +1,7 @@
 'use client';
 
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
-
-const COLORS = ['#0468B1', '#00C49F', '#FFBB28', '#FF8042', '#8884D8', '#82CA9D'];
+import { CHART_COLORS } from '@/constants/chartColors';
 
 const HEIGHT_CLASSES = {
   240: 'h-60',
@@ -55,7 +54,7 @@ export default function DonutChart({
   data = [],
   dataKey = 'value',
   nameKey = 'name',
-  colors = COLORS,
+  colors = CHART_COLORS,
   height = 280,
   innerRadius = 50,
   outerRadius = 80,

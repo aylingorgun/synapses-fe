@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useCallback } from 'react';
 import {
   BarChart,
   Bar,
@@ -10,28 +11,27 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts';
-
-// Colors for generic disaster types
-const DEFAULT_COLORS = {
-  'Earthquake': '#9C27B0',
-  'Flood': '#1E88E5',
-  'Fire': '#FF5722',
-  'Storm': '#4CAF50',
-  'Extreme Temperature': '#FF9800',
-  'Drought': '#FFC107',
-  'Mass Movement': '#795548',
-  'Tsunami': '#00ACC1',
-};
+import { DISASTER_COLORS } from '@/constants/chartColors';
 
 export default function DistributionChart({
   data = [],
   dataKeys = [],
   xAxisKey = 'name',
-  colors = DEFAULT_COLORS,
+  colors = DISASTER_COLORS,
   height = 400,
   showLegend = true,
   showGrid = true,
 }) {
+  const [hoveredBar, setHoveredBar] = useState(null);
+
+  const handleBarMouseEnter = useCallback((dataKey) => {
+    setHoveredBar(dataKey);
+  }, []);
+
+  const handleBarMouseLeave = useCallback(() => {
+    setHoveredBar(null);
+  }, []);
+
   if (!data.length || !dataKeys.length) {
     return (
       <div className="flex items-center justify-center h-[300px] text-slate-500 italic">
@@ -42,16 +42,16 @@ export default function DistributionChart({
 
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
-      const total = payload.reduce((sum, entry) => sum + (entry.value || 0), 0);
+      const item = hoveredBar 
+        ? payload.find(p => p.dataKey === hoveredBar) || payload[0]
+        : payload[0];
+      
       return (
-        <div className="bg-white border border-slate-200 rounded-lg py-3 px-4 shadow-lg text-sm">
-          <p className="font-semibold text-[#1e3a5f] mb-2 pb-2 border-b border-slate-200">{label}</p>
-          {payload.map((entry, index) => (
-            <p key={index} style={{ color: entry.color }}>
-              {entry.name}: {entry.value}
-            </p>
-          ))}
-          <p className="font-semibold text-[#1e3a5f] mt-2 pt-2 border-t border-slate-200">Total: {total}</p>
+        <div className="bg-white border border-slate-200 rounded-lg py-2 px-3 shadow-lg text-sm">
+          <p className="font-semibold text-undp-navy">{label}</p>
+          <p style={{ color: item.color }}>
+            {item.name}: {item.value}
+          </p>
         </div>
       );
     }
@@ -92,6 +92,8 @@ export default function DistributionChart({
               fill={colors[key] || '#8884d8'}
               name={key}
               radius={[3, 3, 0, 0]}
+              onMouseEnter={() => handleBarMouseEnter(key)}
+              onMouseLeave={handleBarMouseLeave}
             />
           ))}
         </BarChart>
