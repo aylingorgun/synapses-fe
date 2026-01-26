@@ -5,6 +5,34 @@
       "name": "Turkey",
       "iso": "TUR",
       "coordinates": [39.0, 35.0],
+      "statistics": {
+        "population": 85279553,
+        "landArea": 783562,
+        "avgAnnualTemp": 12.8,
+        "lackOfCopingCapacity": 3.2,
+        "gdpPerCapita": 31466,
+        "hdi": 0.838,
+        "informRiskScore": 4.1,
+        "unemploymentRate": 10.3,
+        "demographics": {
+          "children": 22.5,
+          "women": 49.8,
+          "olderPersons": 9.4,
+          "personsWithDisabilities": 12.9
+        },
+        "temperatureHistory": [
+          { "year": 2015, "temp": 12.1 },
+          { "year": 2016, "temp": 12.4 },
+          { "year": 2017, "temp": 12.6 },
+          { "year": 2018, "temp": 12.9 },
+          { "year": 2019, "temp": 13.1 },
+          { "year": 2020, "temp": 13.3 },
+          { "year": 2021, "temp": 12.8 },
+          { "year": 2022, "temp": 13.2 },
+          { "year": 2023, "temp": 13.5 },
+          { "year": 2024, "temp": 13.8 }
+        ]
+      },
       "disasters": [
         {
           "disNo": "GEO-20240206-WBT-TUR-0001",
@@ -146,6 +174,34 @@
       "name": "Ukraine",
       "iso": "UKR",
       "coordinates": [49.0, 32.0],
+      "statistics": {
+        "population": 37000000,
+        "landArea": 603550,
+        "avgAnnualTemp": 8.8,
+        "lackOfCopingCapacity": 5.8,
+        "gdpPerCapita": 13943,
+        "hdi": 0.773,
+        "informRiskScore": 6.2,
+        "unemploymentRate": 18.5,
+        "demographics": {
+          "children": 16.2,
+          "women": 53.8,
+          "olderPersons": 17.4,
+          "personsWithDisabilities": 6.1
+        },
+        "temperatureHistory": [
+          { "year": 2015, "temp": 8.2 },
+          { "year": 2016, "temp": 8.5 },
+          { "year": 2017, "temp": 8.7 },
+          { "year": 2018, "temp": 9.0 },
+          { "year": 2019, "temp": 9.2 },
+          { "year": 2020, "temp": 9.4 },
+          { "year": 2021, "temp": 8.8 },
+          { "year": 2022, "temp": 9.1 },
+          { "year": 2023, "temp": 9.3 },
+          { "year": 2024, "temp": 9.5 }
+        ]
+      },
       "disasters": [
         {
           "disNo": "HYDRO-20240425-SCWCIS-UKR-0001",
@@ -282,6 +338,34 @@
       "name": "Kazakhstan",
       "iso": "KAZ",
       "coordinates": [48.0, 67.0],
+      "statistics": {
+        "population": 20119962,
+        "landArea": 2724900,
+        "avgAnnualTemp": 7.4,
+        "lackOfCopingCapacity": 2.8,
+        "gdpPerCapita": 29526,
+        "hdi": 0.811,
+        "informRiskScore": 3.5,
+        "unemploymentRate": 4.9,
+        "demographics": {
+          "children": 28.5,
+          "women": 51.6,
+          "olderPersons": 8.2,
+          "personsWithDisabilities": 3.5
+        },
+        "temperatureHistory": [
+          { "year": 2015, "temp": 6.8 },
+          { "year": 2016, "temp": 7.0 },
+          { "year": 2017, "temp": 7.2 },
+          { "year": 2018, "temp": 7.5 },
+          { "year": 2019, "temp": 7.6 },
+          { "year": 2020, "temp": 7.8 },
+          { "year": 2021, "temp": 7.4 },
+          { "year": 2022, "temp": 7.7 },
+          { "year": 2023, "temp": 8.0 },
+          { "year": 2024, "temp": 8.2 }
+        ]
+      },
       "disasters": [
         {
           "disNo": "HYDRO-20240410-CA-KAZ-0001",
@@ -376,6 +460,34 @@
       "name": "Uzbekistan",
       "iso": "UZB",
       "coordinates": [41.5, 64.5],
+      "statistics": {
+        "population": 35648100,
+        "landArea": 447400,
+        "avgAnnualTemp": 14.8,
+        "lackOfCopingCapacity": 4.1,
+        "gdpPerCapita": 9099,
+        "hdi": 0.727,
+        "informRiskScore": 4.2,
+        "unemploymentRate": 8.9,
+        "demographics": {
+          "children": 28.8,
+          "women": 50.2,
+          "olderPersons": 5.8,
+          "personsWithDisabilities": 4.2
+        },
+        "temperatureHistory": [
+          { "year": 2015, "temp": 14.2 },
+          { "year": 2016, "temp": 14.4 },
+          { "year": 2017, "temp": 14.6 },
+          { "year": 2018, "temp": 14.9 },
+          { "year": 2019, "temp": 15.1 },
+          { "year": 2020, "temp": 15.3 },
+          { "year": 2021, "temp": 14.8 },
+          { "year": 2022, "temp": 15.2 },
+          { "year": 2023, "temp": 15.5 },
+          { "year": 2024, "temp": 15.7 }
+        ]
+      },
       "disasters": [
         {
           "disNo": "GEO-20240520-CA-UZB-0001",
@@ -510,6 +622,34 @@
       "name": "Georgia",
       "iso": "GEO",
       "coordinates": [42.0, 43.5],
+      "statistics": {
+        "population": 3688647,
+        "landArea": 69700,
+        "avgAnnualTemp": 11.5,
+        "lackOfCopingCapacity": 3.4,
+        "gdpPerCapita": 19056,
+        "hdi": 0.802,
+        "informRiskScore": 3.8,
+        "unemploymentRate": 17.3,
+        "demographics": {
+          "children": 19.5,
+          "women": 52.1,
+          "olderPersons": 15.4,
+          "personsWithDisabilities": 5.8
+        },
+        "temperatureHistory": [
+          { "year": 2015, "temp": 10.9 },
+          { "year": 2016, "temp": 11.1 },
+          { "year": 2017, "temp": 11.3 },
+          { "year": 2018, "temp": 11.6 },
+          { "year": 2019, "temp": 11.8 },
+          { "year": 2020, "temp": 12.0 },
+          { "year": 2021, "temp": 11.5 },
+          { "year": 2022, "temp": 11.9 },
+          { "year": 2023, "temp": 12.2 },
+          { "year": 2024, "temp": 12.4 }
+        ]
+      },
       "disasters": [
         {
           "disNo": "HYDRO-20240610-SCWCIS-GEO-0001",
@@ -604,6 +744,34 @@
       "name": "Armenia",
       "iso": "ARM",
       "coordinates": [40.0, 45.0],
+      "statistics": {
+        "population": 2777970,
+        "landArea": 29743,
+        "avgAnnualTemp": 9.8,
+        "lackOfCopingCapacity": 3.6,
+        "gdpPerCapita": 17689,
+        "hdi": 0.786,
+        "informRiskScore": 3.5,
+        "unemploymentRate": 15.8,
+        "demographics": {
+          "children": 20.1,
+          "women": 52.4,
+          "olderPersons": 12.5,
+          "personsWithDisabilities": 5.2
+        },
+        "temperatureHistory": [
+          { "year": 2015, "temp": 9.2 },
+          { "year": 2016, "temp": 9.4 },
+          { "year": 2017, "temp": 9.6 },
+          { "year": 2018, "temp": 9.9 },
+          { "year": 2019, "temp": 10.1 },
+          { "year": 2020, "temp": 10.3 },
+          { "year": 2021, "temp": 9.8 },
+          { "year": 2022, "temp": 10.2 },
+          { "year": 2023, "temp": 10.5 },
+          { "year": 2024, "temp": 10.7 }
+        ]
+      },
       "disasters": [
         {
           "disNo": "GEO-20240415-SCWCIS-ARM-0001",
@@ -696,6 +864,34 @@
       "name": "Kyrgyzstan",
       "iso": "KGZ",
       "coordinates": [41.5, 74.5],
+      "statistics": {
+        "population": 7100000,
+        "landArea": 199951,
+        "avgAnnualTemp": 5.2,
+        "lackOfCopingCapacity": 4.8,
+        "gdpPerCapita": 6186,
+        "hdi": 0.692,
+        "informRiskScore": 4.5,
+        "unemploymentRate": 6.2,
+        "demographics": {
+          "children": 32.1,
+          "women": 50.8,
+          "olderPersons": 5.1,
+          "personsWithDisabilities": 3.8
+        },
+        "temperatureHistory": [
+          { "year": 2015, "temp": 4.6 },
+          { "year": 2016, "temp": 4.8 },
+          { "year": 2017, "temp": 5.0 },
+          { "year": 2018, "temp": 5.3 },
+          { "year": 2019, "temp": 5.5 },
+          { "year": 2020, "temp": 5.7 },
+          { "year": 2021, "temp": 5.2 },
+          { "year": 2022, "temp": 5.6 },
+          { "year": 2023, "temp": 5.9 },
+          { "year": 2024, "temp": 6.1 }
+        ]
+      },
       "disasters": [
         {
           "disNo": "GEO-20240525-CA-KGZ-0001",
@@ -788,6 +984,34 @@
       "name": "Tajikistan",
       "iso": "TJK",
       "coordinates": [38.5, 71.0],
+      "statistics": {
+        "population": 10143543,
+        "landArea": 143100,
+        "avgAnnualTemp": 8.6,
+        "lackOfCopingCapacity": 5.2,
+        "gdpPerCapita": 4638,
+        "hdi": 0.679,
+        "informRiskScore": 5.1,
+        "unemploymentRate": 7.5,
+        "demographics": {
+          "children": 35.2,
+          "women": 49.8,
+          "olderPersons": 4.2,
+          "personsWithDisabilities": 3.5
+        },
+        "temperatureHistory": [
+          { "year": 2015, "temp": 8.0 },
+          { "year": 2016, "temp": 8.2 },
+          { "year": 2017, "temp": 8.4 },
+          { "year": 2018, "temp": 8.7 },
+          { "year": 2019, "temp": 8.9 },
+          { "year": 2020, "temp": 9.1 },
+          { "year": 2021, "temp": 8.6 },
+          { "year": 2022, "temp": 9.0 },
+          { "year": 2023, "temp": 9.3 },
+          { "year": 2024, "temp": 9.5 }
+        ]
+      },
       "disasters": [
         {
           "disNo": "GEO-20240210-CA-TJK-0001",
@@ -880,6 +1104,34 @@
       "name": "Serbia",
       "iso": "SRB",
       "coordinates": [44.0, 21.0],
+      "statistics": {
+        "population": 6664449,
+        "landArea": 88361,
+        "avgAnnualTemp": 11.4,
+        "lackOfCopingCapacity": 2.9,
+        "gdpPerCapita": 22004,
+        "hdi": 0.802,
+        "informRiskScore": 2.8,
+        "unemploymentRate": 9.4,
+        "demographics": {
+          "children": 16.1,
+          "women": 51.3,
+          "olderPersons": 21.1,
+          "personsWithDisabilities": 8.0
+        },
+        "temperatureHistory": [
+          { "year": 2015, "temp": 10.8 },
+          { "year": 2016, "temp": 11.0 },
+          { "year": 2017, "temp": 11.2 },
+          { "year": 2018, "temp": 11.5 },
+          { "year": 2019, "temp": 11.7 },
+          { "year": 2020, "temp": 11.9 },
+          { "year": 2021, "temp": 11.4 },
+          { "year": 2022, "temp": 11.8 },
+          { "year": 2023, "temp": 12.1 },
+          { "year": 2024, "temp": 12.3 }
+        ]
+      },
       "disasters": [
         {
           "disNo": "HYDRO-20240520-WBT-SRB-0001",
@@ -1014,6 +1266,34 @@
       "name": "Albania",
       "iso": "ALB",
       "coordinates": [41.0, 20.0],
+      "statistics": {
+        "population": 2793592,
+        "landArea": 28748,
+        "avgAnnualTemp": 14.2,
+        "lackOfCopingCapacity": 3.5,
+        "gdpPerCapita": 17741,
+        "hdi": 0.789,
+        "informRiskScore": 3.2,
+        "unemploymentRate": 11.6,
+        "demographics": {
+          "children": 17.2,
+          "women": 49.9,
+          "olderPersons": 14.8,
+          "personsWithDisabilities": 5.5
+        },
+        "temperatureHistory": [
+          { "year": 2015, "temp": 13.6 },
+          { "year": 2016, "temp": 13.8 },
+          { "year": 2017, "temp": 14.0 },
+          { "year": 2018, "temp": 14.3 },
+          { "year": 2019, "temp": 14.5 },
+          { "year": 2020, "temp": 14.7 },
+          { "year": 2021, "temp": 14.2 },
+          { "year": 2022, "temp": 14.6 },
+          { "year": 2023, "temp": 14.9 },
+          { "year": 2024, "temp": 15.1 }
+        ]
+      },
       "disasters": [
         {
           "disNo": "GEO-20240315-WBT-ALB-0001",
@@ -1150,6 +1430,34 @@
       "name": "North Macedonia",
       "iso": "MKD",
       "coordinates": [41.5, 21.5],
+      "statistics": {
+        "population": 1836713,
+        "landArea": 25713,
+        "avgAnnualTemp": 11.5,
+        "lackOfCopingCapacity": 3.1,
+        "gdpPerCapita": 19709,
+        "hdi": 0.770,
+        "informRiskScore": 3.0,
+        "unemploymentRate": 14.4,
+        "demographics": {
+          "children": 16.5,
+          "women": 49.8,
+          "olderPersons": 14.2,
+          "personsWithDisabilities": 4.8
+        },
+        "temperatureHistory": [
+          { "year": 2015, "temp": 10.9 },
+          { "year": 2016, "temp": 11.1 },
+          { "year": 2017, "temp": 11.3 },
+          { "year": 2018, "temp": 11.6 },
+          { "year": 2019, "temp": 11.8 },
+          { "year": 2020, "temp": 12.0 },
+          { "year": 2021, "temp": 11.5 },
+          { "year": 2022, "temp": 11.9 },
+          { "year": 2023, "temp": 12.2 },
+          { "year": 2024, "temp": 12.4 }
+        ]
+      },
       "disasters": [
         {
           "disNo": "MET-20240810-WBT-MKD-0001",
@@ -1200,6 +1508,34 @@
       "name": "Bosnia and Herzegovina",
       "iso": "BIH",
       "coordinates": [44.0, 17.8],
+      "statistics": {
+        "population": 3210847,
+        "landArea": 51197,
+        "avgAnnualTemp": 10.8,
+        "lackOfCopingCapacity": 3.3,
+        "gdpPerCapita": 19584,
+        "hdi": 0.780,
+        "informRiskScore": 3.1,
+        "unemploymentRate": 15.2,
+        "demographics": {
+          "children": 15.3,
+          "women": 51.2,
+          "olderPersons": 17.8,
+          "personsWithDisabilities": 6.2
+        },
+        "temperatureHistory": [
+          { "year": 2015, "temp": 10.2 },
+          { "year": 2016, "temp": 10.4 },
+          { "year": 2017, "temp": 10.6 },
+          { "year": 2018, "temp": 10.9 },
+          { "year": 2019, "temp": 11.1 },
+          { "year": 2020, "temp": 11.3 },
+          { "year": 2021, "temp": 10.8 },
+          { "year": 2022, "temp": 11.2 },
+          { "year": 2023, "temp": 11.5 },
+          { "year": 2024, "temp": 11.7 }
+        ]
+      },
       "disasters": [
         {
           "disNo": "HYDRO-20240515-WBT-BIH-0001",
@@ -1250,6 +1586,34 @@
       "name": "Cyprus",
       "iso": "CYP",
       "coordinates": [35.0, 33.0],
+      "statistics": {
+        "population": 1260138,
+        "landArea": 9251,
+        "avgAnnualTemp": 19.5,
+        "lackOfCopingCapacity": 1.8,
+        "gdpPerCapita": 48826,
+        "hdi": 0.896,
+        "informRiskScore": 2.1,
+        "unemploymentRate": 6.8,
+        "demographics": {
+          "children": 16.5,
+          "women": 49.5,
+          "olderPersons": 16.8,
+          "personsWithDisabilities": 7.5
+        },
+        "temperatureHistory": [
+          { "year": 2015, "temp": 18.9 },
+          { "year": 2016, "temp": 19.1 },
+          { "year": 2017, "temp": 19.3 },
+          { "year": 2018, "temp": 19.6 },
+          { "year": 2019, "temp": 19.8 },
+          { "year": 2020, "temp": 20.0 },
+          { "year": 2021, "temp": 19.5 },
+          { "year": 2022, "temp": 19.9 },
+          { "year": 2023, "temp": 20.2 },
+          { "year": 2024, "temp": 20.4 }
+        ]
+      },
       "disasters": [
         {
           "disNo": "MET-20240705-WBT-CYP-0001",
@@ -1342,6 +1706,34 @@
       "name": "Moldova",
       "iso": "MDA",
       "coordinates": [47.0, 28.5],
+      "statistics": {
+        "population": 2512758,
+        "landArea": 33851,
+        "avgAnnualTemp": 10.2,
+        "lackOfCopingCapacity": 4.2,
+        "gdpPerCapita": 16478,
+        "hdi": 0.763,
+        "informRiskScore": 3.8,
+        "unemploymentRate": 4.1,
+        "demographics": {
+          "children": 17.8,
+          "women": 52.8,
+          "olderPersons": 13.5,
+          "personsWithDisabilities": 5.1
+        },
+        "temperatureHistory": [
+          { "year": 2015, "temp": 9.6 },
+          { "year": 2016, "temp": 9.8 },
+          { "year": 2017, "temp": 10.0 },
+          { "year": 2018, "temp": 10.3 },
+          { "year": 2019, "temp": 10.5 },
+          { "year": 2020, "temp": 10.7 },
+          { "year": 2021, "temp": 10.2 },
+          { "year": 2022, "temp": 10.6 },
+          { "year": 2023, "temp": 10.9 },
+          { "year": 2024, "temp": 11.1 }
+        ]
+      },
       "disasters": [
         {
           "disNo": "CLIM-20240320-SCWCIS-MDA-0001",
@@ -1476,6 +1868,34 @@
       "name": "Belarus",
       "iso": "BLR",
       "coordinates": [53.5, 28.0],
+      "statistics": {
+        "population": 9200617,
+        "landArea": 207600,
+        "avgAnnualTemp": 7.2,
+        "lackOfCopingCapacity": 2.5,
+        "gdpPerCapita": 23117,
+        "hdi": 0.808,
+        "informRiskScore": 2.4,
+        "unemploymentRate": 3.8,
+        "demographics": {
+          "children": 18.2,
+          "women": 53.4,
+          "olderPersons": 15.8,
+          "personsWithDisabilities": 5.8
+        },
+        "temperatureHistory": [
+          { "year": 2015, "temp": 6.6 },
+          { "year": 2016, "temp": 6.8 },
+          { "year": 2017, "temp": 7.0 },
+          { "year": 2018, "temp": 7.3 },
+          { "year": 2019, "temp": 7.5 },
+          { "year": 2020, "temp": 7.7 },
+          { "year": 2021, "temp": 7.2 },
+          { "year": 2022, "temp": 7.6 },
+          { "year": 2023, "temp": 7.9 },
+          { "year": 2024, "temp": 8.1 }
+        ]
+      },
       "disasters": [
         {
           "disNo": "HYDRO-20240405-SCWCIS-BLR-0001",
@@ -1610,6 +2030,34 @@
       "name": "Montenegro",
       "iso": "MNE",
       "coordinates": [42.5, 19.3],
+      "statistics": {
+        "population": 616695,
+        "landArea": 13812,
+        "avgAnnualTemp": 12.4,
+        "lackOfCopingCapacity": 2.8,
+        "gdpPerCapita": 26038,
+        "hdi": 0.832,
+        "informRiskScore": 2.5,
+        "unemploymentRate": 14.8,
+        "demographics": {
+          "children": 18.1,
+          "women": 50.5,
+          "olderPersons": 15.2,
+          "personsWithDisabilities": 6.8
+        },
+        "temperatureHistory": [
+          { "year": 2015, "temp": 11.8 },
+          { "year": 2016, "temp": 12.0 },
+          { "year": 2017, "temp": 12.2 },
+          { "year": 2018, "temp": 12.5 },
+          { "year": 2019, "temp": 12.7 },
+          { "year": 2020, "temp": 12.9 },
+          { "year": 2021, "temp": 12.4 },
+          { "year": 2022, "temp": 12.8 },
+          { "year": 2023, "temp": 13.1 },
+          { "year": 2024, "temp": 13.3 }
+        ]
+      },
       "disasters": [
         {
           "disNo": "MET-20240425-WBT-MNE-0001",
@@ -1746,6 +2194,34 @@
       "name": "Turkmenistan",
       "iso": "TKM",
       "coordinates": [39.0, 59.5],
+      "statistics": {
+        "population": 6516100,
+        "landArea": 488100,
+        "avgAnnualTemp": 16.3,
+        "lackOfCopingCapacity": 4.8,
+        "gdpPerCapita": 14745,
+        "hdi": 0.745,
+        "informRiskScore": 3.9,
+        "unemploymentRate": 4.1,
+        "demographics": {
+          "children": 30.2,
+          "women": 50.4,
+          "olderPersons": 4.8,
+          "personsWithDisabilities": 3.2
+        },
+        "temperatureHistory": [
+          { "year": 2015, "temp": 15.7 },
+          { "year": 2016, "temp": 15.9 },
+          { "year": 2017, "temp": 16.1 },
+          { "year": 2018, "temp": 16.4 },
+          { "year": 2019, "temp": 16.6 },
+          { "year": 2020, "temp": 16.8 },
+          { "year": 2021, "temp": 16.3 },
+          { "year": 2022, "temp": 16.7 },
+          { "year": 2023, "temp": 17.0 },
+          { "year": 2024, "temp": 17.2 }
+        ]
+      },
       "disasters": [
         {
           "disNo": "GEO-20240312-CA-TKM-0001",
@@ -1880,6 +2356,34 @@
       "name": "Kosovo",
       "iso": "XKX",
       "coordinates": [42.5, 21.0],
+      "statistics": {
+        "population": 1761985,
+        "landArea": 10887,
+        "avgAnnualTemp": 10.4,
+        "lackOfCopingCapacity": 4.5,
+        "gdpPerCapita": 14795,
+        "hdi": 0.750,
+        "informRiskScore": 3.6,
+        "unemploymentRate": 25.8,
+        "demographics": {
+          "children": 24.5,
+          "women": 49.2,
+          "olderPersons": 8.5,
+          "personsWithDisabilities": 4.5
+        },
+        "temperatureHistory": [
+          { "year": 2015, "temp": 9.8 },
+          { "year": 2016, "temp": 10.0 },
+          { "year": 2017, "temp": 10.2 },
+          { "year": 2018, "temp": 10.5 },
+          { "year": 2019, "temp": 10.7 },
+          { "year": 2020, "temp": 10.9 },
+          { "year": 2021, "temp": 10.4 },
+          { "year": 2022, "temp": 10.8 },
+          { "year": 2023, "temp": 11.1 },
+          { "year": 2024, "temp": 11.3 }
+        ]
+      },
       "disasters": [
         {
           "disNo": "HYDRO-20240425-WBT-XKX-0001",

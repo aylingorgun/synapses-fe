@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useDisasterData } from '@/hooks/useDisasterData';
 import { useFilters } from '@/contexts/FilterContext';
 import { getDisasterIconPath } from '@/constants/disasterIcons';
-import { formatDate } from '@/utils/dateUtils';
+import { formatDate, formatCount } from '@/utils';
 import filterOptions from '@/data/filterOptions.json';
 import { ArrowRightIcon } from '@/components/icons/StatIcons';
 
@@ -48,7 +48,7 @@ const DisasterCard = ({ disaster }) => {
         <p className="text-sm text-gray-600 mb-4 leading-relaxed line-clamp-3">
           {disaster.summary ||
             `${displayType} event affecting ${disaster.location || disaster.country}. ${
-              disaster.noAffected ? `${disaster.noAffected.toLocaleString()} people affected.` : ''
+              disaster.noAffected ? `${formatCount(disaster.noAffected)} people affected.` : ''
             }`}
         </p>
         <button

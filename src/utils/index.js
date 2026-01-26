@@ -7,3 +7,13 @@ export {
   filterCountriesByRegion,
   filterByCountry,
 } from './filterDisasters';
+
+export {
+  formatCurrency,
+  formatCount,
+  formatPopulation,
+  formatArea,
+  formatTemperature,
+  getMeasurementLabel,
+  formatMeasurement,
+} from './formatUtils';

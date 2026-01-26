@@ -3,7 +3,6 @@
 import { MapContainer, TileLayer } from 'react-leaflet';
 import { MAP_CONFIG, TILE_LAYERS } from '@/constants/mapConfig';
 import { useGeoData } from '@/hooks/useGeoData';
-import { MapSelectionProvider } from '@/contexts';
 import CountryBorders from './layers/CountryBorders';
 import { DisasterMarkers } from './markers';
 import MapBreadcrumb from './MapBreadcrumb';
@@ -31,25 +30,23 @@ export default function MapContent() {
   }
 
   return (
-    <MapSelectionProvider>
-      <div className="relative z-0">
-        <MapBreadcrumb />
-        <MapContainer
-          center={MAP_CONFIG.center}
-          zoom={MAP_CONFIG.zoom}
-          minZoom={MAP_CONFIG.minZoom}
-          maxZoom={MAP_CONFIG.maxZoom}
-          style={{ height: MAP_HEIGHT, width: '100%', zIndex: 1 }}
-          scrollWheelZoom={true}
-        >
-          <TileLayer
-            attribution={TILE_LAYERS.carto.attribution}
-            url={TILE_LAYERS.carto.url}
-          />
+    <div className="relative z-0">
+      <MapBreadcrumb />
+      <MapContainer
+        center={MAP_CONFIG.center}
+        zoom={MAP_CONFIG.zoom}
+        minZoom={MAP_CONFIG.minZoom}
+        maxZoom={MAP_CONFIG.maxZoom}
+        style={{ height: MAP_HEIGHT, width: '100%', zIndex: 1 }}
+        scrollWheelZoom={true}
+      >
+        <TileLayer
+          attribution={TILE_LAYERS.carto.attribution}
+          url={TILE_LAYERS.carto.url}
+        />
 
-          <MapLayers geoData={geoData} loading={loading} />
-        </MapContainer>
-      </div>
-    </MapSelectionProvider>
+        <MapLayers geoData={geoData} loading={loading} />
+      </MapContainer>
+    </div>
   );
 }

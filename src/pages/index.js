@@ -5,7 +5,6 @@ import { DisasterDistributionSection, DisasterChronology } from '@/components/ch
 import { DisasterRecords } from '@/components/disasters';
 
 export default function Home() {
-
   return (
     <div>
       {/* Map Section */}

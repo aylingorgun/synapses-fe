@@ -6,7 +6,7 @@ import { useDisasterData } from '@/hooks/useDisasterData';
 import { REGION_CONFIG } from '@/constants/regionConfig';
 import { getDisasterIconPath } from '@/constants/disasterIcons';
 import { useFilters } from '@/contexts';
-import { formatDate, formatShortDate } from '@/utils/dateUtils';
+import { formatDate, formatShortDate, formatCount, formatCurrency, getMeasurementLabel, formatMeasurement } from '@/utils';
 
 const ChronologyItem = ({ disaster, isActive, onClick, isTop }) => {
   const iconPath = getDisasterIconPath(disaster.specificHazardName, disaster.hazardType);
@@ -102,22 +102,24 @@ const DisasterDetailPopup = ({ disaster }) => {
             <span className="text-[0.7rem] text-white/50 uppercase tracking-wide">
               Total Deaths
             </span>
-            <span className="text-sm text-white">{disaster.totalDeaths.toLocaleString()}</span>
+            <span className="text-sm text-white">{formatCount(disaster.totalDeaths)}</span>
           </div>
         )}
 
         {disaster.noAffected && (
           <div className="flex flex-col gap-1">
             <span className="text-[0.7rem] text-white/50 uppercase tracking-wide">Affected</span>
-            <span className="text-sm text-white">{disaster.noAffected.toLocaleString()}</span>
+            <span className="text-sm text-white">{formatCount(disaster.noAffected)}</span>
           </div>
         )}
 
         {disaster.magnitude && (
           <div className="flex flex-col gap-1">
-            <span className="text-[0.7rem] text-white/50 uppercase tracking-wide">Magnitude</span>
+            <span className="text-[0.7rem] text-white/50 uppercase tracking-wide">
+              {getMeasurementLabel(disaster.magnitudeScale)}
+            </span>
             <span className="text-sm text-white">
-              {disaster.magnitude} {disaster.magnitudeScale || ''}
+              {formatMeasurement(disaster.magnitude, disaster.magnitudeScale)}
             </span>
           </div>
         )}
@@ -127,9 +129,7 @@ const DisasterDetailPopup = ({ disaster }) => {
             <span className="text-[0.7rem] text-white/50 uppercase tracking-wide">
               Economic Loss
             </span>
-            <span className="text-sm text-white">
-              ${(disaster.totalEconomicLoss / 1000000).toFixed(1)}M
-            </span>
+<span className="text-sm text-white">{formatCurrency(disaster.totalEconomicLoss)}</span>
           </div>
         )}
 
