@@ -94,7 +94,6 @@ function CountryComparisonDistribution({ countryName }) {
     );
   }
 
-  // Customize chart data labels for display
   const displayData = chartData.map((item, index) => ({
     ...item,
     name: index === 0 ? countryName : `${regionName} Average`,

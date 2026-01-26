@@ -30,23 +30,9 @@ export const COLORS = {
 };
 
 /**
- * Chart color palette for categorical data (DonutChart, general series)
+ * Chart color palette for categorical data (DonutChart, BarChart, LineChart, etc.)
  */
 export const CHART_COLORS = [
-  COLORS.darkBlue,
-  COLORS.vibrantBlue,
-  COLORS.greenAccent,
-  COLORS.blue90,
-  COLORS.mapDarkBlue,
-  COLORS.brightBlue85,
-  COLORS.blue38,
-  COLORS.grey64,
-];
-
-/**
- * Extended chart palette for more categories
- */
-export const CHART_COLORS_EXTENDED = [
   COLORS.darkBlue,
   COLORS.vibrantBlue,
   COLORS.greenAccent,

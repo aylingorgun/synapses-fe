@@ -3,3 +3,6 @@ export { default as DisasterDistributionSection } from './DisasterDistributionSe
 export { default as DisasterChronology } from './DisasterChronology';
 export { default as DonutChart } from './DonutChart';
 export { default as LineChart } from './LineChart';
+export { default as MultiLineChart } from './MultiLineChart';
+export { default as CorrelationAnalysis } from './CorrelationAnalysis';
+export { default as TemporalTrendsSection } from './TemporalTrendsSection';

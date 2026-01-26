@@ -5,7 +5,6 @@ export { baseSelectStyles, checkboxSelectStyles } from './selectStyles';
 export {
   COLORS,
   CHART_COLORS,
-  CHART_COLORS_EXTENDED,
   DISASTER_COLORS,
   LINE_COLORS,
   COMPARISON_COLORS,
