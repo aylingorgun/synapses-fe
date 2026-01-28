@@ -1,8 +1,9 @@
 'use client';
 
 import {
-  LineChart as RechartsLineChart,
+  ComposedChart,
   Line,
+  Bar,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -92,11 +93,11 @@ const CustomTooltip = ({ active, payload, label, lines }) => {
 };
 
 /**
- * Multi-line chart with support for dual Y-axes
+ * Composed chart with support for lines and bars on dual Y-axes
  * 
  * @param {Object} props
  * @param {Array} props.data - Chart data array
- * @param {Array} props.lines - Line configurations: [{ dataKey, name, unit, yAxisId, color }]
+ * @param {Array} props.lines - Series configurations: [{ dataKey, name, unit, yAxisId, color, chartType: 'line'|'bar' }]
  * @param {string} props.xAxisKey - Key for X-axis values
  * @param {number} props.height - Chart height (300, 350, 400, 450, 500)
  * @param {boolean} props.loading - Loading state
@@ -167,15 +168,23 @@ export default function MultiLineChart({
       <div className="flex flex-wrap justify-center gap-4 mt-4 px-4">
         {payload.map((entry, index) => {
           const lineConfig = lines.find(l => l.dataKey === entry.dataKey);
+          const isBar = lineConfig?.chartType === 'bar';
           return (
             <div 
               key={`legend-${index}`}
               className="flex items-center gap-2 px-3 py-1.5 bg-slate-50 rounded-full border border-slate-200"
             >
-              <span 
-                className="w-3 h-3 rounded-full" 
-                style={{ backgroundColor: entry.color }}
-              />
+              {isBar ? (
+                <span 
+                  className="w-3 h-3 rounded-sm" 
+                  style={{ backgroundColor: entry.color }}
+                />
+              ) : (
+                <span 
+                  className="w-3 h-3 rounded-full" 
+                  style={{ backgroundColor: entry.color }}
+                />
+              )}
               <span className="text-sm font-medium text-slate-700">
                 {lineConfig?.name || entry.value}
               </span>
@@ -186,10 +195,14 @@ export default function MultiLineChart({
     );
   };
 
+  // Separate lines and bars for proper rendering order (bars behind lines)
+  const barSeries = lines.filter(l => l.chartType === 'bar');
+  const lineSeries = lines.filter(l => l.chartType !== 'bar');
+
   return (
     <div className={heightClass}>
       <ResponsiveContainer width="100%" height="100%">
-        <RechartsLineChart
+        <ComposedChart
           data={data}
           margin={{ top: 20, right: dualAxis ? 60 : 30, left: 20, bottom: 30 }}
         >
@@ -241,30 +254,46 @@ export default function MultiLineChart({
           <Tooltip content={<CustomTooltip lines={lines} />} />
           <Legend content={renderLegend} />
           
-          {lines.map((line, index) => (
+          {/* Render stacked bars first (behind lines) */}
+          {barSeries.map((series, index) => (
+            <Bar
+              key={series.dataKey}
+              dataKey={series.dataKey}
+              name={series.name}
+              yAxisId={series.yAxisId || 'left'}
+              fill={series.color || CHART_COLORS[lines.indexOf(series) % CHART_COLORS.length]}
+              opacity={0.85}
+              stackId="disasters"
+              radius={index === barSeries.length - 1 ? [4, 4, 0, 0] : [0, 0, 0, 0]}
+              barSize={32}
+            />
+          ))}
+          
+          {/* Render lines on top */}
+          {lineSeries.map((line, index) => (
             <Line
               key={line.dataKey}
               type="monotone"
               dataKey={line.dataKey}
               name={line.name}
               yAxisId={line.yAxisId || 'left'}
-              stroke={line.color || CHART_COLORS[index % CHART_COLORS.length]}
+              stroke={line.color || CHART_COLORS[lines.indexOf(line) % CHART_COLORS.length]}
               strokeWidth={2.5}
               dot={{ 
                 fill: '#fff', 
-                stroke: line.color || CHART_COLORS[index % CHART_COLORS.length], 
+                stroke: line.color || CHART_COLORS[lines.indexOf(line) % CHART_COLORS.length], 
                 strokeWidth: 2, 
                 r: 4 
               }}
               activeDot={{ 
                 r: 6, 
-                stroke: line.color || CHART_COLORS[index % CHART_COLORS.length], 
+                stroke: line.color || CHART_COLORS[lines.indexOf(line) % CHART_COLORS.length], 
                 strokeWidth: 2 
               }}
               connectNulls
             />
           ))}
-        </RechartsLineChart>
+        </ComposedChart>
       </ResponsiveContainer>
     </div>
   );

@@ -210,8 +210,9 @@ export function useCorrelationData(countryName, startDate, endDate) {
 }
 
 /**
- * Get line configuration for selected variables
- * Returns lines with descriptive legend names including units
+ * Get series configuration for selected variables
+ * Returns series with descriptive legend names including units
+ * Disaster events are rendered as bars, continuous data as lines
  */
 export function getLineConfig(selectedVariables) {
   const lines = [];
@@ -243,6 +244,7 @@ export function getLineConfig(selectedVariables) {
         unit: item.unit === 'count' ? '' : item.unit,
         color: item.color,
         yAxisId: isDisaster ? 'right' : 'left',
+        chartType: isDisaster ? 'bar' : 'line', // Disasters as bars, continuous data as lines
       });
     }
   });
