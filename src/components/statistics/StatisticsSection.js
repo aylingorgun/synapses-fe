@@ -5,7 +5,7 @@ import StatCard from './StatCard';
 import { useStatistics } from '@/hooks/useStatistics';
 import { useCountryStatistics } from '@/hooks/useCountryStatistics';
 import { useFilters } from '@/contexts';
-import { DonutChart, LineChart } from '@/components/charts';
+import { DonutChart } from '@/components/charts';
 import { formatCurrency, formatCount, formatPopulation, formatArea, formatTemperature } from '@/utils';
 import {
   HazardIcon,
@@ -18,9 +18,8 @@ import {
   TemperatureIcon,
   ShieldIcon,
   ChartIcon,
-  InfoRiskIcon,
 } from '@/components/icons/StatIcons';
-import { CHART_COLORS, LINE_COLORS } from '@/constants/chartColors';
+import { CHART_COLORS } from '@/constants/chartColors';
 
 const LAST_UPDATED = 'January 2024';
 
@@ -128,12 +127,7 @@ function CountryStatistics({ countryStats, countryName, keyHazardsDisplay, loadi
     ].filter((d) => d.value > 0);
   }, [countryStats]);
 
-  const temperatureData = useMemo(() => {
-    if (!countryStats?.temperatureHistory) return [];
-    return countryStats.temperatureHistory;
-  }, [countryStats]);
-
-  const hasChartData = unemploymentData.length > 0 || demographicsData.length > 0 || temperatureData.length > 0;
+  const hasChartData = unemploymentData.length > 0 || demographicsData.length > 0;
 
   if (!countryStats) {
     return (
@@ -145,7 +139,7 @@ function CountryStatistics({ countryStats, countryName, keyHazardsDisplay, loadi
 
   return (
     <div className="max-w-[1200px] mx-auto space-y-6">
-      <div className="grid grid-cols-4 gap-5 max-lg:grid-cols-2 max-sm:grid-cols-1">
+      <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-2 max-sm:grid-cols-1">
         <StatCard
           icon={<HazardIcon />}
           title="Key Hazards"
@@ -187,26 +181,10 @@ function CountryStatistics({ countryStats, countryName, keyHazardsDisplay, loadi
         />
 
         <StatCard
-          icon={<MoneyIcon />}
-          title="GDP per Capita (PPP)"
-          value={formatCurrency(countryStats.gdpPerCapita)}
-          subtitle="Purchasing power parity"
-          loading={loading}
-        />
-
-        <StatCard
           icon={<ChartIcon />}
           title="Human Development Index"
           value={countryStats.hdi ?? '—'}
           subtitle="HDI score (0-1)"
-          loading={loading}
-        />
-
-        <StatCard
-          icon={<InfoRiskIcon />}
-          title="INFORM Risk Score"
-          value={countryStats.informRiskScore ?? '—'}
-          subtitle="Risk assessment (0-10)"
           loading={loading}
         />
       </div>
@@ -245,29 +223,6 @@ function CountryStatistics({ countryStats, countryName, keyHazardsDisplay, loadi
                 outerRadius={75}
                 height={260}
                 emptyMessage="Demographics data not available"
-              />
-            </ChartCard>
-          )}
-
-          {temperatureData.length > 0 && (
-            <ChartCard
-              title="Temperature Change Over Time"
-              subtitle="Average annual temperature (°C) from 2015 to present"
-              lastUpdated={LAST_UPDATED}
-              fullWidth
-            >
-              <LineChart
-                data={temperatureData}
-                dataKey="temp"
-                xAxisKey="year"
-                loading={loading}
-                height={300}
-                showAverage
-                averageLabel="Avg"
-                unit="°C"
-                trendColors={LINE_COLORS.trend}
-                emptyMessage="Temperature history not available"
-                valueFormatter={(value) => `${value}°`}
               />
             </ChartCard>
           )}
