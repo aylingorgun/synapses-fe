@@ -3,10 +3,13 @@
 import { useState, useMemo } from 'react';
 import Select, { components } from 'react-select';
 import DistributionChart from './DistributionChart';
+import RadarChart from './RadarChart';
 import { useChartData } from '@/hooks/useChartData';
 import { useCountryComparisonData } from '@/hooks/useCountryComparisonData';
+import { useRadarChartData } from '@/hooks/useRadarChartData';
 import { REGION_CONFIG } from '@/constants/regionConfig';
 import { checkboxSelectStyles } from '@/constants/selectStyles';
+import { CHART_COLORS } from '@/constants/chartColors';
 import { useMapSelection } from '@/contexts';
 
 const REGION_OPTIONS = Object.entries(REGION_CONFIG).map(([key, config]) => ({
@@ -33,6 +36,7 @@ const CheckboxOption = (props) => {
 function RegionDistribution({ selectedFilters, onFilterChange }) {
   const selectedRegions = selectedFilters.map((f) => f.value);
   const { chartData, disasterTypes, loading } = useChartData(selectedRegions);
+  const { countryRadars, seasons, loading: radarLoading } = useRadarChartData();
 
   if (loading) {
     return (
@@ -61,7 +65,7 @@ function RegionDistribution({ selectedFilters, onFilterChange }) {
         />
       </div>
 
-      <div className="bg-slate-50 border border-slate-200 rounded-lg p-6 max-md:p-4 max-md:overflow-x-auto">
+      <div className="bg-slate-50 border border-slate-200 rounded-lg p-6 max-md:p-4 max-md:overflow-x-auto mb-8">
         <DistributionChart
           data={chartData}
           dataKeys={disasterTypes}
@@ -70,6 +74,54 @@ function RegionDistribution({ selectedFilters, onFilterChange }) {
           showLegend={true}
           showGrid={true}
         />
+      </div>
+
+
+      {/* Radar Charts: Seasonal Distribution by Country */}
+      <div className="mb-8">
+        <h2 className="text-2xl font-bold text-undp-navy mb-2">Seasonal Distribution of Disasters</h2>
+        <p className="text-sm text-slate-500">Percentage of events per season within each country, by disaster type</p>
+      </div>
+
+      <div className="mt-8 max-md:p-4 max-md:overflow-x-auto mb-8">       
+        {radarLoading ? (
+          <div className="flex flex-col items-center justify-center h-[300px] gap-4">
+            <div className="w-10 h-10 border-3 border-slate-200 border-t-undp-blue rounded-full animate-spin" />
+          </div>
+        ) : countryRadars.length === 0 ? (
+          <div className="bg-slate-50 border border-slate-200 rounded-lg p-6 text-center text-slate-500">
+            No disaster data available for the selected region
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {countryRadars.map((countryRadar, index) => (
+              <div
+                key={countryRadar.country}
+                className="bg-slate-50 border border-slate-200 rounded-lg p-4"
+              >
+                <h4 className="text-sm font-semibold text-slate-800 mb-3 text-center">
+                  {countryRadar.country}
+                </h4>
+                <RadarChart
+                  data={countryRadar.data}
+                  dataKeys={countryRadar.disasterTypes}
+                  axisKeys={seasons}
+                  height={300}
+                  loading={false}
+                  emptyMessage="No data"
+                  colors={CHART_COLORS}
+                  showLegend={true}
+                  isPercentage={true}
+                />
+                {countryRadar.totalEvents > 0 && (
+                  <p className="text-xs text-slate-500 text-center mt-2">
+                    {countryRadar.totalEvents} total event{countryRadar.totalEvents !== 1 ? 's' : ''}
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </>
   );

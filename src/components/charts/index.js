@@ -6,3 +6,4 @@ export { default as LineChart } from './LineChart';
 export { default as MultiLineChart } from './MultiLineChart';
 export { default as CorrelationAnalysis } from './CorrelationAnalysis';
 export { default as TemporalTrendsSection } from './TemporalTrendsSection';
+export { default as RadarChart } from './RadarChart';
