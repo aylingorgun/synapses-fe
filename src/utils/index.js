@@ -17,3 +17,9 @@ export {
   getMeasurementLabel,
   formatMeasurement,
 } from './formatUtils';
+
+export {
+  parseCSV,
+  groupDisastersByCountry,
+  mergeCSVDatasets,
+} from './csvParser';

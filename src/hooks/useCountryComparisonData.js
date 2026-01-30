@@ -1,73 +1,108 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useMemo } from 'react';
+import { useDisasterData } from './useDisasterData';
+import { REGION_CONFIG, getCountryRegion } from '@/constants/regionConfig';
+import { normalizeDisasterType } from '@/constants/disasterTypes';
 
 /**
- * Hook to fetch country vs regional average comparison data from API
+ * Hook to calculate country vs regional average comparison
  * @param {string} countryName - Name of the selected country
- * @returns {object} { chartData, disasterTypes, regionName, loading, error, refetch }
+ * @returns {Object} { chartData, disasterTypes, regionName, loading, error }
  */
 export function useCountryComparisonData(countryName) {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const { data, loading, error } = useDisasterData();
 
-  const fetchComparisonData = useCallback(async () => {
-    if (!countryName) {
-      setData(null);
-      return;
+  const comparisonData = useMemo(() => {
+    if (!data?.countries || !countryName) {
+      return null;
     }
 
-    try {
-      setLoading(true);
-      setError(null);
+    const regionKey = getCountryRegion(countryName);
+    if (!regionKey) {
+      return { error: `Country "${countryName}" not found in any region` };
+    }
 
-      const response = await fetch(
-        `/api/statistics/country-comparison?country=${encodeURIComponent(countryName)}`
-      );
+    const regionConfig = REGION_CONFIG[regionKey];
+    const regionCountries = regionConfig.countries;
+    const disasterTypeSet = new Set();
+    const countryDisasters = {};
+    const regionTotalDisasters = {};
+    let countriesWithDataInRegion = 0;
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'Failed to fetch comparison data');
+    data.countries.forEach((country) => {
+      if (!regionCountries.includes(country.name)) return;
+
+      const isSelectedCountry = country.name.toLowerCase() === countryName.toLowerCase();
+
+      if (country.disasters && country.disasters.length > 0) {
+        countriesWithDataInRegion++;
       }
 
-      const result = await response.json();
-      setData(result);
-    } catch (err) {
-      setError(err.message);
-      setData(null);
-    } finally {
-      setLoading(false);
-    }
-  }, [countryName]);
+      country.disasters.forEach((disaster) => {
+        const type = normalizeDisasterType(disaster.hazardType);
+        disasterTypeSet.add(type);
 
-  useEffect(() => {
-    fetchComparisonData();
-  }, [fetchComparisonData]);
+        if (isSelectedCountry) {
+          countryDisasters[type] = (countryDisasters[type] || 0) + 1;
+        }
 
-  const chartData = data
+        regionTotalDisasters[type] = (regionTotalDisasters[type] || 0) + 1;
+      });
+    });
+
+    const numCountriesInRegion = regionCountries.length;
+    const regionalAverage = {};
+    Object.keys(regionTotalDisasters).forEach((type) => {
+      regionalAverage[type] = Math.round((regionTotalDisasters[type] / numCountriesInRegion) * 10) / 10;
+    });
+
+    const disasterTypes = Array.from(disasterTypeSet).sort();
+    const countryTotal = Object.values(countryDisasters).reduce((sum, val) => sum + val, 0);
+    const regionalAverageTotal = Object.values(regionalAverage).reduce((sum, val) => sum + val, 0);
+
+    return {
+      country: {
+        name: countryName,
+        disasters: countryDisasters,
+        total: countryTotal,
+      },
+      regionalAverage: {
+        name: `${regionConfig.shortName} Avg`,
+        regionKey,
+        regionName: regionConfig.name,
+        regionShortName: regionConfig.shortName,
+        disasters: regionalAverage,
+        total: Math.round(regionalAverageTotal * 10) / 10,
+        countriesInRegion: numCountriesInRegion,
+        countriesWithData: countriesWithDataInRegion,
+      },
+      disasterTypes,
+    };
+  }, [data, countryName]);
+
+  const chartData = comparisonData && !comparisonData.error
     ? [
         {
           name: 'Selected Country',
-          fullName: data.country.name,
-          ...data.country.disasters,
-          _total: data.country.total,
+          fullName: comparisonData.country.name,
+          ...comparisonData.country.disasters,
+          _total: comparisonData.country.total,
         },
         {
           name: 'Regional Average',
-          fullName: data.regionalAverage.name,
-          ...data.regionalAverage.disasters,
-          _total: data.regionalAverage.total,
+          fullName: comparisonData.regionalAverage.name,
+          ...comparisonData.regionalAverage.disasters,
+          _total: comparisonData.regionalAverage.total,
         },
       ]
     : [];
 
   return {
     chartData,
-    disasterTypes: data?.disasterTypes || [],
-    regionName: data?.regionalAverage?.regionShortName || '',
-    regionFullName: data?.regionalAverage?.regionName || '',
-    countriesInRegion: data?.regionalAverage?.countriesInRegion || 0,
+    disasterTypes: comparisonData?.disasterTypes || [],
+    regionName: comparisonData?.regionalAverage?.regionShortName || '',
+    regionFullName: comparisonData?.regionalAverage?.regionName || '',
+    countriesInRegion: comparisonData?.regionalAverage?.countriesInRegion || 0,
     loading,
-    error,
-    refetch: fetchComparisonData,
+    error: error || comparisonData?.error || null,
   };
 }

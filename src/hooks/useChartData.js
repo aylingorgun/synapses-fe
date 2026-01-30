@@ -1,58 +1,14 @@
 import { useMemo } from 'react';
 import { useDisasterData } from './useDisasterData';
 import { REGION_CONFIG } from '@/constants/regionConfig';
+import { normalizeDisasterType } from '@/constants/disasterTypes';
 
 export { REGION_CONFIG } from '@/constants/regionConfig';
 
-const GENERIC_DISASTER_TYPES = {
-  'Earthquake': 'Earthquake',
-  'Flood': 'Flood',
-  'Fire': 'Fire',
-  'Storm': 'Storm',
-  'Extreme Temperature': 'Extreme Temperature',
-  'Drought': 'Drought',
-  'Mass Movement': 'Mass Movement',
-  'Tsunami': 'Tsunami',
-};
-
-/**
- * Normalize disaster type to a generic category
- * @param {string} hazardType - The hazardType from the data
- * @returns {string} The normalized generic disaster type
- */
-const normalizeDisasterType = (hazardType) => {
-  if (!hazardType) return 'Other';
-
-  if (GENERIC_DISASTER_TYPES[hazardType]) {
-    return GENERIC_DISASTER_TYPES[hazardType];
-  }
-
-  const normalized = hazardType.toLowerCase().replace(/[_\s-]/g, '');
-  
-  const mappings = {
-    'earthquake': 'Earthquake',
-    'flood': 'Flood',
-    'floods': 'Flood',
-    'fire': 'Fire',
-    'fires': 'Fire',
-    'storm': 'Storm',
-    'storms': 'Storm',
-    'extremetemperature': 'Extreme Temperature',
-    'drought': 'Drought',
-    'massmovement': 'Mass Movement',
-    'tsunami': 'Tsunami',
-  };
-
-  if (mappings[normalized]) {
-    return mappings[normalized];
-  }
-
-  return hazardType;
-};
-
 /**
  * Hook to process disaster data for charts - aggregated by region
- * @param {Array} selectedRegions - Array of selected region values
+ * @param {Array} selectedRegions - Array of selected region keys
+ * @returns {Object} { chartData, disasterTypes, loading, error }
  */
 export function useChartData(selectedRegions = []) {
   const { data, loading, error } = useDisasterData();

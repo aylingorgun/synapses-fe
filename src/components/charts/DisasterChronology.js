@@ -136,7 +136,18 @@ const DisasterDetailPopup = ({ disaster }) => {
         {disaster.sourceOrigin && (
           <div className="flex flex-col gap-1">
             <span className="text-[0.7rem] text-white/50 uppercase tracking-wide">Source</span>
-            <span className="text-sm text-white">{disaster.sourceOrigin}</span>
+            {disaster.sourceWebsite ? (
+              <a
+                href={disaster.sourceWebsite}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-sky-300 underline hover:text-white transition-colors"
+              >
+                {disaster.sourceOrigin}
+              </a>
+            ) : (
+              <span className="text-sm text-white">{disaster.sourceOrigin}</span>
+            )}
           </div>
         )}
       </div>

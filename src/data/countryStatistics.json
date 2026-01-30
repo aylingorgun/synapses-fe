@@ -1,0 +1,403 @@
+{
+  "countries": {
+    "GEO": {
+      "id": "georgia",
+      "name": "Georgia",
+      "iso": "GEO",
+      "region": "South Caucasus & Western CIS",
+      "coordinates": [42.3154, 43.3569],
+      "statistics": {
+        "population": 3728573,
+        "landArea": 69700,
+        "avgAnnualTemp": 11.5,
+        "lackOfCopingCapacity": 3.5,
+        "gdpPerCapita": 18800,
+        "hdi": 0.814,
+        "informRiskScore": 3.8,
+        "unemploymentRate": 11.6,
+        "demographics": {
+          "children": 19.8,
+          "women": 52.1,
+          "olderPersons": 15.3,
+          "personsWithDisabilities": 7.2
+        },
+        "disasterStats": {
+          "totalDisasters": 20,
+          "totalDeaths": 50,
+          "totalAffected": 8809601,
+          "economicLoss": 187680000,
+          "keyHazards": ["Flood", "Storm", "Mass Movement"]
+        },
+        "temperatureHistory": [
+          { "year": 2015, "temp": 10.8 },
+          { "year": 2016, "temp": 11.1 },
+          { "year": 2017, "temp": 11.3 },
+          { "year": 2018, "temp": 11.6 },
+          { "year": 2019, "temp": 11.4 },
+          { "year": 2020, "temp": 11.8 },
+          { "year": 2021, "temp": 11.2 },
+          { "year": 2022, "temp": 11.9 },
+          { "year": 2023, "temp": 12.1 },
+          { "year": 2024, "temp": 12.3 }
+        ]
+      }
+    },
+    "UKR": {
+      "id": "ukraine",
+      "name": "Ukraine",
+      "iso": "UKR",
+      "region": "South Caucasus & Western CIS",
+      "coordinates": [48.3794, 31.1656],
+      "statistics": {
+        "population": 37000000,
+        "landArea": 603550,
+        "avgAnnualTemp": 8.5,
+        "lackOfCopingCapacity": 4.8,
+        "gdpPerCapita": 13110,
+        "hdi": 0.773,
+        "informRiskScore": 6.2,
+        "unemploymentRate": 19.1,
+        "demographics": {
+          "children": 16.3,
+          "women": 53.7,
+          "olderPersons": 17.1,
+          "personsWithDisabilities": 6.1
+        },
+        "disasterStats": {
+          "totalDisasters": 33,
+          "totalDeaths": 1370,
+          "totalAffected": 411254,
+          "economicLoss": 674,
+          "keyHazards": ["Flood", "Storm", "Fire"]
+        },
+        "temperatureHistory": [
+          { "year": 2015, "temp": 8.0 },
+          { "year": 2016, "temp": 8.3 },
+          { "year": 2017, "temp": 8.5 },
+          { "year": 2018, "temp": 8.8 },
+          { "year": 2019, "temp": 8.6 },
+          { "year": 2020, "temp": 9.1 },
+          { "year": 2021, "temp": 8.4 },
+          { "year": 2022, "temp": 8.9 },
+          { "year": 2023, "temp": 9.2 },
+          { "year": 2024, "temp": 9.4 }
+        ]
+      }
+    },
+    "CYP": {
+      "id": "cyprus",
+      "name": "Cyprus",
+      "iso": "CYP",
+      "region": "Western Balkans & Türkiye & Cyprus",
+      "coordinates": [35.1264, 33.4299],
+      "statistics": {
+        "population": 1260138,
+        "landArea": 9251,
+        "avgAnnualTemp": 19.5,
+        "lackOfCopingCapacity": 1.8,
+        "gdpPerCapita": 44130,
+        "hdi": 0.896,
+        "informRiskScore": 2.1,
+        "unemploymentRate": 6.1,
+        "demographics": {
+          "children": 16.1,
+          "women": 50.5,
+          "olderPersons": 16.8,
+          "personsWithDisabilities": 8.5
+        },
+        "disasterStats": {
+          "totalDisasters": 21,
+          "totalDeaths": 793,
+          "totalAffected": 8081,
+          "economicLoss": 2100000,
+          "keyHazards": ["Fire", "Flood", "Extreme Temperature"]
+        },
+        "temperatureHistory": [
+          { "year": 2015, "temp": 18.9 },
+          { "year": 2016, "temp": 19.2 },
+          { "year": 2017, "temp": 19.4 },
+          { "year": 2018, "temp": 19.7 },
+          { "year": 2019, "temp": 19.5 },
+          { "year": 2020, "temp": 19.9 },
+          { "year": 2021, "temp": 19.3 },
+          { "year": 2022, "temp": 20.1 },
+          { "year": 2023, "temp": 20.4 },
+          { "year": 2024, "temp": 20.6 }
+        ]
+      }
+    },
+    "ALB": {
+      "id": "albania",
+      "name": "Albania",
+      "iso": "ALB",
+      "region": "Western Balkans & Türkiye & Cyprus",
+      "coordinates": [41.1533, 20.1683],
+      "statistics": {
+        "population": 2837743,
+        "landArea": 28748,
+        "avgAnnualTemp": 15.2,
+        "lackOfCopingCapacity": 3.9,
+        "gdpPerCapita": 17380,
+        "hdi": 0.796,
+        "informRiskScore": 3.4,
+        "unemploymentRate": 11.0,
+        "demographics": {
+          "children": 17.2,
+          "women": 49.8,
+          "olderPersons": 14.5,
+          "personsWithDisabilities": 6.8
+        },
+        "disasterStats": {
+          "totalDisasters": 5729,
+          "totalDeaths": 822,
+          "totalAffected": 485629,
+          "economicLoss": 12000004,
+          "keyHazards": ["Fire", "Storm", "Flood"]
+        },
+        "temperatureHistory": [
+          { "year": 2015, "temp": 14.5 },
+          { "year": 2016, "temp": 14.8 },
+          { "year": 2017, "temp": 15.1 },
+          { "year": 2018, "temp": 15.4 },
+          { "year": 2019, "temp": 15.2 },
+          { "year": 2020, "temp": 15.6 },
+          { "year": 2021, "temp": 15.0 },
+          { "year": 2022, "temp": 15.7 },
+          { "year": 2023, "temp": 16.0 },
+          { "year": 2024, "temp": 16.2 }
+        ]
+      }
+    },
+    "MDA": {
+      "id": "moldova",
+      "name": "Moldova",
+      "iso": "MDA",
+      "region": "South Caucasus & Western CIS",
+      "coordinates": [47.4116, 28.3699],
+      "statistics": {
+        "population": 2512758,
+        "landArea": 33846,
+        "avgAnnualTemp": 10.2,
+        "lackOfCopingCapacity": 4.2,
+        "gdpPerCapita": 15960,
+        "hdi": 0.763,
+        "informRiskScore": 3.6,
+        "unemploymentRate": 4.4,
+        "demographics": {
+          "children": 16.8,
+          "women": 52.3,
+          "olderPersons": 13.1,
+          "personsWithDisabilities": 5.9
+        },
+        "disasterStats": {
+          "totalDisasters": 22,
+          "totalDeaths": 234,
+          "totalAffected": 4855,
+          "economicLoss": 519,
+          "keyHazards": ["Flood", "Storm", "Extreme Temperature"]
+        },
+        "temperatureHistory": [
+          { "year": 2015, "temp": 9.6 },
+          { "year": 2016, "temp": 9.9 },
+          { "year": 2017, "temp": 10.1 },
+          { "year": 2018, "temp": 10.4 },
+          { "year": 2019, "temp": 10.2 },
+          { "year": 2020, "temp": 10.6 },
+          { "year": 2021, "temp": 10.0 },
+          { "year": 2022, "temp": 10.7 },
+          { "year": 2023, "temp": 11.0 },
+          { "year": 2024, "temp": 11.2 }
+        ]
+      }
+    },
+    "SRB": {
+      "id": "serbia",
+      "name": "Serbia",
+      "iso": "SRB",
+      "region": "Western Balkans & Türkiye & Cyprus",
+      "coordinates": [44.0165, 21.0059],
+      "statistics": {
+        "population": 6641197,
+        "landArea": 88361,
+        "avgAnnualTemp": 11.4,
+        "lackOfCopingCapacity": 3.1,
+        "gdpPerCapita": 22070,
+        "hdi": 0.802,
+        "informRiskScore": 3.2,
+        "unemploymentRate": 9.4,
+        "demographics": {
+          "children": 16.2,
+          "women": 51.3,
+          "olderPersons": 20.7,
+          "personsWithDisabilities": 8.1
+        },
+        "disasterStats": {
+          "totalDisasters": 2029,
+          "totalDeaths": 1041,
+          "totalAffected": 191172,
+          "economicLoss": 927,
+          "keyHazards": ["Flood", "Storm", "Fire"]
+        },
+        "temperatureHistory": [
+          { "year": 2015, "temp": 10.8 },
+          { "year": 2016, "temp": 11.1 },
+          { "year": 2017, "temp": 11.3 },
+          { "year": 2018, "temp": 11.6 },
+          { "year": 2019, "temp": 11.4 },
+          { "year": 2020, "temp": 11.8 },
+          { "year": 2021, "temp": 11.2 },
+          { "year": 2022, "temp": 11.9 },
+          { "year": 2023, "temp": 12.2 },
+          { "year": 2024, "temp": 12.4 }
+        ]
+      }
+    },
+    "TJK": {
+      "id": "tajikistan",
+      "name": "Tajikistan",
+      "iso": "TJK",
+      "region": "Central Asia",
+      "coordinates": [38.8610, 71.2761],
+      "statistics": {
+        "population": 10143543,
+        "landArea": 143100,
+        "avgAnnualTemp": 12.8,
+        "lackOfCopingCapacity": 5.6,
+        "gdpPerCapita": 4360,
+        "hdi": 0.679,
+        "informRiskScore": 4.9,
+        "unemploymentRate": 7.5,
+        "demographics": {
+          "children": 35.1,
+          "women": 49.9,
+          "olderPersons": 5.1,
+          "personsWithDisabilities": 4.2
+        },
+        "disasterStats": {
+          "totalDisasters": 71,
+          "totalDeaths": 547,
+          "totalAffected": 5476587,
+          "economicLoss": 883016950,
+          "keyHazards": ["Flood", "Mass Movement", "Earthquake"]
+        },
+        "temperatureHistory": [
+          { "year": 2015, "temp": 12.2 },
+          { "year": 2016, "temp": 12.5 },
+          { "year": 2017, "temp": 12.7 },
+          { "year": 2018, "temp": 13.0 },
+          { "year": 2019, "temp": 12.8 },
+          { "year": 2020, "temp": 13.2 },
+          { "year": 2021, "temp": 12.6 },
+          { "year": 2022, "temp": 13.3 },
+          { "year": 2023, "temp": 13.6 },
+          { "year": 2024, "temp": 13.8 }
+        ]
+      }
+    },
+    "TKM": {
+      "id": "turkmenistan",
+      "name": "Turkmenistan",
+      "iso": "TKM",
+      "region": "Central Asia",
+      "coordinates": [38.9697, 59.5563],
+      "statistics": {
+        "population": 6516100,
+        "landArea": 488100,
+        "avgAnnualTemp": 15.8,
+        "lackOfCopingCapacity": 5.2,
+        "gdpPerCapita": 8430,
+        "hdi": 0.745,
+        "informRiskScore": 4.5,
+        "unemploymentRate": 4.0,
+        "demographics": {
+          "children": 29.3,
+          "women": 50.5,
+          "olderPersons": 4.8,
+          "personsWithDisabilities": 3.8
+        },
+        "disasterStats": {
+          "totalDisasters": 26,
+          "totalDeaths": 41,
+          "totalAffected": 677,
+          "economicLoss": 20000000,
+          "keyHazards": ["Earthquake", "Flood", "Extreme Temperature"]
+        },
+        "temperatureHistory": [
+          { "year": 2015, "temp": 15.2 },
+          { "year": 2016, "temp": 15.5 },
+          { "year": 2017, "temp": 15.7 },
+          { "year": 2018, "temp": 16.0 },
+          { "year": 2019, "temp": 15.8 },
+          { "year": 2020, "temp": 16.2 },
+          { "year": 2021, "temp": 15.6 },
+          { "year": 2022, "temp": 16.3 },
+          { "year": 2023, "temp": 16.6 },
+          { "year": 2024, "temp": 16.8 }
+        ]
+      }
+    },
+    "KGZ": {
+      "id": "kyrgyzstan",
+      "name": "Kyrgyzstan",
+      "iso": "KGZ",
+      "region": "Central Asia",
+      "coordinates": [41.2044, 74.7661],
+      "statistics": {
+        "population": 7100000,
+        "landArea": 199951,
+        "avgAnnualTemp": 5.5,
+        "lackOfCopingCapacity": 4.8,
+        "gdpPerCapita": 5980,
+        "hdi": 0.701,
+        "informRiskScore": 4.3,
+        "unemploymentRate": 5.3,
+        "demographics": {
+          "children": 32.4,
+          "women": 50.8,
+          "olderPersons": 5.3,
+          "personsWithDisabilities": 4.5
+        },
+        "disasterStats": {
+          "totalDisasters": 45,
+          "totalDeaths": 3327,
+          "totalAffected": 247571,
+          "economicLoss": 2660743,
+          "keyHazards": ["Earthquake", "Flood", "Mass Movement"]
+        },
+        "temperatureHistory": [
+          { "year": 2015, "temp": 4.9 },
+          { "year": 2016, "temp": 5.2 },
+          { "year": 2017, "temp": 5.4 },
+          { "year": 2018, "temp": 5.7 },
+          { "year": 2019, "temp": 5.5 },
+          { "year": 2020, "temp": 5.9 },
+          { "year": 2021, "temp": 5.3 },
+          { "year": 2022, "temp": 6.0 },
+          { "year": 2023, "temp": 6.3 },
+          { "year": 2024, "temp": 6.5 }
+        ]
+      }
+    }
+  },
+  "metadata": {
+    "lastUpdated": "2026-01-29",
+    "sources": [
+      "World Bank",
+      "United Nations Development Programme (UNDP)",
+      "INFORM Risk Index",
+      "World Health Organization (WHO)",
+      "DesInventar Disaster Database"
+    ],
+    "notes": "Statistics are approximate and based on latest available data. Temperature history shows annual average temperatures in degrees Celsius.",
+    "disasterDataSummary": {
+      "totalDisasters": 7996,
+      "totalDeaths": 8225,
+      "totalAffected": 15635427,
+      "topHazards": ["Fire (3153)", "Flood (1876)", "Storm (1689)", "Mass Movement (766)"],
+      "mostDisastersCountry": "Albania (5729)",
+      "mostDeathsCountry": "Kyrgyzstan (3327)",
+      "mostAffectedCountry": "Georgia (8.8M people)",
+      "dataYearRange": "2021-2026"
+    }
+  }
+}
