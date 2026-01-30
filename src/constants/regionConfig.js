@@ -4,7 +4,7 @@ export const REGION_CONFIG = {
     shortName: 'W. Balkans & Türkiye',
     countries: [
       'Albania',
-      'Turkey',
+      'Türkiye',
       'Cyprus',
       'Serbia',
       'Montenegro',

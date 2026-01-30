@@ -3,7 +3,7 @@
     {
       "value": "western_balkans",
       "label": "Western Balkans & Türkiye",
-      "countries": ["Albania", "Turkey", "Cyprus", "Serbia", "Montenegro", "Bosnia and Herzegovina", "North Macedonia", "Kosovo"]
+      "countries": ["Albania", "Türkiye", "Cyprus", "Serbia", "Montenegro", "Bosnia and Herzegovina", "North Macedonia", "Kosovo"]
     },
     {
       "value": "eastern_europe",
@@ -23,7 +23,7 @@
   ],
   "countries": [
     { "value": "albania", "label": "Albania", "region": "western_balkans" },
-    { "value": "turkey", "label": "Turkey", "region": "western_balkans" },
+    { "value": "turkey", "label": "Türkiye", "region": "western_balkans" },
     { "value": "cyprus", "label": "Cyprus", "region": "western_balkans" },
     { "value": "serbia", "label": "Serbia", "region": "western_balkans" },
     { "value": "montenegro", "label": "Montenegro", "region": "western_balkans" },

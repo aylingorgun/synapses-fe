@@ -21,7 +21,7 @@ export const GEO_DATA_URL =
 // Target countries to display (with alternate names for data compatibility)
 export const TARGET_COUNTRIES = [
   'Albania',
-  'Turkey',
+  'Türkiye',
   'Tajikistan',
   'Uzbekistan',
   'Georgia',
