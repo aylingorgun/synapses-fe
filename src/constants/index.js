@@ -9,3 +9,8 @@ export {
   LINE_COLORS,
   COMPARISON_COLORS,
 } from './chartColors';
+export {
+  DISASTER_TYPES,
+  DISASTER_TYPE_OPTIONS,
+  normalizeDisasterType,
+} from './disasterTypes';
