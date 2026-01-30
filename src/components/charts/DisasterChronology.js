@@ -7,6 +7,7 @@ import { REGION_CONFIG } from '@/constants/regionConfig';
 import { getDisasterIconPath } from '@/constants/disasterIcons';
 import { useFilters, useMapSelection } from '@/contexts';
 import { formatDate, formatShortDate, formatCount, formatCurrency, getMeasurementLabel, formatMeasurement } from '@/utils';
+import { filterDisasters } from '@/utils/filterDisasters';
 
 const ChronologyItem = ({ disaster, isActive, onClick, isTop }) => {
   const iconPath = getDisasterIconPath(disaster.specificHazardName, disaster.hazardType);
@@ -164,6 +165,9 @@ export default function DisasterChronology() {
   const detailRef = useRef(null);
 
   const selectedRegion = appliedFilters.region;
+  
+  // Get country name from either map selection or filter bar
+  const countryName = selectedCountryName || appliedFilters.country?.label;
 
   const disasters = useMemo(() => {
     if (!data?.countries) return [];
@@ -171,9 +175,9 @@ export default function DisasterChronology() {
     const allDisasters = [];
 
     // If a country is selected, filter by country
-    if (selectedCountryName) {
+    if (countryName) {
       const country = data.countries.find(
-        (c) => c.name.toLowerCase() === selectedCountryName.toLowerCase()
+        (c) => c.name.toLowerCase() === countryName.toLowerCase()
       );
 
       if (country) {
@@ -204,12 +208,15 @@ export default function DisasterChronology() {
       });
     }
 
-    return allDisasters.sort((a, b) => {
+    // Apply date and disaster type filters
+    const filteredDisasters = filterDisasters(allDisasters, appliedFilters);
+
+    return filteredDisasters.sort((a, b) => {
       const dateA = new Date(a.startYear, (a.startMonth || 1) - 1, a.startDay || 1);
       const dateB = new Date(b.startYear, (b.startMonth || 1) - 1, b.startDay || 1);
       return dateA - dateB;
     });
-  }, [data, selectedRegion, selectedCountryName]);
+  }, [data, selectedRegion, countryName, appliedFilters]);
 
   const handleDisasterClick = (disaster) => {
     setSelectedDisaster(disaster);
@@ -219,14 +226,14 @@ export default function DisasterChronology() {
   };
 
   const displayName = useMemo(() => {
-    if (selectedCountryName) {
-      return selectedCountryName;
+    if (countryName) {
+      return countryName;
     }
     if (selectedRegion) {
       return REGION_CONFIG[selectedRegion.value]?.shortName || selectedRegion.label;
     }
     return 'Region';
-  }, [selectedCountryName, selectedRegion]);
+  }, [countryName, selectedRegion]);
 
   const needsScroll = disasters.length > 6;
 
@@ -261,7 +268,7 @@ export default function DisasterChronology() {
 
       {disasters.length === 0 ? (
         <div className="flex items-center justify-center h-[200px] text-white/60 italic">
-          No disasters found for {selectedCountryName ? 'the selected country' : 'the selected region'}.
+          No disasters found for {countryName ? 'the selected country' : 'the selected region'}.
         </div>
       ) : (
         <div className="relative w-full">
