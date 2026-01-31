@@ -16,6 +16,9 @@ module.exports = {
           navy: '#1e3a5f',
         },
       },
+      fontSize: {
+        xxs: ['12px', { lineHeight: '14px' }],
+      },
       animation: {
         'shimmer': 'shimmer 1.5s infinite',
         'spin': 'spin 0.8s linear infinite',
