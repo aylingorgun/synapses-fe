@@ -12,16 +12,16 @@ const DEFAULT_REGION = {
 };
 
 /**
- * Get default date range (last 3 years)
+ * Get default date range (last 1 year)
  * @returns {object} Object with startDate and endDate in YYYY-MM-DD format
  */
 const getDefaultDateRange = () => {
   const today = new Date();
   const endDate = today.toISOString().split('T')[0];
 
-  const threeYearsAgo = new Date(today);
-  threeYearsAgo.setFullYear(today.getFullYear() - 3);
-  const startDate = threeYearsAgo.toISOString().split('T')[0];
+  const oneYearAgo = new Date(today);
+  oneYearAgo.setFullYear(today.getFullYear() - 1);
+  const startDate = oneYearAgo.toISOString().split('T')[0];
 
   return { startDate, endDate };
 };

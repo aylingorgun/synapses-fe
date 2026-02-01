@@ -1,0 +1,69 @@
+﻿Dis No,Hazard  Group,Hazard Type,Specific Hazard Name,Hazard Type Final,ISO,Data Source Type,Source Level,Source Origin,Reliability Rating,Start Year,Start Month,Start Day,End Year,End Month,End Day,Event Season,Data Entry Date,Data Last Updated,Magnitude,Magnitude Scale,Region,Country,Total Deaths,No. Affected,Location,Total Economic Loss,No. Houses Damaged/Destroyed,No. Houses Damaged,No. Houses Destroyed,No. Infrastucture Destroyed/Damaged,Gender Data Availability,No.Gender Female,No.Gender Male,No. Gender Other,No. Children,No. Disabled Population,Glide Number,Main Source,Complimentary Source,Note
+GEO-20240306-SCWCIS-ARM-0001,GeophysicalHazards,Earthquakes,Earthquake,earthquake,ARM,1,0.6,DesInventar,High,2024,3,6,2024,3,6,Spring,29/12/2025,29/12/2025,N/A,N/A,South Caucasus & Western CIS,Armenia,N/A,N/A,N/A,N/A,3,3,N/A,1000 mt roads,No,N/A,N/A,N/A,N/A,N/A,N/A,https://www.desinventar.net/,,
+MET-20240306-SCWCIS-ARM-0001,MeteorologicalHazards,Fires,Fire,fire,ARM,1,0.6,DesInventar,High,2024,3,6,2024,3,6,Spring,29/12/2025,29/12/2025,N/A,N/A,South Caucasus & Western CIS,Armenia,N/A,N/A,N/A,N/A,1,1,N/A,N/A,No,N/A,N/A,N/A,N/A,N/A,N/A,https://www.desinventar.net/,,
+HYDRO-20240504-SCWCIS-ARM-0001,HydrologicalHazards,Floods,FlashFlood,flood,ARM,1,0.6,Global Disaster Alert and Coordination System (GDACS),High,2024,5,4,2024,5,26,Spring,19/12/2025,29/12/2025,N/A,N/A,South Caucasus & Western CIS,Armenia,4,429,"Alaverdi, Akhtala, Bagratashen, Bendik, Deghdsavan, Haghtanak, Karkop, Mets Ayrum, Pokr Ayrum, Sanahin, Shamlug, and Shnogh villages (Lori and Tavush Provinces)",50000000,N/A,N/A,N/A,N/A,No,N/A,N/A,N/A,N/A,N/A,N/A,https://www.desinventar.net/,,
+HYDRO-20240526-SCWCIS-ARM-0001,HydrologicalHazards,Floods,FlashFlood,flood,ARM,1,1,International Federation of Red Cross and Red Crescent Societies (IFRC),Very High,2024,5,26,2024,5,27,Spring,29/12/2025,29/12/2025,N/A,N/A,South Caucasus & Western CIS,Armenia,4,"10,000",N/A,N/A,N/A,N/A,N/A,N/A,No,N/A,N/A,N/A,N/A,N/A,N/A,https://go.ifrc.org/emergencies/7016/details,,
+HYDRO-20240227-SCWCIS-ARM-0001,HydrologicalHazards,Floods,FlashFlood,flood,ARM,1,0.6,Desinventar,High,2024,2,27,2024,2,27,Winter,05/01/2026,05/01/2026,N/A,N/A,South Caucasus & Western CIS,Armenia,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,No,N/A,N/A,N/A,N/A,N/A,N/A,https://www.desinventar.net/,,
+HYDRO-20240305-SCWCIS-ARM-0001,HydrologicalHazards,Floods,FlashFlood,flood,ARM,1,0.6,Desinventar,High,2024,3,5,2024,3,5,Spring,05/01/2026,05/01/2026,N/A,N/A,South Caucasus & Western CIS,Armenia,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,No,N/A,N/A,N/A,N/A,N/A,N/A,https://www.desinventar.net/,,
+MET-20230615-SCWCIS-ARM-0001,MeteorologicalHazards,Storm,Hailstorm,storm,ARM,1,1,International Federation of Red Cross and Red Crescent Societies (IFRC),Very High,2023,6,15,2023,6,15,Summer,24/12/2025,24/12/2025,N/A,N/A,South Caucasus & Western CIS,Armenia,N/A,"18,000",South Armenia,N/A,N/A,N/A,N/A,N/A,No,N/A,N/A,N/A,N/A,N/A,N/A,https://www.ifrc.org/sites/default/files/2024-06/IFRC-DREF%20Annual%20Report%202023.pdf,,"On 15th of June sever hailstorm affected south region of Armenia. Due to the damage of water drainage system and following heavy rain the water accumullated in the villages, roads and bridges have been destroted, water and energy supply systems damaged as well. High water level also became a threat for population; their homes, crops and livestock significantly affected. While loocal rescue service is doing monitoring of situation and assesment of damaged infrastructure, local administartion started initial assesment of needs of affecrted population."
+HYDRO-20210409-SCWCIS-ARM-0001,HydrologicalHazards,Floods,FlashFlood,flood,ARM,1,0.6,Desinventar,High,2021,4,9,2021,4,9,Spring,05/01/2026,05/01/2026,N/A,N/A,South Caucasus & Western CIS,Armenia,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,No,N/A,N/A,N/A,N/A,N/A,N/A,https://www.desinventar.net/,,
+HYDRO-20210513-SCWCIS-ARM-0001,HydrologicalHazards,Floods,FlashFlood,flood,ARM,1,0.6,Desinventar,High,2021,5,13,2021,5,13,Spring,05/01/2026,05/01/2026,N/A,N/A,South Caucasus & Western CIS,Armenia,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,No,N/A,N/A,N/A,N/A,N/A,N/A,https://www.desinventar.net/,,
+GEO-20210406-SCWCIS-ARM-0001,GeophysicalHazards,Landslide,MudSlide,mass_movement,ARM,1,0.6,Desinventar,High,2021,4,6,2021,4,6,Spring,05/01/2026,05/01/2026,N/A,N/A,South Caucasus & Western CIS,Armenia,N/A,2,N/A,N/A,1,N/A,1,N/A,Yes,1 Missing,N/A,N/A,N/A,N/A,N/A,https://www.desinventar.net/,,
+MET-20210217-SCWCIS-ARM-0001,MeteorologicalHazards,Storm,Windstorm,storm,ARM,1,0.6,Desinventar,High,2021,2,17,2021,2,17,Winter,05/01/2026,05/01/2026,N/A,N/A,South Caucasus & Western CIS,Armenia,N/A,N/A,Arevabuyr,N/A,2,1,1,N/A,No,N/A,N/A,N/A,N/A,N/A,N/A,https://www.desinventar.net/,,
+MET-20210409-SCWCIS-ARM-0001,MeteorologicalHazards,Storm,Windstorm,storm,ARM,1,0.6,Desinventar,High,2021,4,9,2021,4,9,Spring,05/01/2026,05/01/2026,N/A,N/A,South Caucasus & Western CIS,Armenia,6,73,Vostan,N/A,N/A,N/A,N/A,N/A,Yes,4 deaths,2 deaths,N/A,1 children,2 deaths,N/A,https://www.desinventar.net/,,2 elder death
+BIO-20200301-SCWCIS-ARM-0001,BiologicalHazards,Epidemic,COVID-19,epidemic,ARM,1,1,World Health Organization (WHO),Very High,2020,3,1,2020,0,0,Spring,24/12/2025,24/12/2025,N/A,N/A,South Caucasus & Western CIS,Armenia,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,No,N/A,N/A,N/A,N/A,N/A,N/A,https://data.who.int/dashboards/covid19/cases?n=c,https://ncdc.am/coronavirus/public-awareness/,
+HYDRO-20200821-SCWCIS-ARM-0001,HydrologicalHazards,Droughts,Drought,drought,ARM,1,0.6,Retrieving data. Wait a few seconds and try to cut or copy again.,High,2020,8,21,2021,11,7,Summer,24/12/2025,24/12/2025,9549,km2,South Caucasus & Western CIS,Armenia,N/A,N/A,Armenia,N/A,N/A,N/A,N/A,N/A,No,N/A,N/A,N/A,N/A,N/A,DR-2021-000148-ARM,https://drought.emergency.copernicus.eu/tumbo/gdo/report/?lon=46.3143&lat=38.9415&date=2025-08-21,https://www.gdacs.org/report.aspx?eventid=1014392&episodeid=36&eventtype=DR,https://go-api.ifrc.org/api/DownloadFile/84730/MDRAM011do
+HYDRO-20200713-SCWCIS-ARM-0001,HydrologicalHazards,Floods,Flood,flood,ARM,1,1,European External Action Service (EEAS),Very High,2020,7,13,0,0,0,Summer,24/12/2025,28/01/2026,N/A,N/A,South Caucasus & Western CIS,Armenia,N/A,N/A,Gyumri,N/A,N/A,N/A,N/A,N/A,No,N/A,N/A,N/A,N/A,N/A,N/A,https://www.eeas.europa.eu/delegations/armenia/european-union-brings-relief-victims-hailstorms-and-floods-northwest-armenia_en?s=216,,
+GEO-20180206-SCWCIS-ARM-0001,GeophysicalHazards,Earthquakes,Earthquake,earthquake,ARM,1,0.6,DesInventar,High,2018,2,6,2018,2,6,Winter,29/12/2025,29/12/2025,N/A,N/A,South Caucasus & Western CIS,Armenia,N/A,N/A,N/A,N/A,3,3,N/A,20000 mt roads,No,N/A,N/A,N/A,N/A,N/A,N/A,https://www.desinventar.net/,,
+GEO-20160624-SCWCIS-ARM-0001,GeophysicalHazards,Landslide,MudSlide,mass_movement,ARM,1,1,International Federation of Red Cross and Red Crescent Societies (IFRC),Very High,2016,6,24,2016,6,24,Summer,19/12/2025,19/12/2025,N/A,N/A,South Caucasus & Western CIS,Armenia,N/A,N/A,Karchaghbyur village of Gegharqunik region and Artik city of Shirak region,N/A,N/A,N/A,N/A,N/A,No,N/A,N/A,N/A,N/A,N/A,N/A,https://reliefweb.int/report/armenia/armenia-landslides-emergency-plan-action-epoa-final-report-dref-operation-n-mdram003,,"On 24 June 2016, as a result of heavy hailstorm and rains, an unprecedented mudflow seriously damaged Karchaghbyur village of Gegharqunik region and Artik city of Shirak region with homes, public buildings, streets and bridges as well as agricultural lands seriously affected. Following the disaster, electric power cuts made response activities even more difficult on the local level."
+HYDRO-20140513-SCWCIS-ARM-0001,HydrologicalHazards,Floods,FlashFlood,flood,ARM,1,0.6,Desinventar,High,2014,5,13,2014,5,13,Spring,05/01/2026,05/01/2026,N/A,N/A,South Caucasus & Western CIS,Armenia,25,1666,Paravaqar; Chinari,5055000,4721,1944,2777,96 Education Centers; 15 Hospitals; ,No,N/A,N/A,N/A,N/A,N/A,N/A,https://www.desinventar.net/,,
+MET-20131200-SCWCIS-ARM-0001,MeteorologicalHazards,ExtremeTemperature,Coldwave,extreme_temperature,ARM,1,1,International Federation of Red Cross and Red Crescent Societies (IFRC),Very High,2013,12,0,2014,2,0,Winter,24/12/2025,29/12/2025,-20,Celcius,South Caucasus & Western CIS,Armenia,N/A,12000,N/A,N/A,N/A,N/A,N/A,N/A,No,N/A,N/A,N/A,N/A,N/A,N/A,https://reliefweb.int/report/armenia/armenia-extreme-winter-condition-emergency-plan-action-epoa-dref-operation-n-mdram002,,"The harsh wintry weather conditions in Armenia make the Syrian refugees even more vulnerable. Starting from
+December 2013, the temperature in Yerevan and the surrounding regions has remained below -12 C. At nights the
+temperature was falling down to _20 C. Due to the cold temperature, the sewage and water supply systems have been
+mostly frozen in Yerevan. The Syrians are not used to such a cold weather and are mostly unprepared for a cold
+winter. They do not have a proper clothing. According to the filed applications and personal observations, these people
+mostly need winterization items at the moment to face one of the coldest winters in the history of Armenia.
+The majority of these people, although being citizens of Syria, have Armenian ethnicity. Besides those currently
+residing in Armenia, around 300 newcomers arrive from Syria every month according to the data of the Armenian
+Ministry of Diaspora. Presently about 3,300 Syrian refugees have applied to the Armenian Red Cross Society (ARCS)
+for support and are registered in the ARCS database."
+MET-20130512-SCWCIS-ARM-0001,MeteorologicalHazards,Storm,Hailstorm,storm,ARM,1,1,International Federation of Red Cross and Red Crescent Societies (IFRC),Very High,2013,5,12,2013,5,17,Spring,29/12/2025,12/29/2025,N/A,N/A,South Caucasus & Western CIS,Armenia,N/A,"48,000",Armavir region,N/A,N/A,N/A,N/A,"over 5,000 hectares of agricultural lands in the region",No,N/A,N/A,N/A,N/A,N/A,N/A,https://adore.ifrc.org/Download.aspx?FileId=286532,https://reliefweb.int/disaster/st-2013-000066-arm,"46 communities & 12,800 households"
+HYDRO-20101002-SCWCIS-ARM-0001,HydrologicalHazards,Floods,FlashFlood,flood,ARM,1,0.6,Desinventar,High,2010,10,2,2010,10,2,Autumn,05/01/2026,05/01/2026,N/A,N/A,South Caucasus & Western CIS,Armenia,3,926,N/A,N/A,114,69,45,1 Education Centers; 9500 Crops Ha.; 300 mts roads,No,N/A,N/A,N/A,N/A,N/A,N/A,https://www.desinventar.net/,,24 injured; 2 missing; 900 evacuated
+HYDRO-20040305-SCWCIS-ARM-0001,HydrologicalHazards,Floods,RiverineFlood,flood,ARM,1,0.6,EM-DAT,High,2004,3,5,2004,3,9,Spring,29/12/2025,29/12/2025,N/A,N/A,South Caucasus & Western CIS,Armenia,1,N/A,"Aragatsotn, Ararat, Gergharkunik, Armavir, Tavush provinces",N/A,,N/A,N/A,N/A,No,N/A,N/A,N/A,N/A,N/A,N/A,https://www.emdat.be/,https://dialnet.unirioja.es/descarga/articulo/7912326.pdf?utm_source=chatgpt.com,
+HYDRO-20000600-SCWCIS-ARM-0001,HydrologicalHazards,Droughts,Drought,drought,ARM,1,1,Office for the Coordination of Humanitarian Affairs (OCHA),Very High,2000,6,0,0,0,0,Summer,24/12/2025,24/12/2025,1720,km2,South Caucasus & Western CIS,Armenia,N/A,297000,"Ararat, Armavir, Gegharkhunik, Araghatzotn, Shirak, Kotayk, Tavush, Lori",1821650,N/A,N/A,N/A,N/A,No,N/A,N/A,N/A,N/A,N/A,N/A,https://www.unocha.org/publications/report/armenia/armenia-drought-ocha-situation-report-no-3,https://www.fao.org/4/x8408e/x8408e00.htm,Aid Contribution: 16545
+HYDRO-19970622-SCWCIS-ARM-0001,HydrologicalHazards,Floods,Flood,flood,ARM,1,0.6,UN Department of Humanitarian Affairs,High,1997,6,22,0,0,0,Summer,24/12/2025,24/12/2025,N/A,N/A,South Caucasus & Western CIS,Armenia,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,No,N/A,N/A,N/A,N/A,N/A,N/A,https://reliefweb.int/report/armenia/southern-armenia-floods-situation-report-no3,,
+HYDRO-19940531-SCWCIS-ARM-0001,HydrologicalHazards,Floods,Flood,flood,ARM,1,1,DFO - Flood Observatory (DFO),Very High,1994,5,31,1994,6,1,Spring,24/12/2025,24/12/2025,N/A,N/A,South Caucasus & Western CIS,Armenia,5,400,Armenia,N/A,N/A,N/A,N/A,N/A,No,N/A,N/A,N/A,N/A,N/A,N/A,https://floodobservatory.colorado.edu/wiki/FloodRecords,,
+GEO-19821217-SCWCIS-ARM-0001,GeophysicalHazards,Earthquakes,Earthquake,earthquake,ARM,1,0.6,DesInventar,High,1982,12,17,1982,12,17,Winter,29/12/2025,29/12/2025,N/A,N/A,South Caucasus & Western CIS,Armenia,400,N/A,N/A,N/A,665,565,100,100000 mt roads,No,N/A,N/A,N/A,N/A,N/A,N/A,https://www.desinventar.net/,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

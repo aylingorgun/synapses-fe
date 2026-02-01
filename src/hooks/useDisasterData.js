@@ -8,14 +8,19 @@ import countryStatisticsData from '@/data/countryStatistics.json';
  */
 const CSV_ENDPOINTS = {
   ALB: '/data/albania.csv',
+  ARM: '/data/armenia.csv',
   CYP: '/data/cyprus.csv',
   GEO: '/data/georgia.csv',
   KGZ: '/data/kyrgyzstan.csv',
+  KOS: '/data/kosovo.csv',
   MDA: '/data/moldova.csv',
+  MKD: '/data/northmacedonia.csv',
   SRB: '/data/serbia.csv',
   TJK: '/data/tajikistan.csv',
   TKM: '/data/turkmenistan.csv',
-  UKR: '/data/ukraine.csv'
+  TUR: '/data/turkey.csv',
+  UKR: '/data/ukraine.csv',
+  UZB: '/data/uzbekistan.csv'
 };
 
 async function fetchCSVData(url) {
