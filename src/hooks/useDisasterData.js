@@ -9,8 +9,10 @@ import countryStatisticsData from '@/data/countryStatistics.json';
 const CSV_ENDPOINTS = {
   ALB: '/data/albania.csv',
   ARM: '/data/armenia.csv',
+  BLR: '/data/belarus.csv',
   CYP: '/data/cyprus.csv',
   GEO: '/data/georgia.csv',
+  KAZ: '/data/kazakhstan.csv',
   KGZ: '/data/kyrgyzstan.csv',
   KOS: '/data/kosovo.csv',
   MDA: '/data/moldova.csv',

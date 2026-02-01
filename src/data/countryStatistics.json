@@ -587,6 +587,90 @@
           { "year": 2024, "temp": 14.8 }
         ]
       }
+    },
+    "KAZ": {
+      "id": "kazakhstan",
+      "name": "Kazakhstan",
+      "iso": "KAZ",
+      "region": "Central Asia",
+      "coordinates": [48.0196, 66.9237],
+      "statistics": {
+        "population": 19000000,
+        "landArea": 2724900,
+        "avgAnnualTemp": 5.5,
+        "lackOfCopingCapacity": 4.2,
+        "gdpPerCapita": 11200,
+        "hdi": 0.811,
+        "informRiskScore": 4.1,
+        "unemploymentRate": 4.9,
+        "demographics": {
+          "children": 26.8,
+          "women": 51.5,
+          "olderPersons": 8.9,
+          "personsWithDisabilities": 4.1
+        },
+        "disasterStats": {
+          "totalDisasters": 139,
+          "totalDeaths": 150,
+          "totalAffected": 500000,
+          "economicLoss": 500000000,
+          "keyHazards": ["Flood", "Extreme Temperature", "Epidemic"]
+        },
+        "temperatureHistory": [
+          { "year": 2015, "temp": 4.9 },
+          { "year": 2016, "temp": 5.2 },
+          { "year": 2017, "temp": 5.4 },
+          { "year": 2018, "temp": 5.7 },
+          { "year": 2019, "temp": 5.5 },
+          { "year": 2020, "temp": 5.9 },
+          { "year": 2021, "temp": 5.3 },
+          { "year": 2022, "temp": 6.0 },
+          { "year": 2023, "temp": 6.3 },
+          { "year": 2024, "temp": 6.5 }
+        ]
+      }
+    },
+    "BLR": {
+      "id": "belarus",
+      "name": "Belarus",
+      "iso": "BLR",
+      "region": "South Caucasus & Western CIS",
+      "coordinates": [53.7098, 27.9534],
+      "statistics": {
+        "population": 9400000,
+        "landArea": 207600,
+        "avgAnnualTemp": 6.2,
+        "lackOfCopingCapacity": 3.2,
+        "gdpPerCapita": 7200,
+        "hdi": 0.808,
+        "informRiskScore": 3.9,
+        "unemploymentRate": 4.0,
+        "demographics": {
+          "children": 17.2,
+          "women": 53.4,
+          "olderPersons": 15.8,
+          "personsWithDisabilities": 6.3
+        },
+        "disasterStats": {
+          "totalDisasters": 65,
+          "totalDeaths": 7131,
+          "totalAffected": 994320,
+          "economicLoss": 100000000,
+          "keyHazards": ["Epidemic", "Extreme Temperature", "Flood"]
+        },
+        "temperatureHistory": [
+          { "year": 2015, "temp": 5.6 },
+          { "year": 2016, "temp": 5.9 },
+          { "year": 2017, "temp": 6.1 },
+          { "year": 2018, "temp": 6.4 },
+          { "year": 2019, "temp": 6.2 },
+          { "year": 2020, "temp": 6.6 },
+          { "year": 2021, "temp": 6.0 },
+          { "year": 2022, "temp": 6.7 },
+          { "year": 2023, "temp": 7.0 },
+          { "year": 2024, "temp": 7.2 }
+        ]
+      }
     }
   },
   "metadata": {
