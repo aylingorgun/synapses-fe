@@ -671,6 +671,90 @@
           { "year": 2024, "temp": 7.2 }
         ]
       }
+    },
+    "BIH": {
+      "id": "bosnia",
+      "name": "Bosnia and Herzegovina",
+      "iso": "BIH",
+      "region": "Western Balkans & Türkiye & Cyprus",
+      "coordinates": [43.9159, 17.6791],
+      "statistics": {
+        "population": 3280819,
+        "landArea": 51209,
+        "avgAnnualTemp": 10.2,
+        "lackOfCopingCapacity": 3.8,
+        "gdpPerCapita": 18200,
+        "hdi": 0.780,
+        "informRiskScore": 3.7,
+        "unemploymentRate": 13.6,
+        "demographics": {
+          "children": 15.2,
+          "women": 51.1,
+          "olderPersons": 17.8,
+          "personsWithDisabilities": 7.3
+        },
+        "disasterStats": {
+          "totalDisasters": 48,
+          "totalDeaths": 50,
+          "totalAffected": 250466,
+          "economicLoss": 500000000,
+          "keyHazards": ["Flood", "Fire", "Storm"]
+        },
+        "temperatureHistory": [
+          { "year": 2015, "temp": 9.6 },
+          { "year": 2016, "temp": 9.9 },
+          { "year": 2017, "temp": 10.1 },
+          { "year": 2018, "temp": 10.4 },
+          { "year": 2019, "temp": 10.2 },
+          { "year": 2020, "temp": 10.6 },
+          { "year": 2021, "temp": 10.0 },
+          { "year": 2022, "temp": 10.7 },
+          { "year": 2023, "temp": 11.0 },
+          { "year": 2024, "temp": 11.2 }
+        ]
+      }
+    },
+    "MNE": {
+      "id": "montenegro",
+      "name": "Montenegro",
+      "iso": "MNE",
+      "region": "Western Balkans & Türkiye & Cyprus",
+      "coordinates": [42.4304, 19.2594],
+      "statistics": {
+        "population": 621873,
+        "landArea": 13812,
+        "avgAnnualTemp": 12.5,
+        "lackOfCopingCapacity": 3.0,
+        "gdpPerCapita": 22400,
+        "hdi": 0.832,
+        "informRiskScore": 3.1,
+        "unemploymentRate": 15.2,
+        "demographics": {
+          "children": 18.5,
+          "women": 50.8,
+          "olderPersons": 16.2,
+          "personsWithDisabilities": 6.9
+        },
+        "disasterStats": {
+          "totalDisasters": 67,
+          "totalDeaths": 1,
+          "totalAffected": 800,
+          "economicLoss": 100000000,
+          "keyHazards": ["Flood", "Fire", "Extreme Temperature"]
+        },
+        "temperatureHistory": [
+          { "year": 2015, "temp": 11.9 },
+          { "year": 2016, "temp": 12.2 },
+          { "year": 2017, "temp": 12.4 },
+          { "year": 2018, "temp": 12.7 },
+          { "year": 2019, "temp": 12.5 },
+          { "year": 2020, "temp": 12.9 },
+          { "year": 2021, "temp": 12.3 },
+          { "year": 2022, "temp": 13.0 },
+          { "year": 2023, "temp": 13.3 },
+          { "year": 2024, "temp": 13.5 }
+        ]
+      }
     }
   },
   "metadata": {
